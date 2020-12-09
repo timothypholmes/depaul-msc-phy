@@ -1,0 +1,4 @@
+clear
+make
+./test-csim
+

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-09-07 Mon 18:46 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Systems II: Syllabus</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="Michaël Cadilhac">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://michael.cadilhac.name/css/notes.css" rel="stylesheet" type="text/css" />
+<style>
+table.center { margin: auto; display: table; }
+table.noheader th {font-weight: normal;}
+table.explicithrules td, table.explicithrules th { border-bottom: none; border-top: none; }
+table.explicithrules thead, table.explicithrules tbody { border: 1px solid #CCC; }
+.machine { background-color: #EEE; padding: 10px 10px 5px 10px; display: table; }
+.machine-title { border-bottom: 1px solid #CCC; }
+.machine-contents { padding-top: 15px; }
+.machine p { display: inline; }
+.machine ol { margin-top: 0px; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+var coll = document.getElementsByClassName("collapsible");
+var i;
+for (i = 0; i < coll.length; i++) {
+coll[i].addEventListener("click", function() {
+this.classList.toggle("active");
+var content = document.evaluate("../following::*", this, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null ).singleNodeValue
+if (content.style.maxHeight){
+content.style.maxHeight = null;
+} else {
+content.style.maxHeight = content.scrollHeight + "px";
+}
+});
+}});
+</script>
+<style>
+#content > div:nth-of-type(5) {font-size: 70%}
+#text-table-of-contents > ul > li > ul > li { list-style-type: none;  }
+#text-table-of-contents ul > li:nth-child(5) > ul { display: none; }
+</style>
+<script src="./iframeResizer.contentWindow.min.js"></script>
+<style>
+.week { margin: auto; width: 500px; margin-bottom: 20px; }
+.week-head { border: 1px #AAA solid; border-bottom: none; width: fit-content; padding: 5px; background-color: #EEE}
+.week-body { border: 1px #AAA solid; padding: 5px; width: 500px ; background-color: #FAFAFA}
+.week-topic {background-color: #FFF}
+.week-topic tr > td:nth-child(1) { width: 420px; }
+.week-topic tr > td:nth-child(2) { width: 80px; text-align: center }
+.week-ass { text-align: right; padding: 5px }
+</style>
+<style>.src {background-color: #222222 !important; color: white !important;}.src code {background-color: #222222 !important; color: white !important;}</style><style>.src {background-color: #222222 !important; color: white !important;}.src code {background-color: #222222 !important; color: white !important;}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<header>
+<h1 class="title">Computer Systems II: Syllabus</h1>
+<p class="subtitle">(Last modified: 2020-09-07 18:46)</p>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge9b06c5">1. Course specifics</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org4f5741a">Description</a></li>
+<li><a href="#org2ac92a2">Prerequisites</a></li>
+<li><a href="#orgfb66c85">Learning outcomes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org17bd766">2. Resources</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgfbf5605">Reference books</a></li>
+<li><a href="#orgfd4da44">Office hours</a></li>
+<li><a href="#orgec7469b">D2L</a></li>
+<li><a href="#org32c13cf">Contacting me by email</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga6327b5">3. Schedule</a></li>
+<li><a href="#org0ff61d5">4. Assignments and grading</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org9ffbc4a">Quizzes</a></li>
+<li><a href="#org38aafd4">Lab assignments</a></li>
+<li><a href="#org4e4eb72">Midterm and final quizzes</a></li>
+<li><a href="#org1edffe1">Presentation</a></li>
+<li><a href="#org7623cd3">Final numeric grade</a></li>
+<li><a href="#org466f33c">Final letter grade</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org013a733">5. University policies</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgb9f2f27">Changes to Syllabus</a></li>
+<li><a href="#orgd8d023e">Online Course Evaluations</a></li>
+<li><a href="#org0018bf2">Academic Integrity</a></li>
+<li><a href="#orgcdee9c3">Academic Policies</a></li>
+<li><a href="#org6ffd519">Incomplete Grades</a></li>
+<li><a href="#org495de00">Preferred Name &amp; Gender Pronouns</a></li>
+<li><a href="#org20abcdd">Students with Disabilities</a></li>
+<li><a href="#orga971641">Attitude</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-orge9b06c5" class="outline-2">
+<h2 id="orge9b06c5"><span class="section-number-2">1</span> Course specifics</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4f5741a" class="outline-4">
+<h4 id="org4f5741a">Description</h4>
+<div class="outline-text-4" id="text-org4f5741a">
+<p>
+From the course catalog:
+</p>
+
+<blockquote>
+<p>
+A course on computer systems topics, focusing on operating systems components
+and their relevance for application programming.  Caching, memory hierarchy,
+performance optimization, linking, processes, virtual memory, dynamic memory
+allocation, system level I/O, networking and network programming, concurrent
+servers and web services.
+</p>
+
+<p>
+<i>Prerequisites:</i> CSC 373 (for undergrads), CSC 406 and CSC 402 (for grads).
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org2ac92a2" class="outline-4">
+<h4 id="org2ac92a2">Prerequisites</h4>
+<div class="outline-text-4" id="text-org2ac92a2">
+<p>
+At the beginning of the course, the student is expected to be able to:
+</p>
+<ul class="org-ul">
+<li>Create, debug, compile, and run simple C code on Linux</li>
+<li>Explain how data (e.g. integers, strings, &#x2026;) are represented and manipulated at
+machine-level</li>
+<li>Read, understand, and debug Intel Assembly code in GAS (Gnu ASembler) format</li>
+<li>Manipulate pointers and explain how arrays, linked lists, stacks, and queues
+are implemented at a low level</li>
+</ul>
+
+<p>
+<i>If the student does not feel comfortable with these tasks before the course
+starts, I very much recommend going through the materials of Systems I (CSC 373
+or CSC 406), redoing some exercises.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb66c85" class="outline-4">
+<h4 id="orgfb66c85">Learning outcomes</h4>
+<div class="outline-text-4" id="text-orgfb66c85">
+<p>
+At the end of the course, the student will be able to:
+</p>
+<ul class="org-ul">
+<li>Exploit the memory hierarchy to optimize program performances</li>
+<li>Explain how static and dynamic linking work, and use low level tools to link
+object files</li>
+<li>Write applications that exploit exceptional control flow</li>
+<li>Write networked applications that rely on UNIX I/O</li>
+<li>Write concurrent programs using threads</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17bd766" class="outline-2">
+<h2 id="org17bd766"><span class="section-number-2">2</span> Resources</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgfbf5605" class="outline-4">
+<h4 id="orgfbf5605">Reference books</h4>
+<div class="outline-text-4" id="text-orgfbf5605">
+<p>
+The main textbook for this class is:<br>
+&rarr; <i>Computer Systems: A Programmer&rsquo;s Perspective, 3rd Edition,</i> by Bryant and
+O&rsquo;Hallaron. <span style="font-size: 80%">(ISBN: 9780134092669)</span>
+</p>
+
+<p>
+The book has a companion website that offers extra material and practice
+exercises:<br>
+&rarr; <a href="https://csapp.cs.cmu.edu/">https://csapp.cs.cmu.edu/</a>
+</p>
+
+<p>
+The relevant programs for the course will be put on our server.
+</p>
+
+<p>
+As we rely on C programming throughout the course, I recommend the following
+optional textbook if you need a refresher:<br>
+&rarr; <i>Programming in C, 4th Edition,</i> by Kochan. <span style="font-size: 80%">(ISBN: 9780321776419)</span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfd4da44" class="outline-4">
+<h4 id="orgfd4da44">Office hours</h4>
+<div class="outline-text-4" id="text-orgfd4da44">
+<p>
+Office hours are posted and to be booked on BlueStar.  If you need to see me
+outside these hours, send me an email.  Meetings will be remotely done via Zoom.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec7469b" class="outline-4">
+<h4 id="orgec7469b">D2L</h4>
+<div class="outline-text-4" id="text-orgec7469b">
+<p>
+The course makes use of the D2L platform, and I strongly encourage students to
+post questions over there.  Everybody is welcome to discuss, all the while
+staying professional and on topic.  I will reply to each discussion usually
+within 24 hours (48 hours during weekends).  Likewise, I will use D2L to
+communicate with the students.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org32c13cf" class="outline-4">
+<h4 id="org32c13cf">Contacting me by email</h4>
+<div class="outline-text-4" id="text-org32c13cf">
+<p>
+When the subject may interest the whole class, use D2L.  If you are unsure, or
+if the matter is personal, send me an email <i>making sure the subject contains
+&ldquo;CSC&rdquo; and with your real name somewhere.</i> Emails that do not respect this rule
+risk being wrongly marked as spam.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6327b5" class="outline-2">
+<h2 id="orga6327b5"><span class="section-number-2">3</span> Schedule</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Drop dates and the academic calendar at large can be found there:<br>
+&rarr; <a href="https://academics.depaul.edu/calendar/Pages/default.aspx">https://academics.depaul.edu/calendar/Pages/default.aspx</a>
+</p>
+
+<p>
+The following is the week-by-week topic schedule.  The chapter number refers to
+the reference book.
+</p>
+
+<p>
+<b>The academic calendar has the quarter starting on Wednesday, and finishing on
+Tuesday, so each week starts and ends on these days.</b>
+</p>
+
+<p>
+<div class="week"><div class="week-head"><b>Week 1:</b>  9/11 to  9/15</div><div class="week-body"><table class="week-topic"><tr><td><b> The memory hierarchy</b></td><td> Ch. 6</td></tr></table></div></div>
+<div class="week"><div class="week-head"><b>Week 2:</b>  9/16 to  9/22</div><div class="week-body"><table class="week-topic"><tr><td><b> Linking<br/> Exceptional control flow</b></td><td> Ch. 7<br/>Ch. 8</td></tr></table><div class="week-ass"><b>Out on Wed  9/16:</b>  Cache Lab</div></div></div>
+<div class="week"><div class="week-head"><b>Week 3:</b>  9/23 to  9/29</div><div class="week-body"><table class="week-topic"><tr><td><b> Exceptional control flow (cont.)<br/>Virtual memory</b></td><td> Ch. 8<br/>Ch. 9</td></tr></table></div></div>
+<div class="week"><div class="week-head"><b>Week 4:</b>  9/30 to  10/6</div><div class="week-body"><table class="week-topic"><tr><td><b> Virtual memory (cont.)</b></td><td> Ch. 9</td></tr></table><div class="week-ass"><b>Due on Tue  10/6:</b>  Cache Lab</div></div></div>
+<div class="week"><div class="week-head"><b>Week 5:</b>  10/7 to  10/13</div><div class="week-body"><table class="week-topic"><tr><td><b> Virtual memory (cont., half-week)</b></td><td> Ch. 9</td></tr></table><div class="week-ass"><b>Out on Wed  10/7:</b>  Midterm Quiz<br/><b>Due on Tue  10/13:</b>  Midterm Quiz</div></div></div>
+<div class="week"><div class="week-head"><b>Week 6:</b>  10/14 to  10/20</div><div class="week-body"><table class="week-topic"><tr><td><b> System-level I/O<br/>Network programming</b></td><td> Ch. 10<br/>Ch. 11</td></tr></table><div class="week-ass"><b>Out on Wed  10/14:</b> Malloc Lab and Presentation</div></div></div>
+<div class="week"><div class="week-head"><b>Week 7:</b>  10/21 to  10/27</div><div class="week-body"><table class="week-topic"><tr><td><b> Network programming (cont.)<br/>Concurrent programming</b></td><td> Ch. 11<br/>Ch. 12</td></tr></table><div class="week-ass"><b>Due on Tue  10/27:</b>  Malloc Lab</div></div></div>
+<div class="week"><div class="week-head"><b>Week 8:</b>  10/28 to  11/3</div><div class="week-body"><table class="week-topic"><tr><td><b> Concurrent programming (cont.)</b></td><td> Ch. 12</td></tr></table><div class="week-ass"><b>Out on Wed  10/28:</b> Proxy Lab</div></div></div>
+<div class="week"><div class="week-head"><b>Week 9:</b>  11/4 to  11/10</div><div class="week-body"><table class="week-topic"><tr><td><b> Concurrent programming (cont.)</b></td><td> Ch. 12</td></tr></table><div class="week-ass"><b>Due on Tue  11/10:</b>  Presentation</div></div></div>
+<div class="week"><div class="week-head"><b>Week 10:</b>  11/11 to  11/17</div><div class="week-body"><table class="week-topic"><tr><td><b> Student Presentations</b></td><td> —</td></tr></table><div class="week-ass"><b>Due on Tue  11/17:</b>  Proxy Lab</div></div></div>
+<div class="week"><div class="week-head"><b>Week 11:</b>  11/18 to  11/24</div><div class="week-body"><table class="week-topic"><tr><td><b> —</b></td><td> —</td></tr></table><div class="week-ass"><b>Out on Wed  11/18:</b> Final Quiz<br/><b>Due on Tue  11/24:</b>  Final Quiz</div></div></div>
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0ff61d5" class="outline-2">
+<h2 id="org0ff61d5"><span class="section-number-2">4</span> Assignments and grading</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Grading is done on the basis of multiple quizzes, programming assignments, and
+a presentation.  Assignments are <i>always due</i> on the Tuesday of the indicated week, at
+11:42pm.  No late assignment is accepted.
+</p>
+
+<p>
+<div class="machine" style="width: 60%; margin-right: auto; margin-left: auto"><div class="machine-title" style="text-align: center">
+<b>⚠ Plagiarism ⚠</b>
+</div><div class="machine-contents" style="text-align: justify">
+All assignments must be done <i>on your own</i>.  You are strictly prohibited from
+using any source other than the text and the lecture notes when working on the
+labs. In particular, you are strictly forbidden from acquiring
+hints and/or solutions from the internet or from any other external resource or
+person (besides the instructor). Copying is strictly forbidden. Scholastic
+dishonesty includes acquiring answers from any unauthorized source, working with
+another person except when permitted by the instructor, observing the work of
+other students during any exam, providing answers when not specifically
+authorized to do so, and informing any person of the contents of an exam prior
+to the exam.  Disciplinary actions range from grade penalty to expulsion. Please
+refer to the school policy on plagiarism for more specific details.
+ </div></div>
+</p>
+</div>
+
+<div id="outline-container-org9ffbc4a" class="outline-4">
+<h4 id="org9ffbc4a">Quizzes</h4>
+<div class="outline-text-4" id="text-org9ffbc4a">
+<p>
+On <b>every week,</b> a short quiz is given.  These can be taken as many times as you
+want, and <i>answers are provided</i>.  I encourage you to do them once <i>before</i>
+watching the lectures, and once <i>after</i>. These are due on Tuesdays, 11:42pm.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org38aafd4" class="outline-4">
+<h4 id="org38aafd4">Lab assignments</h4>
+<div class="outline-text-4" id="text-org38aafd4">
+<p>
+On <b>Weeks 2, 6, and 8,</b> comprehensive programming assignments, known as a
+<i>labs</i>, are given, and due to be handed within two or three weeks.  These are
+<i>substantive</i> assignments, the student <i>should</i> start working on them as early
+as they can.  These are due on Tuesdays, 11:42pm.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4e4eb72" class="outline-4">
+<h4 id="org4e4eb72">Midterm and final quizzes</h4>
+<div class="outline-text-4" id="text-org4e4eb72">
+<p>
+On <b>Weeks 5 and 11,</b> a midterm quiz and a final quiz is given.  These are
+compulsory and more substantive.  These are due on Tuesdays, 11:42pm.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1edffe1" class="outline-4">
+<h4 id="org1edffe1">Presentation</h4>
+<div class="outline-text-4" id="text-org1edffe1">
+<p>
+On <b>Week 6,</b> students will be put in groups by the instructor, and asked to pick
+a topic for a presentation that is to be handed at the end of <b>Week 9</b>, 11:42pm.
+<b>Week 10</b> focuses on viewing this presentations, and participation is compulsory
+to the session that contains your video.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7623cd3" class="outline-4">
+<h4 id="org7623cd3">Final numeric grade</h4>
+<div class="outline-text-4" id="text-org7623cd3">
+<p>
+The final numeric grade is computed as follows:
+</p>
+<ul class="org-ul">
+<li>Weekly quizzes: 10%</li>
+<li>Lab assignments: Cache Lab: 15%, Malloc Lab: 20%, Proxy Lab: 20%</li>
+<li>Midterm quiz: 10%</li>
+<li>Presentation: 15%</li>
+<li>Final quiz: 10%</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org466f33c" class="outline-4">
+<h4 id="org466f33c">Final letter grade</h4>
+<div class="outline-text-4" id="text-org466f33c">
+<p>
+Percentages are converted to letters based on the following table:
+</p>
+<table class="center" style="padding-top: 1em">
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Percentage</th>
+<th scope="col" class="org-left">Letter</th>
+<th scope="col" class="org-left">Manner of fulfillment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">92-100</td>
+<td class="org-left">A</td>
+<td class="org-left">Excellent</td>
+</tr>
+
+<tr>
+<td class="org-right">90-91</td>
+<td class="org-left">A-</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">88-89</td>
+<td class="org-left">B+</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">82-87</td>
+<td class="org-left">B</td>
+<td class="org-left">Very Good</td>
+</tr>
+
+<tr>
+<td class="org-right">80-81</td>
+<td class="org-left">B-</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">78-79</td>
+<td class="org-left">C+</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">72-77</td>
+<td class="org-left">C</td>
+<td class="org-left">Satisfactory</td>
+</tr>
+
+<tr>
+<td class="org-right">70-71</td>
+<td class="org-left">C-</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">68-69</td>
+<td class="org-left">D+</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">62-67</td>
+<td class="org-left">D</td>
+<td class="org-left">Poor</td>
+</tr>
+
+<tr>
+<td class="org-right">60-61</td>
+<td class="org-left">D-</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0-59</td>
+<td class="org-left">F</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org013a733" class="outline-2">
+<h2 id="org013a733"><span class="section-number-2">5</span> University policies</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgb9f2f27" class="outline-4">
+<h4 id="orgb9f2f27">Changes to Syllabus</h4>
+<div class="outline-text-4" id="text-orgb9f2f27">
+<p>
+This syllabus is subject to change as necessary during the quarter. If a change
+occurs, it will be thoroughly addressed during class, posted under Announcements
+in D2L and sent via email.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgd8d023e" class="outline-4">
+<h4 id="orgd8d023e">Online Course Evaluations</h4>
+<div class="outline-text-4" id="text-orgd8d023e">
+<p>
+Evaluations are a way for students to provide valuable feedback regarding their
+instructor and the course. Detailed feedback will enable the instructor to
+continuously tailor teaching methods and course content to meet the learning
+goals of the course and the academic needs of the students. They are a
+requirement of the course and are key to continue to provide you with the
+highest quality of teaching. The evaluations are anonymous; the instructor and
+administration do not track who entered what responses. A program is used to
+check if the student completed the evaluations, but the evaluation is completely
+separate from the student’s identity. Since 100% participation is our goal,
+students are sent periodic reminders over three weeks. Students do not receive
+reminders once they complete the evaluation. Students complete the evaluation
+online in CampusConnect.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org0018bf2" class="outline-4">
+<h4 id="org0018bf2">Academic Integrity</h4>
+<div class="outline-text-4" id="text-org0018bf2">
+<p>
+This course will be subject to the university&rsquo;s academic integrity policy. More
+information can be found at<br>
+&rarr; <a href="http://academicintegrity.depaul.edu/">http://academicintegrity.depaul.edu/</a><br>
+If you have any questions be sure to consult with your professor.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgcdee9c3" class="outline-4">
+<h4 id="orgcdee9c3">Academic Policies</h4>
+<div class="outline-text-4" id="text-orgcdee9c3">
+<p>
+All students are required to manage their class schedules each term in
+accordance with the deadlines for enrolling and withdrawing as indicated in the
+University Academic Calendar. Information on enrollment, withdrawal, grading and
+incompletes can be found at<br>
+&rarr; <a href="http://www.cdm.depaul.edu/Current%20Students/Pages/PoliciesandProcedures.aspx">http://www.cdm.depaul.edu/Current%20Students/Pages/PoliciesandProcedures.aspx</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6ffd519" class="outline-4">
+<h4 id="org6ffd519">Incomplete Grades</h4>
+<div class="outline-text-4" id="text-org6ffd519">
+<p>
+An incomplete grade is a special, temporary grade that may be assigned by an
+instructor when unforeseeable circumstances prevent a student from completing
+course requirements by the end of the term and when otherwise the student had a
+record of satisfactory progress in the course. All incomplete requests must be
+approved by the instructor of the course and a CDM Associate Dean. Only
+exceptions
+cases will receive such approval. Information about the Incomplete Grades policy can be found at<br>
+&rarr; <a href="http://www.cdm.depaul.edu/Current%20Students/Pages/Grading-Policies.aspx">http://www.cdm.depaul.edu/Current%20Students/Pages/Grading-Policies.aspx</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org495de00" class="outline-4">
+<h4 id="org495de00">Preferred Name &amp; Gender Pronouns</h4>
+<div class="outline-text-4" id="text-org495de00">
+<p>
+Professional courtesy and sensitivity are especially important with respect to
+individuals and topics dealing with differences of race, culture, religion,
+politics, sexual orientation, gender, gender variance, and nationalities. I will
+gladly honor your request to address you by an alternate name or gender
+pronoun. Please advise me of this preference early in the quarter so that I may
+make appropriate changes to my records. Please also note that students may
+choose to identify within the University community with a preferred first name
+that differs from their legal name and may also update their gender. The
+preferred first name will appear in University related systems and documents
+except where the use of the legal name is necessitated or required by University
+business or legal need. For more information and instructions on how to do so,
+please see the Student Preferred Name and Gender Policy at<br>
+&rarr; <a href="http://policies.depaul.edu/policy/policy.aspx?pid=332">http://policies.depaul.edu/policy/policy.aspx?pid=332</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org20abcdd" class="outline-4">
+<h4 id="org20abcdd">Students with Disabilities</h4>
+<div class="outline-text-4" id="text-org20abcdd">
+<p>
+Students seeking disability-related accommodations are required to register with
+DePaul’s Center for Students with Disabilities (CSD) enabling them to access
+accommodations and support services to assist with their success. There are two
+office locations:
+</p>
+<ul class="org-ul">
+<li>Loop Campus – Lewis Center #1420 – (312) 362-8002</li>
+<li>Lincoln Park Campus – Student Center #370 – (773) 325-1677</li>
+</ul>
+
+<p>
+Students who register with the Center for Students with Disabilities are also
+invited to contact Dr.~Gergory Moorhead, Director of the Center, privately to
+discuss how he may assist in facilitating the accommodations to be used in a
+course. This is best done early in the term. The conversation will remain
+confidential to the extent possible.  Please see the following link for
+Services and Contact Information:<br>
+&rarr; <a href="https://offices.depaul.edu/student-affairs/about/departments/Pages/csd.aspx">https://offices.depaul.edu/student-affairs/about/departments/Pages/csd.aspx</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga971641" class="outline-4">
+<h4 id="orga971641">Attitude</h4>
+<div class="outline-text-4" id="text-orga971641">
+<p>
+A professional and academic attitude is expected throughout this
+course. Measurable examples of non-academic or unprofessional attitude include
+but are not limited to: talking to others when the instructor is speaking,
+mocking another’s opinion, cell phones ringing, emailing, texting or using the
+internet whether on a phone or computer. If any issues arise a student may be
+asked to leave the classroom. The professor will work with the Dean of Students
+Office to navigate such student issues.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 # DePaul MSc Physics Content
 
-
 | Course                               | Syllabus |           Homework                            |  Notes  |    Cheatsheet    |                           Project                            |
 | :----------------------------------------------------------- | :-------------: |:----------------------------------------------------------: | :-----: | :--------------: | :----------------------------------------------------------: |
 | Classical Mechanics   (PHY 440) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
