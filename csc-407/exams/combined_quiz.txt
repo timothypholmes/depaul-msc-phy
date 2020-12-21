@@ -1,0 +1,3643 @@
+- Computer Systems II - DePaul University
+
+9/15/20, 7:44 PM
+
+Timothy Holmes (username: THOLME15) x
+
+Attempt 3
+
+Written: Sep 15, 2020 7:21 PM - Sep 15, 2020 7:42 PM
+
+Submission View
+
+Released: Sep 7, 2020 10:15 PM
+
+Question 1 1/1 point
+
+Which statement is incorrect?
+
+A.
+
+moO Ww
+
+v
+
+SRAM is much more expansive than DRAM per bit.
+
+SRAM is about 10 times faster than DRAM.
+
+SRAM requires more transistors per bit than DRAM.
+
+DRAM requires constant rewrite (refresh) of the data, but SRAM does not.
+
+None of the above, they are all correct.
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 2 1/1 point
+
+
+Rank these storage types by read speed, from fastest to slowest.
+A. DRAM, SRAM, SSD, rotating disk.
+
+SRAM, DRAM, rotating disk, SSD.
+SRAM, SSD, DRAM, rotating disk.
+SRAM, DRAM, SSD, rotating disk.
+DRAM, SSD, SRAM, rotating disk.
+
+moo
+
+Answer A.
+Answer B.
+Answer C.
+yv() Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 3 0/1 point
+
+ROM are used for (or in):
+A. Solid state disks.
+
+Firmware programs that are unlikely to change.
+Disk caches.
+
+All of the above.
+
+moO ®W
+
+None of the above.
+
+Answer A.
+5g Answer B.
+Answer C.
+
+=> Answer D.
+
+
+
+Answer E.
+
+
+Question 4 1/1 point
+What do RAM and ROM stand for?
+
+A.
+
+Random Access Memory and Random Order Memory.
+
+B. Read Allowed Memory and Random Only Memory.
+C.
+D. Read Access Memory and Read Order Memory.
+
+Random Access Memory and Read Only Memory.
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 5 1/1 point
+
+Reading “>” as “consists of”, which inclusion sequence is correct for common disks?
+
+A.
+
+moo ®
+
+v
+
+Disk > surfaces > platters > tracks > sectors.
+Disk > platters > surfaces > tracks > sectors.
+Disk > platters > tracks > surfaces > sectors.
+Disk > platters > sectors > surfaces > tracks.
+
+Disk > surfaces > platters > sectors > tracks.
+Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 3 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 6 1/1 point
+
+What is not part of a common rotating disk drive?
+A. A spindle.
+
+A processor.
+
+A mechanical read/write head.
+Some DRAM.
+
+Some ROM.
+
+None of the above, they are all common on hard drives.
+
+nmmOoO DW
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+
+yv ) Answer F.
+
+> View Feedback
+
+Question 7 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 4 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+The access time in a disk is the sum of:
+
+A.
+
+moo ®
+
+v
+
+seek time, execution time, transfer time.
+seek time, loading time, execution time.
+wait time, rotational latency, transfer time.
+wait time, loading time, execution time.
+
+seek time, rotational latency, tranfer time.
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 8 1/1 point
+
+When the CPU requests information from the disk, how does it wait for the infor-
+mation to arrive?
+
+A.
+B.
+
+v
+
+It probes the disk every N cycles to check if the information is ready.
+
+It does not wait, it will receive a message when the information is ready in
+memory, and can do something else in the meantime.
+
+It does not have to wait, since the disk is fast enough.
+
+. It stops executing instructions until the information is available.
+
+Answer A.
+Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 5 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Answer D.
+
+> View Feedback
+
+Question 9 1/1 point
+
+How does the CPU know in which surface/track/sector is the data it is searching
+for?
+A. lt precomputes a transaction table that is stored in the cache.
+
+B. It does not; the disk provides an abstract view as a 1-dimensional array of
+sectors.
+
+C. It asks an extra component on the CPU chip that is designed to find that
+information.
+
+D. It does not; requests to the disk are made using file names.
+Answer A.
+yv(_) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 10 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 6 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Locality is the idea that programs tend to use data and instructions with addresses
+near or equal to those they have used recently. What are the definitions of temporal
+and spatial locality?
+A. Temporal: items that have been recently referenced tend to be re-referenced.
+Spatial: items with nearby addresses tend to be referenced close together in
+time.
+
+B. Temporal: the less local, the more time a program needs. Spatial: the less
+local, the more memory a program needs.
+
+C. Temporal: small chunks of program execute faster. Spatial: programs that
+use a small amount of space run faster.
+
+D. Temporal: within small time windows, only few items are read from memory.
+Spatial: conversely, within a small memory window, only few instructions read
+that content.
+
+y() Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 11 1/1 point
+
+SSDs are made up of a set of EEPROMS. When writing a byte to a (functioning)
+SSD, what is the worst case situation?
+A. A whole page, i.e., a part of an EEPROM, has to be temporarily erased.
+
+B. A whole block, i.e., a set of pages corresponding to a whole EEPROM, has to
+be temporarily erased.
+
+C. Multiple blocks have to be temporarily erased.
+
+D. The whole SSD has to be temporarily erased.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 7 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+Answer A.
+vy (») Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 12 1/1 point
+
+Consider a for loop that accesses completely random positions in a large array.
+A. The loop still exhibits some temporal locality, since it accesses the same in-
+structions at each iteration.
+
+B. The loop still exhibits some spatial locality, since the random accesses are all
+done on the same array.
+
+C. Both A and B.
+
+D. The loop has neither temporal nor spatial locality.
+yv ) Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 13 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 8 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+A hit happens when the data requested is in a given cache. Otherwise, a miss
+occurs. What are the different types of miss?
+A. block, line, set.
+
+B. front, back, sideways.
+C. register, cache, main memory.
+D.
+
+cold, conflict, capacity.
+Answer A.
+Answer B.
+Answer C.
+
+vy (_) Answer D.
+
+> View Feedback
+
+Question 14 1/1 point
+
+The main idea behind the memory hierarchy is:
+A. Exploit multi-threading to access different data in a given level in parallel.
+
+B. Exploit fast Internet access to backup data instantly to the cloud.
+
+C. Exploit locality to have storage that costs as much as the cheap storage, but
+performs as well as the expensive storage.
+
+D. Exploit low-level parallelism to access different levels of the hierarchy at the
+same time.
+
+Answer A.
+Answer B.
+yv( ) Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...761905&isInPopup=O0&isprv=O&dnb=1&c fql=1&d2I_body_type=1&0u=7 72971 Page 9 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+> View Feedback
+
+Question 15 1/1 point
+
+A line in a cache contains at least these info:
+A. A dirty bit, the set number, and a part of the lower level memory.
+
+B. A map between some cached data and their actual address in memory.
+C. The cache number, its type, and the data stored.
+D. A valid bit, the tag, and the set of bytes cached.
+
+Answer A.
+Answer B.
+Answer C.
+
+vy») Answer D.
+
+> View Feedback
+
+Question 16 1/1 point
+
+The typical implementation of caches depends on three parameters S, #, B. What
+do these letters correspond to, respectively?
+Number of lines, number of elements, binary size.
+
+Number of sets, number of edges, number of blocks.
+
+Number of sets, number of lines, block size.
+
+UNO WD >
+
+Number of caches, number of subcaches, byte size.
+Answer A.
+Answer B.
+
+yv(») Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 10 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Answer D.
+
+> View Feedback
+
+Question 17 1/1 point
+
+A cache where each set has only one line is called:
+A. A 0-way set associative cache.
+
+B. A linear cache.
+C. A direct mapped cache.
+
+D. Such a cache cannot exist.
+
+Answer A.
+Answer B.
+vy) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 18 1/1 point
+
+How is an address in memory translated to a line in a cache?
+A. The cache stores a map between the memory addresses that it has seen, and
+the lines in the cache.
+
+B. The cache is always as big as the whole memory, so memory addresses of the
+memory are also valid in the cache.
+
+C. Some bits of the address are interpreted as an index in a list of sets, then some
+other bits correspond to a tag that is searched among the lines of that set.
+
+D. By hashing the (say) 64-bit address to a (say) 8-bit address, and using this as
+the cache address.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 11 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+Answer A.
+Answer B.
+yv\ ) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 19 1/1 point
+
+Since memory is organized as a hierarchy that duplicates information, multiple copies
+of data exist (in fact, if some DRAM data is in the L1 cache, it is also in all the
+caches in between). In the event the CPU writes at some address that is not in a
+given cache (miss):
+
+A. The data is written straight to memory, without using the cache.
+
+B. The data is loaded into the cache, then modified in the cache.
+C. A mix of A and B, depending on policy.
+
+D. None of these options: caches are read-only.
+Answer A.
+Answer B.
+yv(») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 20 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 12 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Since memory is organized as a hierarchy that duplicates information, multiple copies
+of data exist (in fact, if some DRAM data is in the L1 cache, it is also in all the
+
+caches in between). In the event the CPU writes at some address that is in a given
+cache (hit):
+A. The data is immediately written to the main memory.
+
+B. The data is overwritten in the cache, and when the line is flushed, it is written
+back to memory.
+
+C. A mix of A and B, depending on policy.
+
+D. None of these options: caches are read-only.
+Answer A.
+Answer B.
+yv(») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 21 1/1 point
+
+In a typical multi-core CPU, how are on-chip caches shared?
+A. All caches are shared across all cores.
+
+B. No caches are shared across cores, cores use the main memory to share data.
+C. The L1 and L2 caches are shared, but there is one unshared L3 cache per core.
+D.
+
+There are L1 and L2 caches for each core, and a bigger L3 cache shared across
+cores.
+
+Answer A.
+Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 13 of 16
+- Computer Systems II - DePaul University
+
+v
+
+Answer D.
+
+> View Feedback
+
+Question 22
+
+The three important metrics to evaluate cache performance are:
+
+A. read throughput, write throughput, latency.
+
+B.
+C.
+D
+
+v
+
+refresh rate, hit rate, miss rate.
+miss rate, miss time, hit penalty.
+
+miss rate, hit time, miss penalty.
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 23
+
+9/15/20, 7:44 PM
+
+1/1 point
+
+1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 14 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Blocking is a technique that can improve temporal locality of code. But what is
+blocking?
+A. Reworking a computation so that instead of working on scalars (e.g., ints), it
+works on sets of scalars that can fit in the cache.
+
+B. Stopping the computation after a certain number of cycles, and restarting it
+at a different position in memory.
+
+C. Stopping the computation for a certain number of cycle, so that the cache is
+passively flushed.
+
+D. Carefully putting limits on the memory addresses accessible, and then relaxing
+these limits one by one.
+
+vy) Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 24 1/1 point
+
+Consider a piece of code that has some nested loops, and some code in the innermost
+loop. This code matches closely a given simple specification in English. Then
+rearranging the order of the loops:
+
+A. Can drastically improve spatial locality.
+
+B. Has no impact on spatial locality.
+
+C. Probably cannot improve spatial locality: since the English description was
+simple, the matching code has the best spatial locality.
+
+vy) Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 15 of 16
+- Computer Systems II - DePaul University 9/15/20, 7:44 PM
+
+Answer C.
+
+> View Feedback
+
+Attempt Score:23 / 24
+Overall Grade (highest attempt):23 / 24
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...7619 05&isInPopup=O0&isprv=0&dnb=1&c fql=1&d 2I_body_type=1&0uU=772971 Page 16 of 16
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Timothy Holmes (username: THOLME15) x
+
+Attempt 3
+Written: Sep 22, 2020 6:58 PM - Sep 22, 2020 7:18 PM
+
+Submission View
+
+Released: Sep 7, 2020 10:15 PM
+
+Question 1 1/1 point
+
+Why do we use linkers in C/C++, rather than concatenating all the sources into a
+single file and compiling it into an executable?
+
+A. The reason is purely historical.
+
+B. This leads to faster programs.
+
+C. This leads to programs that use less memory.
+D
+
+. For modularity (small source files, libraries) and efficiency (compilation time,
+libraries take up less space).
+
+Answer A.
+Answer B.
+Answer C.
+
+vy») Answer D.
+
+> View Feedback
+
+Question 2 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_atte...802128&isInPopup=O0&isprv=0&dnb=1&cfql=1&d 2I_body_type=1&0u=77 2971 Page 1 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+What are the two steps of the linking process?
+
+A. 1. Symbol resolution, 2. Relocation
+
+B. 1. Symbol minification, 2. Expansion
+C. 1. Desymbolization, 2. Resymbolization
+D. 1. Symbol relocation, 2. Resolution
+
+yv ) Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 3 1/1 point
+
+What is the name of the section in an ELF file that contains the code?
+A. .text B. .code C. .rodata D. .bss E. .data
+
+yv(») Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 4 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 2 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Which statement is incorrect?
+
+A. ELF is a format for object files.
+
+B. No ELF file can be linked.
+
+C. ELF can be used for relocatable, executable, and shared object files.
+D
+
+. There are ELF files that are not executable.
+
+Answer A.
+yv() Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 5 1/1 point
+
+Will the object file corresponding to the following C file be huge (more than
+100MB)?
+
+cha al * * ln ees
+
+ 
+
+A. There is no way to know, it depends on the CPU architecture.
+B. Yes, since space for x will be allocated in the object file, in the .data section.
+C. No, it will be tiny, since x will be “stored” in the .bss section.
+
+D. This is not a valid C file, it cannot compile to an object file.
+Answer A.
+yw) Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 3 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer D.
+
+> View Feedback
+
+Question 6 1/1 point
+
+Will the object file corresponding to the following C file be huge (more than
+100MB)?
+
+int x[ * * ];
+
+A. No, it will be tiny, since x will be “stored” in the .bss section.
+B. This is not a valid C file, it cannot compile to an object file.
+C. Yes, since space for x will be allocated in the object file, in the .data section.
+
+D. There is no way to know, it depends on the CPU architecture.
+yi») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 7 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 4 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+What is the difference between a local non-static and a local static C variable, from
+the linker’s point of view?
+
+A. The linker treats them in the same way.
+
+B. The linker knows nothing about static local variables, but can see the non-
+static local variables in the object file (.bss or .data).
+
+C. The linker doesn’t know about local variables, whether they be static or not.
+
+D. The linker knows nothing about non-static local variables, but the static local
+variables are in the object file (.bss or .data).
+
+Answer A.
+Answer B.
+Answer C.
+
+yv() Answer D.
+
+> View Feedback
+
+Question 8 1/1 point
+
+What is relocation?
+
+A. The rewriting of parts of the assembly code of relocatable object files so that
+pointers and calls have the right addresses in the executable file.
+
+B. The optimization of the positioning of data is the .data and .bss sections.
+
+C. The internal use of libraries, in particular shared, to relocate code in shared
+memory.
+
+D. The choice of order in which relocatable object files are merged into an exe-
+cutable files.
+
+yw») Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 5 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 9 1/1 point
+
+Consider the statements extern int x; and int x;, at the global scope. Then:
+
+A. These have the same effect.
+
+B. If one file contains the first, and another file the second, they cannot be linked
+together.
+
+C. Only the second one can trigger the creation of x in the .bss section.
+
+D. The second is equivalent to static int x;
+Answer A.
+Answer B.
+yv\ ) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 10 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 6 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Is it possible that an executable of less that 50KB, compiled from a valid C file,
+not using any nonstandard library, would fail to reach the beginning of the main
+function?
+
+A. Yes, if the .data section is too big.
+B. No, main will be reached.
+C. Yes, if the .code section needs too much memory.
+
+D. Yes, if the .bss section requires too much memory.
+Answer A.
+Answer B.
+Answer C.
+
+vy») Answer D.
+
+> View Feedback
+
+Question 11 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 7 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+| have a file foo.c that contains just:
+
+ 
+
+When | compile it to an object file (gcc -c foo.c), and call readelf -a foo.o,
+the output of readelf is 77 lines long. When | compile this to an executable (gcc
+foo.o), and call readelf -a a.out, the output of readelf is 257 lines long. Why?
+
+A. foo.o has been linked with some system libraries to start the program.
+B. This is because of the LD_PRELOAD environment variable.
+
+C. gcc by default adds a lot of debug info when compiling to an executable.
+D
+
+. The ELF format forces that executable objects be bigger than relocatable
+objects.
+
+yv( ) Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 12 1/1 point
+
+What are the two main types of libraries?
+
+A. Static and position-independent.
+B. Static and shared.
+
+C. Relocatable and dynamic.
+
+D
+
+. Archived and non-archived.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 8 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+Answer A.
+vy (») Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 13 1/1 point
+
+What is a .so file?
+
+A. The Linux equivalent of a ZIP file.
+
+B. An executable object file, but not in ELF.
+C. One big object file.
+D
+
+. A collection of object files.
+Answer A.
+Answer B.
+yv( ) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 14 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 9 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+What is an archive (.a file)?
+
+A. One big object file.
+B. The Linux equivalent of a DLL.
+C. An executable object file, but not in ELF.
+
+D. A collection of object files.
+Answer A.
+Answer B.
+Answer C.
+
+yi) Answer D.
+
+> View Feedback
+
+Question 15 1/1 point
+
+Assume a program is being linked with a static library. Then:
+
+A. The whole library is added to the program.
+
+B. Nothing happens: the linker is not aware of static libraries.
+
+C. Only the relevant object files of the library are added to the program.
+D
+
+. The linker checks if an equivalent dynamic library is available, and use it if
+that's the case.
+
+Answer A.
+Answer B.
+Y ») Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 10 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+> View Feedback
+
+Question 16 1/1 point
+
+Assume a program is being linked with a dynamic library. Then:
+
+A. Nothing happens: the linker is not aware of dynamic libraries.
+
+B. Only relocation and symbol table info from the library are included in the
+program.
+
+C. The linker translates the .so file into a .a file, and extracts the relevant parts
+of the library to put them in the program.
+
+D. The whole code of the library is included in the program.
+Answer A.
+vy) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 17 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 11 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Dynamic linking can happen at load-time or at run-time. What decides this?
+
+A. Load-time: the linker (1d) is called when the program is executed, and resolves
+
+the undefined symbols. Run-time: the programmer calls the 1d program using
+system calls, and asks for more libraries to be loaded.
+
+B. Load-time: the kerne/ resolves unresolved symbols in the program, and auto-
+matically finds the libraries that provide them when starting it. Run-time: if
+the program calls an undefined function, the kerne/ tries to find the symbol in
+any library in /usr/1ib, and loads it.
+
+C. Load-time: the linker (1d) equips the program with a loader that silently
+loads, at startup, the dynamic libraries that were put on the command line.
+Run-time: the programmer uses functions (e.g., dlsym) to explicitly link with
+more libraries.
+
+Answer A.
+Answer B.
+
+yv( ) Answer C.
+
+> View Feedback
+
+Question 18 1/1 point
+
+What is interpositioning?
+A. A technique offered only by 1d.
+
+B. Having a library intercept calls to some functions silently.
+C. A technique used solely for debugging.
+D. A hacking technique that is illegal on non-UNIX machines.
+
+Answer A.
+
+yv(_) Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 12 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 19 1/1 point
+
+What is the role of the --wrap=X option of 1d?
+
+A. The function X is replaced by a dummy function.
+
+B. A library named 1ibX.so is used to resolve references to the function X.
+C. This creates a wrapper to the function X with debug information.
+D
+
+References to X are resolved as __wrap_X, and those to __real_X as the
+original X.
+
+Answer A.
+Answer B.
+Answer C.
+
+yw) Answer D.
+
+> View Feedback
+
+Question 20 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 13 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+What is the role of the environment variable LD_PRELOAD, when a program is
+started?
+
+A. If set, its value should be a text file listing the order in which libraries should
+be loaded.
+
+B. If set, its value should be a library that will be loaded before any other library.
+
+C. If set, the libraries required by the program are preloaded, rather than loaded
+when needed (on demand).
+
+D. If set, all the libraries on the system will be loaded (debug only!).
+
+Answer A.
+yv\_) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 21 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 14 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Arrange these exceptional control flow mechanisms by level of abstraction:
+» Lowest level: closest to hardware,
+» Mid-low level: kernel’s job, not accessible to user processes
+
+» Mid-high level: trigerring exceptional control flow from one process to another
+
+High level: exceptional control flow within a single process.
+
+Context switch, exceptions, nonlocal jumps, signals.
+Exceptions, context switch, signals, nonlocal jumps.
+Signals, context switch, exceptions, nonlocal jumps.
+
+Exceptions, signals, nonlocal jumps, context switch.
+
+moO W >
+
+Signals, exceptions, nonlocal jumps, context switch.
+
+Answer A.
+yv(_) Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 22 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 15 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Why is exceptional control flow needed?
+
+A. To react to external events (e.g., |/O, timer).
+
+B. To escape the natural, single process control flow of CPU.
+C. To react to internal events (e.g., assembly instruction failing).
+D. To allow interprocess communication.
+E. All of A, B, C, D.
+F. More than one of A, B, C, D, but not all.
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+yw) Answer E.
+Answer F.
+
+> View Feedback
+
+Question 23 1/1 point
+
+What is an exception (or interrupt)?
+
+A. A purely physical event caused by setting one pin of the CPU to 1.
+
+B. The CPU giving control to a portion of memory-resident code of the kernel in
+response to some event.
+
+C. A way processes in an OS communicate between each other.
+D. A nonrecoverable error in the CPU, that makes the computer crash.
+
+E. More than one of the above.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 16 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer A.
+
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 24 1/1 point
+
+In a normally functioning computer, how often can you expect the CPU to receive
+exceptions?
+
+A.
+
+Not at all if the computer is running smoothly.
+
+B. Every tenth of a second (about 1 to 20 per second) .
+C.
+D. Every few microseconds (about 100000 to 2000000 per second).
+
+Every few milliseconds (about 100 to 2000 per second).
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 25 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 17 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Can a user process trigger an exception explicitly?
+
+A. Yes, there is a specific assembly instruction that does this.
+
+B. No, processes live in userspace, and have no way to access such low level
+details.
+
+C. No, exceptions are only caused by the hardware.
+
+D. Not directly: a process can only communicate with the kernel, and the kernel
+can then cause an exception.
+
+yi») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 26 1/1 point
+
+When an exception is triggered, how long does it take for the handler to be called?
+A. It’s immediate.
+B. A few milliseconds.
+C. Up to a second.
+D. Exceptions can be ignored by the CPU.
+
+yi») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 18 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+> View Feedback
+
+Question 27 1/1 point
+
+What is a system call?
+
+A. Any function that is implemented by the libc.
+
+B. A function implemented by the kernel, that a process can call by using an
+exception-based mechanism.
+
+C. Any function that is not implemented by the libc.
+
+D. A function implemented by low level libraries that are automatically linked with
+any program.
+
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 28 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 19 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Assume that a process tries to access some memory location, but for some reason,
+the kernel has flushed the data to disk temporarily (in a process known as swapping).
+
+The <aES executes the instruction:
+
+What happens next?
+
+A. While processing the instruction, the CPU sees that the address is invalid, and
+executes a piece of code in the BIOS (Basic 1/O System), stored on a very
+fast ROM on the motherboard. The CPU then reexecutes the instruction.
+
+B. This triggers an exception, and the kernel takes control. It then loads the data
+from disk to memory, and returns control to the process, reexecuting the movl
+instruction.
+
+C. The process crashes, since the kernel should make sure that this situation
+cannot occur by preemptively loading data from the disk before the instruction
+is executed.
+
+D. A signal SIGSEGV is sent to the process, and the handler for that signal should
+make a system call to force the kernel to load the data from the disk.
+
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 29 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 20 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+What is a process?
+
+A. An instance of a running program.
+The same thing as a processor.
+An executable file.
+
+The same thing as a program.
+
+moO
+
+More than one of the above.
+
+vy) Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 30 1/1 point
+
+On a modern OS, how are multiple processes running in parallel on a single-CPU
+system with one core?
+
+A. Modern CPUs have a hardware way to create multiple threads, and each pro-
+cess is given one thread.
+
+B. There is a chip that lives next to the CPU that is in charge of providing an
+abstraction that gives the illusion of parallelism.
+
+C. The kernel frantically switches between all processes all the time, saving and
+restoring their states (register values, PC, ..), letting them run just for split
+seconds at a time.
+
+D. Processes must call the yield system call to put themselves in the background
+and allow other processes to run.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...802128 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=772971 Page 21 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer A.
+Answer B.
+yv\ ) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 31 1/1 point
+
+What is a context switch?
+
+A. The increment of an internal counter of the CPU; it indicates which process
+is currently running, and the increment triggers a switch between them.
+
+B. A 3 step process: the kernel saves the state of the “current’’ process, then
+chooses another process, and loads its state back on the CPU, so that the
+other process is now running (scheduled).
+
+C. When a process decides to put itself in the background so that one of its
+children is now in the foreground.
+
+D. An interruption that is caught by a dedicated chip on the motherboard, whose
+job is to load in memory another process. The implementation of the chip is
+hardware-dependent.
+
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 22 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Question 32 1/1 point
+
+How is a context switch normally triggered?
+
+A. When a process decides to put itself in the background.
+B. With a process signal.
+
+C. With a page fault exception.
+
+D. With a timer/clock interrupt.
+
+Answer A.
+Answer B.
+Answer C.
+
+yw) Answer D.
+
+> View Feedback
+
+Question 33 1/1 point
+
+Consider the directed graph whose set of nodes is the set of processes running at a
+given moment, and there's an edge (A, B) if B isa child of A. What best describes
+that graph?
+
+A. A DAG (directed acyclic graph).
+
+B. A forest (i.e., a set of disconnected trees).
+C. A tree.
+
+D. A binary tree.
+
+Answer A.
+Answer B.
+
+y(») Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 23 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Answer D.
+
+> View Feedback
+
+Question 34 1/1 point
+
+What happens when a child of a process terminates, but the parent does not read
+its return value immediately (reaping, using the wait... functions)?
+
+A. The parent process will not be allowed to terminate.
+
+B. The child becomes a zombie process, that occupies space in the process table
+of the kernel.
+
+C. The parent process will receive periodical reminders that the child has termi-
+nated, via a signal.
+
+D. After a few seconds, the child process times out and is removed from the
+process table of the kernel.
+
+E. More than one of the above.
+
+Answer A.
+yv() Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 35 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 24 of 25
+- Computer Systems II - DePaul University 9/22/20, 7:19 PM
+
+Assume a program calls the system call fork(). This creates a child of the current
+process. The child is an exact duplicate of the parent process, with some subtleties;
+which ones?
+
+A.
+
+mmOUA ®W
+
+v
+
+The child PID is unique and different from the parent.
+The return value of the fork() function is not the same in the two processes.
+The child and parent processes run in separate memory spaces.
+
+The function getppid() returns different values in the two processes.
+More than one of A, B, C, D, but not all.
+All of A, B, C, D.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+
+Answer F.
+
+> View Feedback
+
+Attempt Score:35 / 35
+Overall Grade (highest attempt):35 / 35
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...02128&isInPopup=O0&isprv=O&dnb=1&cfql=1&d2I_body_type=1&0u=77 2971 Page 25 of 25
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Quiz Submissions - Week 3 Quiz x
+Timothy Holmes (username: THOLME15)
+
+Attempt 3
+Written: Sep 29, 2020 9:07 PM - Sep 29, 2020 9:27 PM
+
+Submission View
+
+Released: Sep 7, 2020 10:15 PM
+
+Question 1 1/1 point
+
+What is a signal?
+
+A. The process equivalent of exceptions.
+
+A way for processes to communicate between each other.
+One of less than 32 possible messages.
+
+A message sent by the kernel to a process.
+
+All of the above.
+
+nmmOoO W
+
+Some but not all of the above.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+yw) Answer E.
+
+Answer F.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...843298 &isInPopup=O0&isprv=O0&dnb=0&cfql=0&d2I_body_type=1&0u=77 2971 Page 1 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+> View Feedback
+
+Question 2 1/1 point
+
+What is a signal handler?
+
+A. A system call.
+B. A kernel function that is called when a process sends a signal to another.
+C. Another name for exception handler.
+
+D. A user-level function that is called when the process receives a signal.
+Answer A.
+Answer B.
+Answer C.
+
+vy») Answer D.
+
+> View Feedback
+
+Question 3 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 2 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Signals are sent if either requested by a process, or if the kernel decides to. What
+are examples of the kernel sending a signal to a process?
+
+A.
+
+w
+
+rommoNn
+
+The kernel received an exception that needs to be directly forwarded to the
+current process itself (e.g., division-by-zero).
+
+The kernel responded to a page fault exception triggered by a process, and
+the memory access was really invalid.
+
+The kernel did a context switch on the process, and needs to let it known.
+The kernel could not open a file requested by a open() system call.
+
+A and B, but not the others.
+
+A and C, but not the others.
+
+B and C, but not the others.
+
+B and D, but not the others.
+
+Three or more of A, B, C, D.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+Answer F.
+Answer G.
+Answer H.
+
+Answer I.
+
+> View Feedback
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 3 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Question 4 1/1 point
+
+A kernel will maintain, for each process, the list of pending signals that the process
+should receive. How is that list implemented, and what does this implementation
+entail?
+
+A. It is a LIFO structure (last-in-first-out), so that each signal received is stored
+and delivered in the right order. Repeated signals of the same type are just
+added to the list.
+
+B. It is an integer vector, counting how many times each type of signal needs to
+be delivered. The order in which the signals are received is lost.
+
+C. It is a bit vector, where the bit at position 7 is set if the signal of type 7 is
+pending. Both the order in which the signals are received and the number of
+times each signal of a given type is received are lost.
+
+D. It is not a list, but a single variable indicating which signal is pending, if any.
+There is no way two signals, even of different types, can be queued.
+
+Answer A.
+Answer B.
+Y ») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 5 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 4 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Suppose that processes A, B,C are scheduled in this order, and that both A and
+B send a signal SIGINT to C’. How many times will C's signal handler for SIGINT
+be called?
+
+A. Twice.
+B. Once.
+C. Once or twice, there is no way to know.
+
+D. Depending on whether B's signal cancels A’s, this could be zero.
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 6 1/1 point
+
+After a call to fork, how is the process group ID (PGID) of the child process
+determined? (After fork, the PGID of the child can be changed using setpgid.)
+
+A. It is set to the child's PID.
+
+B. It is set to the parent's PID.
+
+C. It is set to 1 (the PGID of init).
+D. It is set to the parent's PGID.
+
+Answer A.
+Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 5 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+SY ) Answer D.
+
+> View Feedback
+
+Question 7 1/1 point
+
+What is the purpose of the SIGSTOP signal, which cannot be caught, blocked, or
+ignored?
+
+A. Terminate the process, and immediately remove it from the kernel's process
+table, not allowing its parent to reap it.
+
+B. Suspend the process, so that the kernel never schedules the process for execu-
+tion.
+
+C. Zombify the process: terminate it, but make sure that it always stays in the
+kernel's process table.
+
+D. Terminate the process, but allow its parent process to reap the child, reading
+its return value.
+
+Answer A.
+yv(_) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 8 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 6 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Using the /bin/kill program, the user can send arbitrary signals to their processes.
+Recalling that signal 9 is SIGKILL, what is the difference between:
+
+kill -9 2388 and kill -9 -2388?
+
+A. The first terminates one process, the second every process with PGID 2388.
+
+B. The first terminates one process, the second recursively kills all the children of
+process 2388, from the lowest level to the highest level in the tree of processes.
+
+C. The first terminates every process with a PID starting with 2388, the second
+terminates just the process with PID 2388.
+
+D. The first terminates only process 2388, the second kills all the processes in the
+Same process group as 2388.
+
+y() Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 9 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 7 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+What is the difference between calling the command /bin/kill -9 2388 in a
+shell, and using the system call kill (2388, 9) in C? (Signal 9 is SIGKILL.)
+
+A. The shell command will check for permission before sending the signal, but
+not the system call.
+
+B. No difference.
+
+C. The shell command will kill the process group 2388, while the C function will
+kill just the process.
+
+D. The shell command will try to kill the process with SIGINT to allow it to save
+some data, before killing it with SIGKILL.
+
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 10 1/1 point
+
+Suppose a process A is running, and sends a signal SIGINT to a process B. When
+will the signal handler of process B be called?
+
+A. After process B has been executed, and just before it is to be unscheduled
+(i.e., before a context switch stopping B’s execution).
+
+B. Immediately: Process A is suspended, and control is passed to process B.
+
+C. When B is scheduled to be executed, i.e., at the beginning of some context
+switch for B.
+
+D. When the kernel unschedules A, and switches to another process, even if it is
+not B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 8 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+Answer A.
+
+Answer B.
+vy) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 11 1/1 point
+
+What happens when a process A calls the system call kill(pid, sig)?
+
+A. The call triggers the execution of /bin/kill -sig pid.
+
+B. The CPU calls an exception handler in the kernel code (since the syscall
+instruction causes an interruption). The kernel then calls the signal handler of
+pid for signal sig. When the signal handler returns, A’s execution resumes.
+
+C. The CPU calls an exception handler in the kernel code (since the syscall
+instruction causes an interruption). This handler stores the signal sig in the
+list of pending signals for pid. When the kernel returns, A's execution resumes.
+
+D. The kill function directly adds the signal sig to the pending signal list of
+pid, since pending signal lists are in shared memory.
+
+Answer A.
+Answer B.
+Y ») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 12 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 9 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Process A sends a signal SIGINT to B, but B is blocking (masking) SIGINT. What
+happens?
+
+A.
+
+Process A's call to kill returns -1, and errno is set to EINVAL.
+
+B. Process A is stuck as long as process B does not unblock SIGINT.
+C.
+D. The signal is not delivered, but it will be as soon as SIGINT is unblocked by
+
+The signal is deleted, it will never be delivered.
+
+B.
+
+More than one of the above.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 13 1/1 point
+
+Assume process A has multiple nonblocked pending signals, and the kernel just
+treated one of them by calling the appropriate signal handler of A. What happens
+next?
+
+A.
+B.
+
+The kernel clears all the signals, and resumes the normal execution of A.
+
+The kernel resumes the normal execution of A, and will treat the other signals
+later.
+
+The kernel treats another pending signal.
+
+. The behavior depends on the return value of the signal handler just called.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 10 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer A.
+
+Answer B.
+vy) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 14 1/1 point
+
+In a given process A, can a signal handler be interrupted by a signal?
+
+A. Yes, but it has to be a signal different than the one(s) currently handled.
+B. Yes, and it could be the same signal as one that is currently handled.
+
+C. No, during A's signal handling all signals are blocked.
+
+D. No, during A’s signal handling, calls to kill (A, ...) return an error.
+
+yi») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 15 1/1 point
+
+Which function(s) change the list of signals blocked within a process?
+A. sigaddset. B. sigdelset. C. sigemptyset. D. sigprocmask.
+E. sigfillset. F. All of those.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 11 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+Answer A.
+Answer B.
+Answer C.
+vy (_) Answer D.
+Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 16 1/1 point
+
+Which of these are problems that arise with signal handling?
+
+A. The process can be stuck in a signal handler and never return to its normal
+execution.
+
+B. Local copies of global variables, made by the compiler, can become out of date
+if not declared as volatile.
+
+C. Shared (global) data structures can become corrupted if the code that modifies
+them is interrupted.
+
+D. If not saved and restored properly, the global int errno can indicate the
+result of another system call than the one just made in the code.
+
+E. All of A, B, C, D.
+F. More than one of A, B, C, D, but not all.
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 12 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+SY ) Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 17 1/1 point
+
+Which of these are async-signal-safe functions?
+A. malloc
+
+exit
+
+printf
+
+write
+
+All of A, B, C, D.
+
+More than one of A, B, C, D, but not all.
+
+nmmoOoO W
+
+Answer A.
+Answer B.
+Answer C.
+yi) Answer D.
+Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 18 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 13 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Upon receiving a signal SIGCHLD, what is the proper way to count, using a variable
+cnt, how many children have terminated?
+
+A. cnt++: each time a child terminates, the handler is triggered.
+
+B. if (wait(NULL)) > 0) cnt++;: onecan only besurea child has terminated
+if it is reaped (i.e., has been waited for, and its return value read).
+
+C. while (wait(NULL) > 0) cnt++;: one can only be sure a child has termi-
+nated if it is reaped, and wait would immediately return -1 when no child is
+waiting to be reaped.
+
+D. while (waitpid(-1, NULL, WNOHANG) > 0) cnt++;: one can only be
+sure a child has terminated if it is reaped, and waitpid is required to use
+the option WNOHANG, so that the function immediately returns -1 when no
+child is waiting to be reaped.
+
+Answer A.
+Answer B.
+Answer C.
+
+yi) Answer D.
+
+> View Feedback
+
+Question 19 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 14 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+How can a process suspend itself until it receives a specific signal (say SIGINT)?
+
+A. This is not possible.
+B. By calling kill(getpid() , SIGSTOP) then kill(getpid(), SIGINT).
+
+C. By calling pause (): this suspends the process until any signal is received, the
+handler for SIGINT can then toggle a flag, so that the code can check whether
+SIGINT was received. If not, pause() is called again.
+
+D. By first masking SIGINT, then calling sigsuspend (mask), with mask unmask-
+ing SIGINT. The call to sigsuspend suspends the process until any signal set
+in mask is received, the handler for SIGINT then toggles a flag, so that the
+code can check whether SIGINT was received. If not, sigsuspend is called
+again.
+
+E. This is possible, but not with the above options.
+Answer A.
+Answer B.
+Answer C.
+vy») Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 20 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 15 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+What is a nonlocal jump?
+
+A. A way to jump to the execution of another process of any program.
+B. A user-space mechanism to save the state of the CPU and restore it later.
+
+C. A goto statement that goes accross functions (i.e., the label can be defined
+in another function).
+
+D. A way to jump to the execution of another process of the same program.
+Answer A.
+vy (») Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 21 1/1 point
+
+What are nonlocal jumps used for?
+
+A. They are a modern replacement for signals.
+B. To simplify control flow in complex multithreaded applications.
+C. In error recovery from deeply nested calls.
+
+D. They are a cleaner version of gotos.
+Answer A.
+Answer B.
+yv( ) Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 16 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+> View Feedback
+
+Question 22 1/1 point
+
+What is the difference between these two programs:
+
+ahshe jmp_buf b;
+int x
+1: int 6) {
+
+volatile int x = Q;
+
+printf (
+goto 1;
+
+i
+
+setjmp (b);
+printf ( a cao
+longjmp (b, 0);
+
+i
+
+  
+
+A. The second code does not compile.
+
+B. They run in the same way, but the second code creates more overhead (i.e.,
+runs slightly slower, and uses more memory).
+
+C. They run correctly, but produce different outputs.
+D. The second code crashes.
+
+E. They run in the same way, and end up executing the same assembly instruc-
+tions. (No difference.)
+
+Answer A.
+yw) Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 17 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Question 23 1/1 point
+
+What is the main limitation of nonlocal jumps?
+
+A.
+
+moo Ww
+
+They can only be used to jump up in the call stack.
+
+They can only be used to jump in functions in the same C file.
+They can only be used in processes with admin credentials (root).
+They can only be used if all signals are blocked.
+
+More than one of the above.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 24 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 18 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Consider the following code:
+
+jmp_buf b;
+
+ame Of
+
+int x = 0;
+
+setjmp (b);
+printf ( oor
+longjmp (b, 0);
+
+}
+
+ 
+
+When compiled with gcc -00 (no optimizations), this prints a sequence of numbers,
+but with gcc -O1, this only prints Os. Why?
+
+A. Without optimizations, x is in a register, and is unaffected by the longjmp.
+With optimizations, x is on the stack, and it would be saved on setjmp and
+restored by longjmp, having always a value of 0.
+
+B. This is a known bug in gcc when dealing with nonlocal jumps.
+
+C. Without optimizations, x is on the stack, and is unaffected by the longjmp.
+With optimizations, x is in a register, and it would be saved on setjmp and
+restored by longjmp, having always a value of 0.
+
+D. This is because longjmp is called with 0 as second argument, which gets
+optimized out. This would work as expected with longjmp(b, x).
+
+Answer A.
+Answer B.
+Y ») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 25 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 19 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Is the set jmp/longjmp technique a system call, or is it entirely implemented by
+the libc?
+
+A. It is only register manipulation, so this is implemented in the libc, in assembly.
+
+B. This is a low-level control flow disruption, so it is implemented by a hardware
+mechanism.
+
+C. This is an exceptional control flow, so it has to be implemented by the kernel.
+
+D. This depends on the distance (in terms of memory addresses) between the
+setjmp and the longjmp.
+
+yv(») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 26 1/1 point
+
+Virtual memory pages can be in three states; what are they?
+
+A. Unallocated, cached, uncached.
+B. Allocated, unallocated, uncached.
+C. Allocated, unallocated, cached.
+
+D. Allocated, cached, uncached.
+yv( ) Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 20 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 27 1/1 point
+
+Why do we use virtual memory (VM)?
+A. Efficiency: the DRAM is used as cache.
+
+Consistency: memory looks the same to all processes.
+Safety: different processes’ address spaces are isolated.
+Locality: VM improves spatial locality.
+
+All but A.
+
+All but B.
+
+All but C.
+
+All but D.
+
+All of A, B, C, and D.
+
+raommon ®W
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+Answer F.
+Answer G.
+
+yw) Answer H.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 21 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer I.
+
+> View Feedback
+
+Question 28 1/1 point
+
+What happens if the CPU tries to access an uncached page?
+
+A. Some hardware on the DRAM chip is in charge of loading the data from the
+disk into the DRAM, then reexecuting the offending instruction.
+
+B. This causes a page fault exception, and the kernel’s handler kills the process
+that caused the access.
+
+C. Some hardware on the CPU chip is in charge of loading the data from the disk
+into the DRAM, then reexecuting the offending instruction.
+
+D. This causes a page fault exception, and the kernel’s handler brings the page
+from the disk to the DRAM, then reexecutes the offending instruction.
+
+Answer A.
+Answer B.
+Answer C.
+
+yv() Answer D.
+
+> View Feedback
+
+Question 29 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 22 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+What does it mean for a page to be in the uncached state?
+
+A.
+
+It is not in the caches between L1 and the DRAM (that is, neither L2 nor L3).
+
+B. It is not initialized.
+G:
+D
+
+. It is not in the L1 cache.
+
+It is not in the DRAM.
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 30 1/1 point
+
+VM is a nontrivial mechanism, but it simplifies memory management. How?
+
+A.
+B.
+
+=o m m
+
+Processes can have a uniform, linear view of memory.
+
+Multiple physical pages can be mapped to a single virtual page, allowing for
+multiple accesses with one query.
+
+Multiple virtual pages can be mapped to a single physical page, allowing sharing
+code and data.
+
+The location of a physical page in the DRAM can be changed without impact-
+ing the view of the process.
+
+All but A.
+All but B.
+All but C.
+All but D.
+All of A, B, C, and D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 23 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+Y() Answer F.
+Answer G.
+Answer H.
+
+Answer I.
+
+> View Feedback
+
+Question 31 1/1 point
+
+What is thrashing?
+
+A. When processes on a computer are repeatedly accessing more memory than
+available on the DRAM, and pages are swapped in and out constantly.
+
+B. A system call that asks the kernel to put all the memory to disk, so that future
+
+VM accesses will have to load data from the disk, forcing only the recently
+used data to be on the DRAM.
+
+C. When the main memory is so saturated that only one process can run.
+
+D. A system call that asks the kernel to put all the memory to disk, so that the
+computer can be suspended.
+
+y() Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 24 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 32 1/1 point
+
+What is the “global variable” that indicates the upper limit of the heap?
+
+A. %brk, a register stored on the CPU, but not accessible to the user.
+
+B. There is no such thing; if an access is made outside of the heap, the heap is
+automatically extended.
+
+C. brk, a variable stored in the process-specific kernel virtual memory.
+
+D. %rsp, the stack pointer: the heap stops where the stack begins.
+Answer A.
+Answer B.
+yv(») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 33 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 25 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+When are the first few instructions of a program (from the .text section) loaded
+into DRAM?
+
+A. When the process is first scheduled (i.e., the first context switch to the pro-
+gram).
+
+B. When the CPU causes a page fault trying to read the first instruction, and the
+kernel loads the page from disk.
+
+C. When the process receives an initial SIGCONT message.
+
+D. During the execution of execve.
+Answer A.
+yv(_) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 34 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 26 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+How is VM enabling protection features?
+
+A. It distinguishes addresses for the kernel’s VM and addresses for the current
+process's VM.
+
+It gives different virtual memory addresses to different processes.
+It equips pages with read/write/exec flags.
+
+It saves which process can access which physical page.
+
+Only A and B.
+
+Only A and C.
+
+Only B and D.
+
+Only C and D.
+
+Three or more of A, B, C, D.
+
+rommoa 8
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+yw) Answer F.
+Answer G.
+Answer H.
+
+Answer I.
+
+> View Feedback
+
+Question 35 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 27 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Where are the read/write/exec permission bits of a page stored?
+A. In the kernel, in the per-process memory management structures.
+B. In the physical DRAM, as a header to each physical page.
+C. In a specific cache that is only accessible by the MMU.
+D
+
+. In the page table entry, since they pertain to virtual memory pages.
+Answer A.
+Answer B.
+Answer C.
+
+yi) Answer D.
+
+> View Feedback
+
+Question 36 1/1 point
+
+What is the job of the MMU?
+
+A. Translate a virtual address to a physical address, if possible (and generate an
+exception if this is not possible, e.g., if the virtual page is uncached), then
+request that physical address to the memory.
+
+B. Retrieve the page table entry corresponding to a virtual address, and return it
+to the CPU, so that it can fetch data from memory.
+
+C. Fetch data from memory, hiding the details of caching and loading from disk
+to the CPU. Except if there is a permission violation, the MMU will always
+return some data.
+
+D. Implement caching of the mapping between virtual addresses and physical
+addresses. It can then return the cached physical address to the CPU, or raise
+an exception if the virtual address is not cached.
+
+yw») Answer A.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 28 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 37 1/1 point
+
+Is it possible that two processes have access to the same physical page, but only
+one can write in it?
+
+A. Yes, the virtual pages of each process can map to the same physical page, and
+the permission bits are per-process.
+
+B. No, processes can share a physical page, but the permission bits are per physical
+page.
+
+C. No, processes cannot share a physical page, they need to be duplicated.
+
+D. Yes, but if both processes try to write to the page, the page is automatically
+duplicated in physical memory.
+
+vy) Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 38 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 29 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+What is a page fault?
+
+A. An exception that is raised by the MMU when the valid bit of the PTE corre-
+sponding to the VPN is 0 (meaning unallocated or uncached virtual page).
+
+B. An exception raised by the DRAM when the requested physical address is
+invalid (meaning the page is unallocated).
+
+C. A signal sent to a process when it tries to access an unallocated or uncached
+portion of memory.
+
+D. An unrecoverable error in the CPU memory management, that causes the CPU
+to halt. This is usually triggered by a hardware fault.
+
+yw») Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 39 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 30 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Assume that the MMU successfully translated a virtual address (VA) to a physical
+address (PA). How did it do it?
+
+A.
+
+v
+
+The VA is split in two bit vectors, VPN and VPO. The VPN is taken modulo
+a preset value, giving a value PPN. The PA is then this PPN concatenated
+with VPO.
+
+The VA as a whole is used a pointer in a cached table that contains the
+corresponding PA.
+
+The MMU calls a bit of code from the kernel, which is in charge of doing the
+translation.
+
+. The VA is split in two bit vectors, VPN and VPO. The VPN is basically used
+
+as an index in a table of PPNs. The PA is then the corresponding PPN
+concatenated with VPO.
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 40 1/1 point
+
+The PTE for a given VPN has a valid flag indicating whether the virtual page is
+allocated and cached in DRAM. Who updates that flag?
+
+A.
+B.
+
+C.
+D.
+
+The MMU, after a page fault exception has been handled.
+
+The kernel, upon loading the page in memory after a page fault, or evicting a
+page from memory.
+
+The process whose virtual memory is currently looked at.
+
+The CPU, using a mechanism known as write-back.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 31 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+Answer A.
+vy (») Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 41 1/1 point
+
+What happens when the MMU requests a PA to the L1 cache, but the L1 cache
+misses?
+
+A. The MMU generates a page fault.
+
+B. The L1 cache asks for that PA to the L2 cache, and this can go all the way
+to the DRAM in case of successive misses.
+
+C. The L1 cache asks for that PA to the L2 cache, and this can go all the way
+to the disk in case of successive misses.
+
+D. The L1 cache generates a page fault.
+Answer A.
+vy (») Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 42 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 32 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+How is the virtual memory context updated when there is a process context switch?
+
+A. The MMU receives a process-switch interruption together with a value, and
+updates a private register with that value. This register indicates where the
+current page table resides in physical memory.
+
+B. The kernel, restoring the context of a process, also updates a special, hidden
+CPU register that points at the page table in physical memory.
+
+C. There is no need to change anything; the process ID is embedded in the virtual
+address.
+
+D. The kernel maintains a table mapping process ids to page tables; when re-
+solving an address, the MMU fetches the correct page table using the current
+process id.
+
+Answer A.
+yv\_) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 43 1/1 point
+
+Which component updates entries in the page table of a process?
+
+A. The MMU, after it sends a page fault exception.
+
+B. The CPU, when it is restarted on a given instruction.
+C. The process, when it receives a SIGCONT signal.
+D
+
+. The kernel, in response to a page fault.
+Answer A.
+
+Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 33 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer C.
+
+vy») Answer D.
+
+> View Feedback
+
+Question 44 1/1 point
+
+What is the role of the TLB (Translation Lookaside Buffer)?
+
+A. Translate virtual addresses to physical addresses.
+
+B. Store kernel information to better handle page faults.
+C. Cache frequently used pages.
+D
+
+. Cache page table entries.
+Answer A.
+Answer B.
+Answer C.
+
+vy (_) Answer D.
+
+> View Feedback
+
+Question 45 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 34 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Recall that a query to a TLB is a virtual page number (VPN). How is a TLB
+implemented?
+
+A. The VPN is taken modulo N, with N the size of the TLB, and the TLB returns
+the element at that position.
+
+B. The VPN is split into two bit-vectors, a tag and a set index, and the TLB then
+behaves like a normal set-associative cache.
+
+C. The VPN is used as a physical address that is queried in the DRAM (or its
+caches).
+
+D. The VPN is searched within a balanced tree implemented in DRAM.
+Answer A.
+yw) Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 46 1/1 point
+
+Recall that a query toa TLB is just a virtual page number (VPN), without any extra
+information about the current process. What happens to the TLB when there's a
+context switch (scheduling another process)?
+
+A. The info stored in the TLB is now invalid, since it refers to virtual addresses
+of the old process (the TLB is then usually just flushed).
+
+B. All the caches of the processor package are cleared on context switch, including
+the TLB, so there is no outdated information in these.
+
+C. The process ID of the current process is part of the VPN, so there’s no conflict,
+and the TLB is left as is.
+
+yi») Answer A.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 35 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Answer B.
+
+Answer C.
+
+> View Feedback
+
+Question 47 1/1 point
+
+Why do we use multilevel page tables?
+
+A. To speed up access using parallelism.
+B. To deal with multiple processes.
+
+C. For the same reason as we use caches: using a small amount of expensive
+memory as if it were a large amount of memory.
+
+Because a single-level page table would be too big to store in memory.
+
+E. More than one of the above.
+
+Answer A.
+Answer B.
+Answer C.
+vy») Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 48 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_at...43298&isInPopup=O0&isprv=0&dnb=0&c fql=0&d21_body_type=1&0u=7 72971 Page 36 of 37
+: Quiz Submissions - Week 3 Quiz - Computer Systems II - DePaul University 9/29/20, 9:28 PM
+
+Page tables are indexed by virtual page numbers (VPN). How is a k-level page table
+indexed? Assume the level-1 page table is given by a pointer P (the value of the
+PTBR), and that there is a PTE stored for that VPN.
+
+A. The VPN is searched in the table P; if it isn’t found, the search continues on
+the level-2 table, which is stored at double the address of the previous page
+table. This goes on until the VPN is found.
+
+B. The VPN is divided in & bit-vectors, with values 7).22,...,7%. The PTE for
+the VPN is P[7,] [to] --- Lig].
+
+C. The VPN is hashed using a hashing function (e.g., MD5, SHA1), and that
+value is searched in the level-1 table P. If it isn't found, the value is hashed
+again, and searched in the level-2 table, which is just after the level-1 table.
+This goes on until the VPN is found.
+
+Answer A.
+yv(_) Answer B.
+
+Answer C.
+
+> View Feedback
+
+Attempt Score:48 / 48
+Overall Grade (highest attempt):48 / 48
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...43298&isInPopup=0&isprv=0&dnb=0&cfql=0&d 2I_body_type=1&0u=77 2971 Page 37 of 37
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Timothy Holmes (username: THOLME15) 4
+
+Attempt 3
+Written: Oct 6, 2020 8:50 PM - Oct 6, 2020 8:52 PM
+
+Submission View
+
+Released: Sep 7, 2020 10:15 PM
+
+Question 1 1/1 point
+
+Is it possible that a page table entry (PTE) would indicate a nonzero PPN, but a
+zero valid flag?
+
+A. Yes, this would correspond to an uncached page.
+
+B. Yes, this would correspond to an invalid page.
+
+C. Yes, this would correspond to an unallocated page.
+D. No, if the valid flag is zero, the PPN has to be reset.
+
+S Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 2 1/1 point
+
+What is the TLB doing with the VPO?
+
+A. It uses it as the tag in its cache structure.
+
+B. Nothing, it does not even receive it.
+
+C. It uses it as the base offset in its cache structure.
+D. It transfers it to the PPO.
+
+Answer A.
+
+JS Answer B.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 1 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 3 1/1 point
+
+What is the dirty bit in a PTE?
+
+A. A bit indicating that the page has been written to.
+
+B. A bit indicating that the page on the disk that corresponds to the DRAM page
+has been discarded.
+
+C. A bit indicating that any further write to the page should trigger a page fault.
+D. A bit indicating that any further read to the page should trigger a page fault.
+
+JS Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 4 1/1 point
+
+What are memory features one can find in a modern CPU (such as the Intel Core i7)?
+A. Multi-level page tables.
+B. A cache hierarchy for the TLB.
+
+A cache hierarchy for the DRAM.
+
+A shared cache between cores.
+
+All of A, B, C, D.
+
+Two or more of A, B, C, D, but not all.
+
+nmmon
+
+Answer A.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 2 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Answer B.
+Answer C.
+Answer D.
+JS Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 5 1/1 point
+
+How does a kernel decide to terminate a process with a SIGSEGV signal?
+
+A. If the kernel receives a page fault exception, then the memory access wasn’t
+legal, either because it accessed an unallocated page, or because it tried to
+bypass protection bits. In both cases, the kernel immediately terminates the
+process.
+
+B. Upon receiving a page fault exception, the kernel checks whether the process's
+access was authorized using the process's vm_areas. If it was, this means that
+the page wasn't in memory, and it needs to be loaded. Otherwise, the process
+is terminated.
+
+C. The only acceptable virtual addresses for each program are between 0x400000
+and OxFFFFFFFFFFFF. When a page fault interrupt is received by the kernel,
+it checks that the requested virtual address is between these values, and only
+if it is not, terminates the process. Otherwise, it loads a page in memory for
+that address.
+
+D. It does not, the CPU directly terminates the user process.
+Answer A.
+JS Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 3 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Question 6 1/1 point
+
+What are the main pieces of info pertaining to the virtual memory that the Linux
+kernel keeps in memory?
+
+A. A pointer to the level-1 page table.
+
+B. A virtual memory map of the process, describing the location and size of each
+section.
+
+The location and size of the heap.
+
+Read /write permissions for memory areas.
+All of A, B, C, D.
+
+Two or more of A, B, C, D, but not all.
+
+nmmon
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+JY») Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 7 1/1 point
+
+What is memory mapping?
+
+A. The general concept of mapping virtual memory to physical memory.
+
+B. The process of assigning a virtual memory segment a direct byte-for-byte cor-
+relation with some disk object.
+
+C. The mathematical map (function) between the physical locations of a cache,
+and the logical locations in the DRAM.
+
+D. A kernel algorithm that is part of context switching. It computes a map of
+the virtual memory, and stores it in the process's VM, so that the process can
+load shared libraries.
+
+Answer A.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 4 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+AS Answer B.
+
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 8 1/1 point
+
+When a process forks, this creates an identical copy of the process but any modifi-
+cation to one process’s memory does not impact the other's. How?
+
+A. The virtual memory map of the child is the same as the parent, but every write
+access to physical memory triggers an exception that forces duplication of the
+data.
+
+B. All the physical pages used by the parent process are duplicated during a fork,
+so that the processes hold the same values, but they do not correspond to the
+same locations in physical memory.
+
+C. The processes are given separate virtual memory address spaces, with the
+parent using lower addresses than the child.
+
+JS Answer A.
+Answer B.
+
+Answer C.
+
+> View Feedback
+
+Question 9 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 5 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Why is memory mapping critical to modern library management?
+
+A. It provides a user-space direct access to the page table of a process.
+
+B. It allows to share code from a library between processes, without the processes’
+knowledge. They would share the physical memory pages pertaining to the
+library.
+
+C. It allows code from libraries to be freely relocated in a process's virtual memory.
+
+D. Processes can synchronize to share a part of the memory, and manually map
+the shared library there.
+
+Answer A.
+JS Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 10 1/1 point
+Which component is in charge of copying memory segments flagged as Copy-On-
+Write?
+
+A. The MMU, through a flag it stores in the PTE of each page. The kernel sets
+the flag.
+
+B. The process: upon writing in such a memory segments, it receives a signal
+indicating that it has to first copy the memory.
+
+C. One of the cache levels between the CPU and the DRAM (L1, L2, or L3).
+
+D. The TLB of the MMU: only if a page’s physical page number is TLB-cached
+can it be marked as Copy-On-Write.
+
+E. The kernel: the flag is stored in the vm_flags of the corresponding area. The
+MMU doesn't have a concept of Copy-On-Write flag.
+
+Answer A.
+Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 6 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Answer D.
+
+JS Answer E.
+
+> View Feedback
+
+Question 11 1/1 point
+
+How is the code of a program a.out loaded during execve, conceptually?
+
+A. The file a.out is opened, then its .text section is memory mapped to VA
+0x400000; the .text section is not actually read.
+
+B. The file a. out is opened, then its .text section is entirely copied to physical
+memory.
+
+C. The kernel creates a fake memory map that just contains the name of the
+executable a.out. When the process is next scheduled, its .text section is
+entirely copied to physical memory, and the memory map is updated.
+
+JS Answer A.
+Answer B.
+
+Answer C.
+
+> View Feedback
+
+Question 12 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 7 of 18
+- Computer Systems II - DePaul University
+
+What are typical uses of the system call mmap?
+
+A.
+
+B.
+
+b
+
+Sharing the code of libraries so that they are loaded only once in physical
+memory.
+
+Deferring duplicating physical memory pages that shouldn't be shared by wait-
+ing for the first write to them.
+
+Loading a process but deferring reading portions of the program file until they
+are needed (demand paging).
+
+. Sharing memory between multiple processes, by mmaping a common file on
+
+disk.
+All of A, B, C, D.
+Two or more of A, B, C, D, but not all.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+
+Answer F.
+
+View Feedback
+
+Question 13 1/1 point
+
+Apart from stack memory, how is the kernel dealing with the changing memory
+needs of a process during its execution?
+
+A.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971
+
+The kernel creates a per-process swap file on the disk that can contain an
+unbounded amount of data, and use a memory mapping to make it accessible
+to virtual memory.
+
+. The kernel implements two system calls: malloc and free, that allocate and
+
+free memory on the heap, respectively.
+
+The kernel uses a virtual memory section called the heap, whose size, given by
+a pointer brk, is controlled by the syscalls brk and sbrk.
+
+. The MMU is in charge of this, hiding details of memory allocation to the
+
+kernel.
+
+10/6/20, 8:55 PM
+
+Page 8 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Answer A.
+Answer B.
+JS Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 14 1/1 point
+
+Recall that sbrk(0) returns the current value of brk. When will the following
+program crash, if it does?
+
+int Of
+char *c;
+c = sbrk (0) - 1;
+on >
+c = sbrk (0) + 1;
+*C a ~
+
+bd
+
+ 
+
+1
+2
+3
+4
++}
+\)
+u
+8
+
+A. Line 4. B. Line 5. C. Line 6. D. Line 7. E. It won't crash.
+
+Answer A.
+Answer B.
+Answer C.
+JS Answer D.
+
+Answer E.
+
+> View Feedback
+
+Question 15 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 9 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+What are strategies that implementations of memory allocators are allowed to pur-
+sue?
+
+A. They can move allocated blocks to minimize fragmentation.
+
+B. They can buffer requests to return a bigger block.
+C. They can use the free memory for their own housekeeping.
+D. They can reallocate blocks once they have been freed by the user.
+E. All of A, B, C, D.
+F. Two of A, B, C, D, but not more.
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+Answer E.
+JS Answer F.
+
+> View Feedback
+
+Question 16 1/1 point
+
+A memory allocator can be explicit, in which case the application both allocates
+and frees space. It can also be implicit; what does it mean?
+
+A. Memory is allocated contiguously on the heap, and the kernel does memory
+management implicitly.
+
+B. The application can allocate memory, but won't have to free it.
+C. The application cannot allocate memory, and has no memory to free.
+
+D. The application can allocate memory but only on the stack; upon popping the
+stack frame of the current call, the memory is implicitly freed.
+
+Answer A.
+S Answer B.
+
+Answer C.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 10 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Answer D.
+
+> View Feedback
+
+Question 17 1/1 point
+
+The two performance goals of memory allocators are to maximize throughput and
+peak memory utilization. After some time, and a few malloc and free requests,
+how is peak memory utilization at current time defined?
+
+A. This is the difference between the current size of the heap and the maximum
+total memory used by the application at any previous time.
+
+B. This is the maximum ratio between total memory used by the application and
+heap size, at any previous time.
+
+C. This is the current total memory used by the application divided by the current
+size of the heap.
+
+D. This is the maximum total memory used by the application at any previous
+time, divided by the current size of the heap.
+
+Answer A.
+Answer B.
+Answer C.
+
+JS Answer D.
+
+> View Feedback
+
+Question 18 1/1 point
+
+The two performance goals of memory allocators are to maximize throughput and
+peak memory utilization. Given a sequence of malloc and free requests, how is
+throughput defined?
+
+A. This is the number of completed requests per unit time.
+B. This is the number of DRAM hits per unit time.
+
+C. This is the number of L1, L2, L3 misses per unit time.
+D
+
+. This is the number of page faults per unit time.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...880 284 &isInPopup=O0&isprv=0&dnb=1&cfql=1&d21_body_type=1&0u=77 2971 Page 11 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+AS Answer A.
+
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 19 1/1 point
+
+The two performance goals of memory allocators are to maximize throughput and
+peak memory utilization. How are these two goals conflicting?
+
+A. The fastest memory allocator would always allocate at the end of the heap,
+but utilization would be terrible.
+
+B. The best utilization would be provided by a slow algorithm searching for the
+best free block for each malloc request.
+
+C. They are not conflicting, as exemplified by the libc implementation.
+
+D. The kernel tends to maximize throughput, but the memory allocator wants to
+maximize peak memory utilization.
+
+E. Only A and B.
+F. Only A, B, and D.
+
+Answer A.
+Answer B.
+Answer C.
+Answer D.
+
+JS Answer E.
+
+Answer F.
+
+> View Feedback
+
+Question 20 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 12 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+What is internal fragmentation?
+
+A. A measure of the number of contiguous free blocks in memory.
+
+B. The concept of splitting a block when allocating only a portion of it.
+
+C. A measure of the difference between the payload of a block and its actual size.
+D
+
+. The average free space between allocated blocks.
+Answer A.
+Answer B.
+JY») Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 21 1/1 point
+
+What is external fragmentation?
+
+A. A pattern in a program execution where frees and mallocs are perfectly
+alternating.
+
+B. The idea that virtual memory can appear contiguous without the physical
+memory backing it being so.
+
+C. The average free space between allocated blocks.
+
+D. The presence of lots of small free blocks that can’t be combined to make a
+large one.
+
+Answer A.
+Answer B.
+Answer C.
+
+JS Answer D.
+
+> View Feedback
+
+Question 22 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 13 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Memory allocators keep track of the size of each block. Where is this information
+stored ?
+
+A. Ina linked list stored on the heap.
+B. In a table allocated at the beginning of the heap.
+C. Within the block, in the word before the payload.
+
+D. In a table stored in a specific segment .malloc of virtual memory.
+
+Answer A.
+Answer B.
+YW) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 23 1/1 point
+
+How is the free/allocated flag of each block stored?
+
+A. Within the size word, as it’s known to be an even number.
+
+B. In a table stored in a specific segment .malloc of virtual memory.
+C. Ina linked list stored on the heap.
+
+D. In a table allocated at the beginning of the heap.
+
+JS Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 24 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 14 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+In implicit lists of free blocks, how can we find the next free block, starting at some
+block?
+
+A. The address of the next free block is stored in a table at the beginning of the
+heap.
+
+B. Read the current block size kK, reach the next block by jumping A words,
+check if it is free, if not repeat.
+
+C. The address of the next free block is stored within the block.
+
+D. Read the current block size K’, reach the next free block by jumping A words.
+
+Answer A.
+JS Answer B.
+Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 25 1/1 point
+
+In dynamic memory allocation, what are first-fit, next-fit, and best-fit?
+
+A. These are strategies to evict pages from the DRAM.
+
+B. These are policies to choose whether to coalesce or split free blocks.
+C. These are policies to choose a free block to answer a malloc request.
+D
+
+. These are different ways to store the address of the next free block.
+
+Answer A.
+Answer B.
+S Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 26 1/1 point
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 15 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Coalescing is the task of fusing neighboring free blocks. Assume an allocator im-
+plements coalescing, but not splitting, would that be bad?
+
+A. Yes, this would drastically increase both internal and external fragmentation.
+B. Yes, this would drastically increase external fragmentation.
+C. Yes, this would drastically increase internal fragmentation.
+
+D. No, this would provide good performances.
+Answer A.
+Answer B.
+YW) Answer C.
+
+Answer D.
+
+> View Feedback
+
+Question 27 1/1 point
+
+Assume a block of size K has been selected for a malloc request asking for T words
+(including header /footer/padding). The block can undergo splitting; what is that?
+
+A. That’s when the block is split into two blocks, of size JT and AK — 7, the first
+one being returned, and the second being set as free. This decreases internal
+fragmentation.
+
+B. That's the concept that kK — T words are lost, increasing internal fragmenta-
+tion.
+
+C. That's when the block is shifted before being returned, so that it may span
+two blocks.
+
+D. That’s when the block is fused with surrounding allocated blocks, in an attempt
+to split memory at multiples of the page size.
+
+JS Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 16 of 18
+- Computer Systems II - DePaul University
+
+D
+
+View Feedback
+
+Question 28 1/1 point
+
+Why do free blocks need a boundary tag (i.e., a footer replicating the block header)?
+
+A.
+
+UND
+
+<
+
+b
+
+For coalescing a newly freed block with the previous block.
+For implementing the best-fit strategy.
+For coalescing a newly freed block with the next block.
+
+For splitting a newly allocated block.
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+View Feedback
+
+Question 29 1/1 point
+
+Why aren't implicit lists of free blocks used in the libc?
+
+A.
+
+v
+
+b
+
+Because free can take time linear in the current number of blocks.
+
+B. Because it does not implement splitting.
+C.
+D
+
+. Because the search for a free block that can fit a malloc request can take
+
+Because it does not implement coalescing.
+
+time linear in the current number of blocks.
+
+Answer A.
+Answer B.
+Answer C.
+
+Answer D.
+
+View Feedback
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971
+
+10/6/20, 8:55 PM
+
+Page 17 of 18
+- Computer Systems II - DePaul University 10/6/20, 8:55 PM
+
+Question 30 1/1 point
+
+Office hours are to be booked on BlueStar; what are the office hours of the
+instructor for this course?
+
+Monday & Tuesday, 3am to 9am
+ov Wednesday & Thursday, 3pm to 6:30pm.
+Saturday & Sunday, 10pm to 11:42pm
+
+St Patrick's Day & Towel Day, 17am to 25pm.
+
+Question 31 1/1 point
+
+This class is supported by a Supplemental Instructor (SI leader). When are the
+SI sessions?
+
+Monday 5pm to 6pm.
+Thursday 6pm to 7pm.
+
+AS All of the above.
+
+Attempt Score:31 / 31
+Overall Grade (highest attempt):31 / 31
+
+https://d2|.depaul.edu/d2l/Ims/quizzing/user/quiz_submissions_att...80284&isInPopup=0&is prv=0&dnb=1&c fql=1&d21_body_type=1&0u=772971 Page 18 of 18
+

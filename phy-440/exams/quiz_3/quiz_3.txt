@@ -1,0 +1,17 @@
+1. What concepts or ideas from this reading do you have questions about? These can be concepts that you didn't understand or would like to learn more about. For each concept, write a few sentences that describe the concept as best you can and include your questions about the concept.
+
+I would like to go over Isoperimetric constraints.
+
+2. Given a function F(x, ẋ, t), what is the difference between δF and dF? What does each of these tell you about F?
+
+
+When δ is applied to a variable in the function, δ represents a virtual displacement. What we can remember from virtual work is that time is frozen and there is an infinitesimal change to some variable that is virtual. D represents actual change in a variable that happens in a finite amount of time t. More importantly in a function δ variation in a function which tells us about a different function. The d represents the differential of a function which tells us about a different point in that function.
+
+3. The Euler-Lagrange equation contains both partial and total derivatives. Why? What is the difference between these two types of derivatives?
+
+The partial derivative will tell us the most optimal function to use from the function we are given while the total derivative will tell us about the most optimal point. 
+
+
+4. What do we use Lagrange multipliers for? How do they work?
+
+Whenever we have n dependent coordinates and m constraints then we have n - m degrees of freedom. This make the Lagrangian easier to solve with m and n coordinates. 

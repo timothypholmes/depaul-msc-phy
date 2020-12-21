@@ -1,0 +1,74 @@
+% --------------------------------------------------------------
+%                           Set Up
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Quiz 4}
+\author{Timothy Holmes\\ %replace with your name
+Classical Mechanics}
+
+\maketitle
+
+\section*{1.}
+
+The derivation at the end is hard to follow when the Author chooses to integrate by parts. I do not specifically see how the next step is formulated.
+
+
+\section*{2.}
+
+If we break down the equation we have that $\alpha$ is an integer that corresponds to a particular particle within the system. From Newton's second law we easily know that $F_{\alpha}$ is the total force acting on the particle, $m_{\alpha}$ is the mass of the particle, and $a_{\alpha}$ is the acceleration of the particle. Mass time acceleration represents the time derivative of the momentum which can also be written as $\dot{p_{\alpha}}$ as shown in the book. Finally, $\delta r_{\alpha}$ is the virtual displacement. What $F_{\alpha} - \dot{p_{\alpha}} = 0$ tells us is that a system of $\alpha$ particles in motion in equilibrium under external force minus added force is 0. The system is also in equilibrium when the total work of the external force is 0 and that is how we get this equation 
+
+$$
+\sum_{\alpha=1}^{N} (F_{\alpha}^{ext} - \dot{p_{\alpha}}) \delta r_{\alpha}= 0.
+$$
+
+
+For the Atwood problem we would have $\dot{p_{\alpha}} = -m_{\alpha} g x_{\alpha}$ where $\alpha = 1, 2$. For $F_{\alpha} = \frac{1}{2}m_{\alpha} \dot{x_{\alpha}}^{2}$ where $\alpha = 1, 2$. We also need to know what virtual work is, using d'Alembert's principle virtual work is the length of the string. So $l = x_{1} + x_{2}$, we can find $l_{1}$ by  $l_{1} = l - x_{2}$ and $l_{2} = l - x_{1}$ where l is the entire length of the string from $m_{1}$ to $m_{2}$. Finally, we now have it in terms like the equation above. The equation can be written in  d'Alembert's principle where we have 
+
+$$
+\sum_{\alpha=1}^{N} (F_{\alpha}^{ext} - \dot{p_{\alpha}}) \rightarrow ((m_{1} + m_{2})\dot{x} - (m_{1} + m_{2})g) = 0
+$$
+
+which can be written as 
+
+$$
+\ddot{x} = \frac{(m_{1} - m_{2})g}{(m_{1} + m_{2})} = 0.
+$$
+
+\section*{3.}
+
+In chapter 2 we read about calculus of variations which introduced us to optimization like problems. The main principle of the chapter was to think about the minimal and maximal ways we could describe different geometries quantitatively. Hamilton's principle is very similar to the Euler-Lagrange equation, however, instead of the Lagrangian $L$ it is now a functional. By treating $L$ as a functional we will start to get the shortest paths. 
+ 
+% --------------------------------------------------------------
+%                           End Document.
+% --------------------------------------------------------------
+ 
+\end{document}

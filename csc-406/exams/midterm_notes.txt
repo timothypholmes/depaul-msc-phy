@@ -1,0 +1,122 @@
+Midterm Exam Topics
+-------------------
+ - two's complement representation and arithmetic
+ - conversions between decimal numbers and binary/hex numbers
+ - bit manipulation 
+ - basics of C involving printf of values in decimal/hex format,
+   casting, and the operators used in implementing the functions
+   for the data lab
+
+
+Two's Complement Representation
+-------------------------------
+
+
+Conversions
+-----------
+
+
+Bit Manipulation
+----------------
+
+
+
+Basics of C
+-----------
+
+
+Midterm Review Lecture
+----------------------
+
+ - Memory Layout of Integers
+   -------------------------
+   int x = 0x44225533; /* &x = 0x1000 */
+   char *p = &x; /* p =0x1000 */
+
+   Address Array Element Little Endian Big Endian
+   ------- ------------- ------------- ----------
+   0x1000  p[0]          0x33          0x44
+   0x1001  p[1]          0x55          0x22
+   0x1002  p[2]          0x22          0x55
+   0x1003  p[3]          0x44          0x33
+
+    - We assume Little Endian is used since we run on a Unix server
+      on an x86 computer
+
+ - Bitwise Operations in hex
+   -------------------------
+   x & 0 = 0, x & 0xff = x
+   x | 0 = x, x | 0xff = 0xff
+   x ^ 0 = x, x ^ 0xff = ±x, ±x = 15 - x
+     
+
+     - Memorize compliment of relations between different hex digits
+
+  - Quiz 3 Example
+    --------------
+    int x=12345678;
+    x & 0xff00 = x & 0000f00 = 0x5600
+    x ^ (±0xff0000) = x ^ (0xff00ffff) = 0xed34a987
+    x | (0xff000000) = 0xff345678
+
+ - Left Shift & Arithmetic Right Shift
+   -----------------------------------
+   > Data size determines the bit position of MSB that is discarded by left 
+     shift
+
+   char x = 0xAD;
+   x << 3 = 10101101b << 3 = 01101000b = 0x68
+
+   > Signed value uses arithmetic right shift
+   x >> 2 = 10101101b >> 2 >> 11101011b = 0xEB
+
+   > Unsigned value uses logic right shift
+   y >> 2 = 10101101b >> 2 >> 00101011b = 0x2b
+
+ - 2's Complement Representation 
+   -----------------------------
+   > Data size determines the interpretation because it specifiees the bit 
+     position of MSB
+   > byte value 0xAD indicates the data size is 8 bits 
+
+   Binary Value Signed                     Unsigned
+   ------------ -------------------------- -------------------------
+   10101101b    -2^7 + 2^5 + 2^3 + 2^2 + 1 2^7 + 2^5 + 2^3 + 2^2 + 1
+                = -128 +32 + 8 + 4         = 128 + 32 + 8 + 4 
+                = -83                      = 172
+
+ - Logical operators
+   > Operands for logical operators are considered as either 0 (false) or 
+     1 (true).
+   > Result of logical operators are either 0 or 1.
+   > -1 is 11...111b, ±(-1) = 0
+
+   char = 0;
+   char y = -1;
+   x && y = 0 && 0 = 0
+   x || y = 0 || 1 = 0
+   !x || !y = 1 || 0 = 1
+   x && ±y = 0 && 0 = 0
+
+
+ - Conversions (HEX to Binary)
+   ---------------------------
+   > A hex digit is 4 bits.
+   > A byte is 2 hex digits or 8 bits
+   > A short is 4 hex digits or 16 bits
+   > An int is 8 hex digits or 32 bits 
+
+
+- Exercise - 1
+  > Convert hex numbers to binary notation
+  0xAB   = 10101011b = 128 + 32 + 8 + 2 + 1
+  0x8F   = 10001111b = 128 + 8 + 4 + 2 + 1
+  0x1234 = 0001001000110100b
+  0xBEEF = 1011111011101111b
+  0xFEED = 1111111011101101b
+
+  > Convert binary numbers to hex notation
+  10010111b = 0x97
+  01101101b = 0x6D
+  11010010b = 0xD2
+  10101110b = 0xAE
