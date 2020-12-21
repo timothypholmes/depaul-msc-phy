@@ -1,5 +1,7 @@
 # DePaul MSc Physics Content
 
+This repository includes various peices of coursework throughout my Master's program. This includes homework, cheatcheets, notes, lecture slides, lecture worksheets, course projects, etc. Below is a table that will link each class to the proper classwork. 
+
 | Course                               | Syllabus |           Homework                            |  Notes  |    Cheatsheet    |                           Project                            |
 | :----------------------------------------------------------- | :-------------: |:----------------------------------------------------------: | :-----: | :--------------: | :----------------------------------------------------------: |
 | Classical Mechanics   (PHY 440) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
