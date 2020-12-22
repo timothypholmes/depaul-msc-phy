@@ -4,7 +4,7 @@ This repository includes various peices of coursework throughout my Master's pro
 
 | Course                               | Syllabus |           Homework                            |  Notes  |    Cheatsheet    |                           Project                            |
 | :----------------------------------------------------------- | :-------------: |:----------------------------------------------------------: | :-----: | :--------------: | :----------------------------------------------------------: |
-| Classical Mechanics   (PHY 440) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
+| Classical Mechanics   (PHY 440) | [:page_facing_up:](https://github.com/timothypholmes/depaul-msc-phy/blob/main/phy-440/syllabus/syl440a19.pdf)   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
 | Cosmology             (PHY 475) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
 | Quantum Mechanics I   (PHY 412) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
 | Quantum Mechanics II  (PHY 460) | [:page_facing_up:]   | [:books:]| [:memo:] | [:page_with_curl:]| [:floppy_disk:] |
