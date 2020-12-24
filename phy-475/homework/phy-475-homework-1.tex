@@ -1,0 +1,292 @@
+% --------------------------------------------------------------
+%                           Set Up
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subcaption}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{deepred},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{deepblue},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+\setlength\parindent{0pt}
+ 
+\begin{document}
+ 
+% -------------------------------------------------------------- 
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Homework 1}
+\author{Timothy Holmes\\ %replace with your name
+PHY 475 Introduction to Cosmology}
+
+\maketitle
+
+\section*{Problem 2.2}
+
+\subsection*{a.}
+
+The number density of the cosmic microwave background (CMB) is given as 
+
+$$
+n_{\gamma} = 4.107*10^{8} m^{-3}.
+$$
+
+Assuming that we are a sphere shaped then the surface area of a human liked object is needed. A human is $~1m$ give or take $0.5m$. The surface area of a sphere is as follows $A = 4\pi r^2$. If our human is $1m$ in height then the radius of that human with the assumption of a sphere is $0.5m$. The surface area of our human becomes $A = 4\pi (0.5m)^2 = 3.141m^2$. To find the frequency of photons that hits the human surface is found using 
+
+$$
+n_{\gamma}*c*A = 4.11*10^{8}m^{-3}*3.00*10^{8}m*s^{-1}*3.14m^{2} = 3.87*10^{17} s^{-1}
+$$
+
+\subsection*{b.}
+
+The mean energy can be expressed as 
+
+$$
+E_{mean} = \frac{\epsilon_{\gamma}}{n_{\gamma}} =
+\frac{\alpha T^{4}}{\beta T^{3}} = 
+\frac{\alpha T}{\beta} 
+$$
+
+
+To find the answer in watts the equation becomes
+
+$$
+n_{\gamma}cAE_{mean} = 1.1015*10^{-22} J * 3.87*10^{17} s^{-1} = 3.16*10^{-5} watts
+$$
+
+\section*{Problem 2.4}
+
+The equation 2.42 that the author defined for the problem 2.4 in chapter 2 is given in the form of
+
+$$
+\frac{dE}{dr} = -kE.
+$$
+
+This equation can be rewritten in the form of 
+
+$$
+\frac{dE}{E} = -kdr,
+$$
+
+where in this form it is easy to tell that this equation can be integrated. The equation then becomes
+
+$$
+\int \frac{dE}{E(r)} = \int -kdr \rightarrow ln(E) = -kr + c_{1}.
+$$
+
+The $c_{1}$ constant in this differential equation is $E_{0}$. Since we have a natural log on the left side of the equation an exponential is used to undo the natural log. The equation then becomes $E(r) = E_{0}exp(-kr)$. The relationship between energy and frequency is given by Planck's constant and frequency, $E = hf$. To find wavelength, the frequency is just $c/\lambda$ and the energy relation becomes $E = hc/\lambda$. Therefore, our differential equation solved above can be rewrote as $\lambda(r) = \lambda_{0}exp(kr)$.Red shift is found using the following equation
+
+$$
+z = \frac{\lambda_0 - \lambda_e}{\lambda_e}.
+$$
+
+Given the tired light hypothesis the red shift of z must now be
+
+$$
+z = \frac{\lambda(r) - \lambda_{0}}{\lambda_{0}} = e^{kr} - 1,
+$$
+
+which will reduce to z = kr. Since $z = H_{0} r/z$ and the new value of z is $kr$ then this equation will reduce to $k = H_{0}/c = 68 km*s^{-1} Mpc^{-1}/(300000) km*s^{-1}$. The value of k must be 
+$$
+2.26*10^{-4} Mpc^{-1}.
+$$
+
+\section*{Problem 3.3}
+
+To show that the circumference is $C = 2\pi sin(r/R)$ lets use the following equation
+
+$$
+\int_{0}^{C} ds = \int_{0}^{2\pi} Rsin(r/R).
+$$
+
+Integrating this equation we get the the circumference is 
+
+$$
+C = 2\pi R sin(r/R).
+$$
+
+The circumference again, of a circle given this problem is defined in the book as equation 3.62,
+
+$$
+C = 2\pi R sin(r/R).
+$$
+
+Now consider the scenario where the radius r is much less than the radius R, the circumference is $C = 2\pi R$. The difference of the two defined circumferences are now 
+
+$$
+\Delta C = 2\pi Rsin(r/R) - 2\pi r.
+$$
+
+The Taylor series expansion is used to help find what the radius r would be. The first order of the expansion is 
+
+$$
+\Delta C = 2\pi R[sin(r/R) - r/R] = -2\pi R\Big[\frac{1}{6} \Big(\frac{r}{R}\Big)^{3}\Big].
+$$
+
+This can be wrote as
+
+$$
+r = R\Big( \frac{3 \Delta C}{\pi R} \Big)^{\frac{1}{3}
+$$
+
+
+If $\Delta C$ is $1m$ then the circle will have to be about 
+
+$$
+34 km.
+$$
+
+\section*{Problem 3.5}
+
+In Cartesian coordinates the equation is 
+
+$$
+d\ell^{2} = dx^{2} + dy^{2} + dz^{2}.
+$$
+
+To find the transformation from Cartesian to Spherical coordinates, the partial derivative of each coordinate is needed. Thus the following are found
+
+\begin{align*}
+\frac{dx}{dr}&= sin(\theta)cos(\phi)&
+\frac{dx}{d\theta}&= rcos(\theta)cos(\phi)&
+\frac{dx}{d\phi}&= -rsin(\theta)sin(\phi)&
+\end{align*}
+
+\begin{align*}
+\frac{dy}{dr}&= sin(\theta)sin(\phi)&
+\frac{dy}{d\theta}&= rcos(\theta)sin(\phi)&
+\frac{dy}{d\phi}&= rsin(\theta)cos(\phi)&
+\end{align*}
+
+\begin{align*}
+\frac{dz}{dr}&= cos(\theta)&
+\frac{dz}{d\theta}&= -rsin(\theta)&
+\frac{dz}{d\phi}&= 0&
+\end{align*}
+
+Therefore from out results above it is found that 
+
+$$
+dx = drsin(\theta)cos(\phi) + rcos(\theta)cos(\phi)d\theta -rsin(\theta)sin(\phi)d\phi
+$$
+
+$$
+dy = drsin(\theta)sin(\phi) + rcos(\theta)sin(\phi)d\theta + rsin(\theta)cos(\phi)d\phi
+$$
+
+$$
+dz = drcos(\theta) - rsin(\theta)d\theta.
+$$
+
+Plugging these values back into $d\ell^{2} = dx^{2} + dy^{2} + dz^{2}$ and expanding the equation becomes
+
+\begin{align*}
+(drsin(\theta)cos(\phi) + rcos(\theta)cos(\phi)d\theta - rsin(\theta)sin(\phi))^{2} \\
++ (drsin(\theta)cos(\phi) + rcos(\theta)sin(\phi)d\theta + rsin(\theta)cos(\phi)d\phi)^{2} \\
++ (drcos(\theta) - rsin(\theta)d\theta)^{2}.
+\end{align*}
+
+
+Which reduces to the final equation 
+
+$$
+dr^{2} + r^{2}[d\theta^{2} + sin^{2}(\theta)d\phi^{2}].
+$$
+
+\section*{Problem 5}
+
+The critical energy density at the present time is,
+
+
+\subsection*{a.}
+
+$$
+\epsilon_{c,o} = \frac{3c^{2}}{8 \pi G} H_{o}^{2} = \frac{3*(3*10^8m*s^{-1})^2}{8*\pi*(6.7*10^-11*kg^{-1}*m^{3}*s^{-2})}*(2.268*10^{-18}s^{-1})^2 = 8.25*10^{-10}N*m*m^{-3}.
+$$
+
+
+\subsection*{b.}
+
+A $N*m$ is $6,241,509,744,511,500,288 eV$ so 
+
+$$
+8.25*10^{-10}N*m*m^{-3} = 5.2 \frac{GeV}{m^3}
+$$
+
+
+\subsection*{c.}
+
+Taking the answer from part a and dividing by the speed of light leaves us with 
+
+$$
+\epsilon_{c,o} = \frac{3}{8 \pi G} H_{o}^{2} = 9.16 * 10^{-27}*kg^{-1}*m^{5}
+$$
+
+\subsection*{d.}
+
+is about $10^{-29} g*cm^{-3}$ or 
+
+$$
+1.5*10^{-13} M_\odot Mpc^{-3}
+$$
+
+
+
+
+% --------------------------------------------------------------
+%                           End Document.
+% --------------------------------------------------------------
+ 
+\end{document}
+

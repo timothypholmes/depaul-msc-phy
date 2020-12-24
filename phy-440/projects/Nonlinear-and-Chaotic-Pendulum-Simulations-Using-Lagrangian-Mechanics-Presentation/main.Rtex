@@ -1,0 +1,243 @@
+\documentclass[10pt]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage{hyperref}
+\usepackage{fontawesome}
+\usepackage[english,ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multimedia}
+\usepackage{media9}
+
+% ------------------------------------------------------------------------------
+% Use the beautiful metropolis beamer template
+% ------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome}
+\usepackage{FiraSans} 
+\mode<presentation>
+{
+  \usetheme[progressbar=foot,numbering=fraction,background=light]{metropolis} 
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  %\setbeamertemplate{frame footer}{My custom footer}
+} 
+
+% ------------------------------------------------------------------------------
+% beamer doesn't have texttt defined, but I usually want it anyway
+% ------------------------------------------------------------------------------
+\let\textttorig\texttt
+\renewcommand<>{\texttt}[1]{%
+  \only#2{\textttorig{#1}}%
+}
+
+% ------------------------------------------------------------------------------
+% minted
+% ------------------------------------------------------------------------------
+\usepackage{minted}
+
+
+% ------------------------------------------------------------------------------
+% tcolorbox / tcblisting
+% ------------------------------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{codecolor}{HTML}{003cff}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{most,listingsutf8,minted}
+
+\tcbset{tcbox width=auto,left=1mm,top=1mm,bottom=1mm,
+right=1mm,boxsep=1mm,middle=1pt}
+
+\newtcblisting{myr}[1]{colback=codecolor!5,colframe=codecolor!80!black,listing only, 
+minted options={numbers=left, style=tcblatex,fontsize=\tiny,breaklines,autogobble,linenos,numbersep=3mm},
+left=5mm,enhanced,
+title=#1, fonttitle=\bfseries,
+listing engine=minted,minted language=r}
+
+
+% ------------------------------------------------------------------------------
+% Listings
+% ------------------------------------------------------------------------------
+\definecolor{mygreen}{HTML}{37980D}
+\definecolor{myblue}{HTML}{0D089F}
+\definecolor{myred}{HTML}{98290D}
+
+\usepackage{listings}
+
+% the following is optional to configure custom highlighting
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morecomment=[s]{<!--}{-->},
+  morestring=[s]{>}{<},
+  morekeywords={ref,xmlns,version,type,canonicalRef,metr,real,target}% list your attributes here
+}
+
+\lstdefinestyle{myxml}{
+language=XML,
+showspaces=false,
+showtabs=false,
+basicstyle=\ttfamily,
+columns=fullflexible,
+breaklines=true,
+showstringspaces=false,
+breakatwhitespace=true,
+escapeinside={(*@}{@*)},
+basicstyle=\color{mygreen}\ttfamily,%\footnotesize,
+stringstyle=\color{myred},
+commentstyle=\color{myblue}\upshape,
+keywordstyle=\color{myblue}\bfseries,
+}
+
+
+% ------------------------------------------------------------------------------
+% The Document
+% ------------------------------------------------------------------------------
+\title{Nonlinear and Chaotic Pendulum Simulations Using Lagrangian Mechanics}
+\author{Timothy Holmes}
+\date{November 2019}
+
+\usepackage{lipsum}
+\usepackage{animate}
+
+\makeatletter
+\newcommand\smoothscroll[5][]{%
+  % [#1] autoplay
+  % #2 <boxnum>
+  % #3 <viewport height>
+  % #4 <steps>
+  % #5 <steps per sec>
+  \edef\mywd{\the\wd#2}%
+  \edef\myht{\the\ht#2}%
+  \edef\mytht{\the\dimexpr\ht#2+\dp#2\relax}%
+  \@anim@reset%
+  \@anim@xform{}{}{#2}% distill box into re-usable PDF XObject
+  \edef\myxform{\@anim@lastxform}%
+  \edef\portht{\the\dimexpr#3\relax}%
+  \begin{animateinline}[#1,width=\mywd,height=\portht,loop]{#5}
+    \multiframe{#4}{dRaiseLen=-\myht+\dimexpr(\mytht+\portht)/#4\relax}{%
+      \begin{minipage}[b][#3][b]{\mywd}%
+        \raisebox{\dRaiseLen}[0pt][0pt]{\@anim@refxform\myxform}%
+      \end{minipage}%
+    }%
+  \end{animateinline}%
+}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\begin{frame}[fragile,allowframebreaks]{Intro}
+
+Steps to solving a classical system using Lagrangian Mechanics
+
+\begin{enumerate}
+    \item Find your kinetic energy $T$ and potential energy $V$
+    \item Coordinate transformation
+    \item Set up your Lagrangian with generalized coordinates $L = T - V$
+    \item Solve for the equations of motion using Euler–Lagrange equation
+    $$
+    \frac{d}{dt}\frac{\partial L}{\partial \dot{q_{i}}} - \frac{\partial L}{\partial q_{i}} = 0
+    $$
+\end{enumerate}
+
+\framebreak
+\end{frame}
+
+\begin{frame}{Programming}
+\begin{enumerate}
+    \item After completing the steps above
+
+    \begin{itemize}
+        \item Set up initial conditions and parameters
+        \item Find the first derivative of the equations of motion
+        \item Solve the differential equation, set this equal to the generalized coordinate
+        \item Preform the coordinate transformation with the numerical solution
+        \item Plot/animate
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\section{Pseudo Code and The Simple Pendulum}
+
+\begin{frame}[fragile]{Initial condition}
+ %set the langauge in these brackets after {minted}{LANGUAGE SHORTHAND}
+\begin{minted}{python}
+#------------ variables ----------------
+L = 1        
+omega = 2.5  
+A = 0.1      
+m = 1        
+g = 9.81    
+
+#------------ time step -----------------
+t = np.arange(0, 50, 0.01)
+
+#------------ initial conditions --------
+initial_q = [np.pi/2, 0]
+
+#------------ shape values --------------
+r = 0.05
+\end{minted}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{Equations of Motion}
+ %set the langauge in these brackets after {minted}{LANGUAGE SHORTHAND}
+\begin{minted}{python}
+    def derivative(self, y, t, L, m, g):
+        '''Returns the first derivatives of y'''
+        theta, thetadot = q
+
+        dtheta_dt = thetadot
+        dthetadot_dt = -(g/L) * np.sin(theta)
+
+        return dtheta_dt, dthetadot_dt
+\end{minted}
+
+\end{frame}
+
+\begin{frame}[fragile]{Coordinate Transformation}
+ %set the langauge in these brackets after {minted}{LANGUAGE SHORTHAND}
+\begin{minted}{python}
+def coordinate_transformation(self):
+        '''Returns a numerical solution to the 
+        differential equation and returns x and 
+        y coordinates for the plot'''
+        q = odeint(self.derivative, initial_q, t, 
+        args=(self.L, self.m, self.g))
+
+        self.theta, self.thetadot = q[:,0], q[:,1]
+        self.x = L * np.sin(self.theta) 
+        self.y = - L * np.cos(self.theta)
+
+        return self.x, self.y, self.theta, 
+        self.thetadot
+\end{minted}
+\end{frame}
+
+\begin{frame}{The Double Pendulum}
+\begin{enumerate}
+    \item After completing the steps above
+
+    \begin{itemize}
+        \item Set up initial conditions and parameters
+        \item Find the first derivative of the equations of motion
+        \item Solve the differential equation, set this equal to the generalized coordinate
+        \item Preform the coordinate transformation with the numerical solution
+        \item Plot/animate
+    \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[standout]
+   Questions? 
+\end{frame}
+
+\end{document}
