@@ -14,4 +14,3 @@ This repository includes various peices of coursework throughout my Master's pro
 | Electrodynamics I     (PHY 411) | [:bookmark_tabs:]   | [:books:]| [:spiral_notepad:] | [:floppy_disk:]| [:test_tube:] |
 | Electrodynamics II    (PHY 420) | [:bookmark_tabs:]   | [:books:]| [:spiral_notepad:] | [:floppy_disk:]| [:test_tube:] |
 | Thesis Research       (PHY 480) | [:bookmark_tabs:]   | [:books:]| [:spiral_notepad:] | [:floppy_disk:]| [:test_tube:] |
-
