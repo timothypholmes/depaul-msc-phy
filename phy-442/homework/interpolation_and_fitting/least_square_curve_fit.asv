@@ -1,0 +1,50 @@
+function least_square_curve_fit(x, y, sigma_values)
+
+if sigma_values == True
+    fit_type = 'sigma';
+    
+elif sigma_values == False
+    fit_type = 'no_sigma';
+
+else
+    warning('Unexpected sigma_values type. Input must be a boolean value.')
+    
+    
+end
+
+
+
+switch fit_type
+    case 'sigma'
+        
+        s    = sum(1/sigam(i)^2);
+        s_x  = sum(x(i)/sigam(i)^2);
+        s_y  = sum(y(i)/sigam(i)^2);
+        s_xx = sum(x(i)^2/sigam(i)^2);
+        s_xy = sum((x(i)*y(i))/sigam(i)^2);
+        
+        delta = ((s * s_xx) - (s_x)^2);
+        a_1 = ((s_xx * s_y) - (s_x * s_xy))/delta;
+        a_2 = ((s * s_xy) - (s_x * s_y))/delta;
+        
+        a_1_variance = s_xx/delta;
+        a_2_variance = s/delta;
+        
+    case 'no_sigma'
+        
+        s = 1;
+        s_x = 1; s_y = 1;
+        s_xx = 1; s_xy = 1;
+        
+        delta = ((s * s_xx) - (s_x)^2);
+        a_1 = ((s_xx * s_y) - (s_x * s_xy))/delta;
+        a_2 = ((s * s_xy) - (s_x * s_y))/delta;
+        
+        chi = sum(y
+        
+        
+    otherwise
+        warning('Unexpected fit type. No fit created.')
+
+
+end

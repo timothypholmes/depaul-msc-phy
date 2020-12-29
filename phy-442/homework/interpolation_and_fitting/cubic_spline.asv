@@ -1,0 +1,117 @@
+function cubic_spline(x, y, spacing)
+%% Tridiagonal Program
+%   - Curve fit
+%   
+%   Input Arg
+%   ---------
+%   x - array: Default: Homework 1 values
+%       x-axis values of a table/plot.
+%   y - array: Default: Homework 1 values
+%       y-axis values of a table/plot
+%   spacing - int: Optional argument: Default: 5
+%       Number of curve fit plot point between 
+%       (x, y) and (x + 1, y + 1).
+%
+%   Optional Input
+%   --------------
+%   None
+%       Runs func that rutens homework 1 Args
+%
+%   Output Arg
+%   ----------
+%   None - prints unknow x_i values to console
+%
+%   Modify for output arg, change function to:
+%       [x] = function tridiagonal_system(A, r)
+
+if (~exist('x', 'var')) && (~exist('y', 'var'))
+    [x, y] = homework_1_values(); 
+end
+
+%% Preallocate 
+n = length(x);
+A = zeros(n, n);
+h = zeros(n, 1);
+r = zeros(n - 2, 1);
+
+%% Calculate h, matrix A, and R.H.S values
+for i = 1:(n - 1)
+   h(i) = x(i + 1) - x(i);
+end
+for i = 2:(n - 1)
+    A(i, (i - 1):(i + 1)) = [h(i - 1) 2 * (h(i - 1) + h(i)) h(i)];
+end
+for i = 1:(n - 2)
+   r(i) = (6 * (y(i + 2) - y(i + 1)))/h(i + 1) - (6 * (y(i + 1) - y(i)))/h(i); 
+end
+
+%% Set matrix for a natural cubic spline
+r           = [0; r; 0;];
+A(1,1)      = 1;
+A(end, end) = 1;
+
+%% Call trisolve, return second derivative (p'') as (p)
+p   = trisolve(A, r);
+
+%% Preallocate 
+p_x = zeros(n, 1);
+a   = zeros(n, 1); b = zeros(n, 1);
+c   = zeros(n, 1); d = zeros(n, 1);
+
+%% Calculate Coefficents 
+for j = 1:(n - 1)
+   a(j) = (p(j + 1) - p(j))/(6 * h(j));
+   b(j) = p(j)/2;
+   c(j) = (y(j + 1) - y(j))/h(j) - (h(j) * p(j + 1))/6 - (h(i) * p(j))/3;
+   d(j) = y(j);
+end
+
+%% Default Spacing - set up curve fit plots
+if (~exist('spacing', 'var'))
+    spacing = 5;
+end
+
+x_step  = (x(2) - x(1))/spacing;
+dx      = x(1):x_step:x(end);
+
+
+%% Calculate ploynomial 
+for i = 1:(n - 1)
+    for j = ((spacing * (i - 1)) + 1):(spacing * (i) + 1)
+        p_x(j) = a(i) * (dx(j) - x(i))^3 + b(i) * (dx(j) - x(i))^2 + c(i) * (dx(j) - x(i)) + d(i);
+    end
+end
+
+p_x = p_x';
+
+%% Plot
+set(gcf, 'Position', [100 100 1100 500])
+subplot(1, 2, 1)
+hold on
+plot(x, y, 'bo')
+plot(dx, p_x, 'rx')
+
+subplot(1, 2, 2)
+hold on
+plot(x, y, 'b-')
+plot(dx, p_x, 'r-.')
+
+
+end
+
+
+
+
+function [x, y] = homework_1_values()
+
+rho = [0; 1; 2; 3; 4; 5; 6; 7; 8; 9; 10;];
+%J_0 = [1.00000; 0.76519; 0.22389; -0.26005; -0.39714; -0.17759; 0.15064; 0.30007; 0.17165; -0.09033; -0.24593];
+%J_1 = [0.00000; 0.44005; 0.57672; 0.33905; -0.06604; -0.32757; -0.27668; -0.00468; 0.23463; 0.24531; 0.04347;];
+J_2 = [0.00000; 0.11490; 0.35283; 0.48690; 0.36412; 0.04656; -0.24287; -0.30141; -0.11299; 0.14484; 0.25463;];
+J_1_prime = (
+rho_hardcode       = 0:1:13
+J_1_prime_hardcode = -3:0.5:3
+x = rho;
+y = J_1_prime_hardcode;
+
+end

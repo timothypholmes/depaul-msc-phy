@@ -1,0 +1,74 @@
+function LU_factor(A, b)
+%% Tridiagonal Program
+%   - Find unkown x_i values while knowing the
+%     matrix and r.h.s array
+%   
+%   Input Arg
+%   ---------
+%   A - martix:
+%       A general tridiagonal system.
+%   r - array:
+%       R.H.S values.
+
+%   Optional Input
+%   --------------
+%   None
+%       Runs func that rutens homework 1 Args
+%
+%   Output Arg
+%   ----------
+%   None - prints unknow x_i values to console
+%
+%   Modify for output arg, change function to:
+%       [x] = function tridiagonal_system(A, r)
+
+if (~exist('A', 'var')) && (~exist('b', 'var'))
+    [A, b] = homework_2_values(); 
+end
+
+
+N = length(A);
+for k = 1:(N-1)
+ 
+    if(k == 1)
+       %pass
+    else
+        for i = k:N
+            sum = a(i, k);
+            for j = 1:(k - 1)
+                sum = sum - a(i, j) * a(j, k);
+            end
+        end
+        a(i, k) = sum;
+    end
+end
+
+if (k == 1)
+    for j = 2:N
+        a(1, j) = a(1, j)/a(1, 1);
+    end
+else
+    for j = (k + 1):N
+        sum = a(k, j);
+        for i = 1:(k - 1)
+            sum = sum - a(k, i) * a(i, j);
+        end
+        a(k, j) = sum/a(k, k);
+    end
+end
+
+sum = a(N, N);
+for j = 1:(N - 1)
+   sum = sum - a(N, j) * a(j, N); 
+end
+a(N, N) = sum;
+det = det * a(N, N);
+x(1) = x(1)/a(1, 1);
+for
+
+end
+
+function [A, r] = homework_2_values()
+A = [ 2 -1   0   0  0; -1  2  -1   0  0; 0 -1   2  -1  0; 0  0  -1   2 -1; 0  0   0  -1  2;];
+b = [0; 1; 2; 3; 4;];
+end
