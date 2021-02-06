@@ -13,7 +13,7 @@ T_parallel = ((2 * n * n_prime * np.cos(i)) / \
 
 R_parallel = ((n_prime**2 * np.cos(i) - n * np.sqrt(n_prime**2 - n**2 * np.sin(i)**2))/ \
               (n_prime**2 * np.cos(i) + n * np.sqrt(n_prime**2 - n**2 * np.sin(i)**2)))**2 \
-              * (n_prime/n)
+
 T_max = T_parallel.argmax()
 R_min = R_parallel.argmin()
 

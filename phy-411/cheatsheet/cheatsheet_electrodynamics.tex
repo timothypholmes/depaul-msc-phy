@@ -1,0 +1,255 @@
+\documentclass[a4paper, 11pt, landscape]{article}
+
+\usepackage{mathptmx} % more compact font
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{paralist} % for compacter lists
+\usepackage{hyperref} % for Todo's and similar things
+\usepackage[left=4.5mm, right=4.5mm, top=4.5mm, bottom=6mm, landscape, nohead, nofoot]{geometry}
+\usepackage[small,compact]{titlesec}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{xparse}
+
+% compact text
+\linespread{0.9}
+\setlength{\parindent}{0pt}
+
+% compact lists even more
+\setdefaultleftmargin{0em}{0em}{0em}{0em}{0em}{0em}
+
+% compact sections
+\titlespacing*{\section}{0pt}{0em}{0em}
+\titlespacing*{\subsection}{0pt}{0em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0em}{0em}
+
+% coloured section headings for easier read
+\titleformat{name=\section}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\colorsection}
+\newcommand{\colorsection}[1]{%
+	\colorbox{red!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesection\ #1}}}
+
+
+\titleformat{name=\subsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subcolorsection}
+\newcommand{\subcolorsection}[1]{%
+	\colorbox{orange!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsection\ #1}}}
+
+
+\titleformat{name=\subsubsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subsubcolorsection}
+\newcommand{\subsubcolorsection}[1]{%
+	\colorbox{blue!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsubsection\ #1}}}
+	
+% environment for multicols inside a list
+\NewDocumentEnvironment{listcols}{O{2} O{0pt}}
+	{%
+		\bgroup %
+		\setlength{\multicolsep}{#2} %
+		\begin{multicols*}{#1} %
+	}
+	{%
+		\end{multicols*} %
+		\egroup %
+	}
+
+\usepackage{tabstackengine}
+
+% multicols lines & spacing
+\setlength{\columnsep}{0.2cm}
+\setlength{\columnseprule}{0.2pt}
+
+% No page numbers
+\pagenumbering{gobble}
+
+% math helpers
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\begin{document}
+
+% set equations to have no white space above or below
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\begin{multicols*}{3}
+
+\section{Maxwell Equations}
+\begin{compactenum}
+
+    \begin{align*}
+    \textbf{In free space} & \textbf{In free space} \\
+    \vec{\nabla} \cdot \vec{B} &= 0 & \nabla \cdot \vec{B} &= 0 \\
+    \vec{\nabla} \cdot \vec{D} &= 0 & \nabla \cdot \vec{D} &= \rho \\
+    \vec{\nabla} \times \vec{E} - i\omega\vec{B} &= 0 & 
+    \vec{\nabla} \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} \\
+    \vec{\nabla} \times \vec{B} + i\omega\mu\epsilon\vec{E} &= 0 & 
+    \vec{\nabla} \times H &= \vec{J} + \frac{\partial \vec{D}}{\partial t}
+	\end{align*}
+
+\end{compactenum}
+
+\subsection{Constructive Relations}
+\begin{compactenum}
+
+	\begin{align*}
+	\vec{D} &= \epsilon\vec{E} & \vec{B} &= \mu\vec{H}
+	\end{align*}
+
+\end{compactenum}
+
+\section{Electromagnetic Waves and Propagation}
+\subsection{Helmholtz wave equations}
+\begin{compactenum}
+\begin{align*}
+(\nabla^{2} + \mu \epsilon \omega^{2})\vec{E} &= 0 & 
+(\nabla^{2} + \mu \epsilon \omega^{2})\vec{B} &= 0 
+\end{align*}
+\end{compactenum}
+
+\subsection{Constructive Relations}
+\begin{compactenum}
+    \item \textbf{Wave number:} $k = \omega\sqrt{\mu \epsilon}$
+	\item \textbf{Phase velocity:} $v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu \epsilon}} = \frac{c}{n}$ 
+	\item \textbf{Index of refraction of the medium:} $n = \frac{\mu \epsilon}{\mu_{0} \epsilon_{0}}$
+\end{compactenum}
+
+\subsection{Plane Electromagnetic Waves}
+\begin{compactenum}
+	\begin{align*}
+	    \vec{E} &= \vec{E}_{0}e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	    \vec{B} &= \sqrt{\mu \epsilon}\frac{\vec{k}\times\vec{E}}{k}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Polarization of Waves}
+\begin{compactenum}
+	\begin{align*}
+	    \vec{E_{1}} &= \hat{\epsilon_{1}}E_{1}e^{i(\vec{k}\cdot\vec{x} - \omega t)}  &
+	    \vec{E_{2}} &= \hat{\epsilon_{2}}E_{2}e^{i(\vec{k}\cdot\vec{x} - \omega t)}
+	\end{align*}
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{1}}E_{1} + \hat{\epsilon_{2}}E_{2})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+\end{compactenum}
+
+\subsection{Stokes Parameters}
+\begin{compactenum}
+	\textbf{Linear polarization basis}:
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{1}}E_{1} + \hat{\epsilon_{2}}E_{2})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+	\begin{align*}
+	    E_{1} &= a_{1}e^{i\delta_{1}} & E_{2} &= a_{2}e^{i\delta_{2}}
+	\end{align*}
+	\textbf{Circular polarization basis}:
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{+}}E_{+} +             \hat{\epsilon_{-}}E_{-})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+	\begin{align*}
+	    E_{+} &= a_{+}e^{i\delta_{+}} & E_{-} &= a_{-}e^{i\delta_{-}}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Reflection and Refraction: Kinematic Properties}
+\begin{compactenum}
+	\textbf{Incident wave}:
+		\begin{align*}
+	        \vec{E} &= \vec{E}_{0}e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	        \vec{B} &= \sqrt{\mu \epsilon}\frac{\vec{k}\times\vec{E}}{k}
+	    \end{align*}
+	\textbf{Refracted wave}:
+		\begin{align*}
+	        \vec{E'} &= \vec{E}_{0}'e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	        \vec{B'} &= \sqrt{\mu' \epsilon'}\frac{\vec{k}'\times\vec{E}'}{k}
+	    \end{align*}
+	\textbf{Reflected wave}:
+		\begin{align*}
+	        \vec{E''} &= \vec{E}_{0}''e^{i(\vec{k}''\cdot\vec{x} - \omega t)} &
+	        \vec{B''} &= \sqrt{\mu \epsilon}\frac{\vec{k}''\times\vec{E}''}{k}
+	    \end{align*}
+\end{compactenum}
+
+\subsection{Reflection and Refraction: Boundary condition}
+\begin{compactenum}
+\textbf{Normal components}:
+	\begin{align*}
+        [\epsilon(\vec{E_{0}} + \vec{E_{0}''}) - \epsilon'\vec{E_{0}'}] \cdot \hat{n} &= 0 
+	\end{align*}
+	\begin{align*}
+	[\vec{k} \times \vec{E_{0} + \vec{k''} \times \vec{E_{0}''} - \vec{k'} \times \vec{E_{0}'}}] \cdot \hat{n} &= 0
+	\end{align*}
+\textbf{Tangential components}:
+    \begin{align*}
+        [\vec{E_{0}} + \vec{E_{0}''} - \vec{E_{0}'}] \times \hat{n} = 0
+	\end{align*}
+	\begin{align*}
+        \Big[\frac{1}{\mu}(\vec{k} \times \vec{E_{0}} + \vec{k''} \times \vec{E_{0}''}) - \frac{1}{\mu'}(\vec{k'} \times \vec{E_{0}'}\Big] \times \hat{n} = 0
+	\end{align*}
+\end{compactenum}
+
+\subsection{Brewster’s Angle}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Snell's Law}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Total Internal Reflection}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Reflection and Transmission Coefficients}
+\begin{compactenum}
+	\begin{align*}
+        \vec{s} \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}|^{2}cos(i) \\
+        \vec{s}' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon'}{\mu'}}|E_{0}'|^{2}\cos(r) \\
+        \vec{s}'' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}''|^{2}\cos(r)' \\
+	\end{align*}
+	\begin{align*}
+	    T &= \frac{\vec{s}' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} & R &= \frac{\vec{s}'' \cdot \hat{n}}{\vec{s} \cdot \hat{n}}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Dispersion Model for time-varying field}
+\begin{compactenum}
+	\begin{align*}
+        m[\ddot{\vec{x}} + \gamma\dot{\vec{x}} + \omega_{0}^{2}\vec{x}] = -e\vec{E}(\vec{x}, t)
+	\end{align*}
+\end{compactenum}
+
+\subsection{Dispersion}
+\begin{compactenum}
+	\begin{align*}
+        \frac{\epsilon(\omega)}{\epsilon_{0}} = 1 + \frac{Ne^{2}}{\epsilon_{0}m}\sum_{j}\frac{f_{j}}{\omega^{2}_{j} - \omega^{2} - i\omega\gamma_{j}}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Attenuation of a plane wave}
+\begin{compactenum}
+
+\end{compactenum}
+
+
+
+
+\raggedcolumns
+\end{multicols*}
+\end{document}

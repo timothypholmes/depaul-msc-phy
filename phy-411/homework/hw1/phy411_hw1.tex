@@ -1,0 +1,390 @@
+\documentclass[11pt]{article}
+
+ \usepackage{tikz}
+ \usepackage{tkz-euclide}
+ \usepackage{amsthm,amssymb}
+
+\newcommand{\HWnum}{1} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{411}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject~411 Electrodynamics I}
+
+\maketitle
+
+\section*{Problem 1}
+
+\begin{center}
+\begin{tikzpicture}
+
+\tkzDefPoint(2,3.5){A}
+\tkzDefPoint(0,0){B}
+\tkzDefPoint(4,0){C}
+
+\tkzDrawSegments(A,B B,C A,C)
+\tkzLabelPoints[above,yshift=0pt](A)
+\tkzLabelPoints[left,yshift=4pt](B)
+\tkzLabelPoints[right,yshift=4pt](C)
+
+\tkzDefMidPoint(A,B) \tkzGetPoint{D}
+\tkzDefLine[orthogonal=through D](A,B) 
+
+\tkzDefMidPoint(A,C) \tkzGetPoint{E}
+\tkzDefLine[orthogonal=through E](A,C) 
+
+\tkzDrawSegment(D,E)
+\tkzLabelPoints[above,xshift=-2mm](D)
+\tkzLabelPoints[above,xshift=2mm](E)
+\end{tikzpicture}
+\end{center}
+
+\begin{proof}
+Given the triangle above, let the line segment $\overrightarrow{AB}$ be $\vec{a}$ and let the line segment $\overrightarrow{AC}$ be $\vec{b}$. Since the midpoints are in the middle of $\overrightarrow{AB}$ and $\overrightarrow{AC}$, these line segments are half way to the midpoint. The line segments to the midpoint are defined as $\overrightarrow{AD}$ and $\overrightarrow{AE}$. Therefore, since  $\overrightarrow{AD}$  is half of $\overrightarrow{AB}$ and $\overrightarrow{AE}$  is half of $\overrightarrow{AC}$ then 
+
+$$
+\overrightarrow{AD} = \frac{1}{2}\vec{a}, ~~~~ \overrightarrow{AE} = \frac{1}{2}\vec{b}.
+$$
+
+The line segment $\overrightarrow{BC}$ as a vector is $\vec{b} - \vec{a}$. The line segment $\overrightarrow{DE}$ as a vector is $\frac{1}{2}(\vec{b} - \vec{a})$. The relation these line segments have is
+
+$$
+\overrightarrow{DE} = \frac{1}{2}(\vec{b} - \vec{a}) = \frac{1}{2} \overrightarrow{BC}.
+$$
+
+Thus, the mid line segment is half of the lower line segment or $\overrightarrow{DE} = \frac{1}{2}\overrightarrow{BC}$.
+
+\end{proof}
+
+% If you insert the command below
+\clearpage
+
+\section*{Problem 2}
+
+Prove 
+$$
+\vec{\nabla} \times (\vec{\nabla} \times \vec{A}) 
+= \vec{\nabla}(\vec{\nabla} \cdot \vec{A}) - \nabla^{2}\vec{A}
+$$
+
+To prove that the RHS is equivalent to the LHS using explicit calculation, the first calculation is then
+
+$$
+\vec{\nabla} \times \vec{A} = \Big( \hat{x}\Big(\frac{\partial}{\partial x} \Big) + \hat{y}\Big(\frac{\partial}{\partial y} \Big) + \hat{z}\Big(\frac{\partial}{\partial z} \Big)\Big) \times (A_{x}\hat{x} + A_{x}\hat{y} + A_{x}\hat{z})
+$$
+
+Taking the curl from above gives
+
+\begin{eqnarray*}
+= ( 
+\hat{x}\frac{\partial}{\partial x} \times \vec{A}_{x}\hat{x} + \hat{x}\frac{\partial}{\partial x} \times \vec{A}_{y}\hat{y} + \hat{x}\frac{\partial}{\partial x} \times \vec{A}_{z}\hat{z} \\
+\hat{y}\frac{\partial}{\partial y} \times \vec{A}_{x}\hat{x} + \hat{y}\frac{\partial}{\partial y} \times \vec{A}_{y}\hat{y} + \hat{y}\frac{\partial}{\partial y} \times \vec{A}_{z}\hat{z} \\
+\hat{z}\frac{\partial}{\partial z}  \times \vec{A}_{x}\hat{x} + \hat{z}\frac{\partial}{\partial z}  \times \vec{A}_{y}\hat{y} + \hat{z}\frac{\partial}{\partial z}  \times \vec{A}_{z}\hat{z} 
+) 
+\end{eqnarray*}
+
+and all of the same components will be zero. This can be simplified to 
+
+\begin{eqnarray*}
+A_{y}\frac{\partial}{\partial x}\hat{z} + A_{z}\frac{\partial}{\partial x}\hat{y} - A_{x}\frac{\partial}{\partial y}\hat{z} + A_{z}\frac{\partial}{\partial y}\hat{x} + A_{x}\frac{\partial}{\partial z}\hat{y} + A_{y}\frac{\partial}{\partial z}\hat{x}
+\end{eqnarray*}
+
+and further simplified to 
+
+\begin{eqnarray*}
+\Big(\frac{\partial A_{x}}{\partial y} - \frac{\partial A_{y}}{\partial z}\Big) \hat{x} + \Big(\frac{\partial A_{x}}{\partial z} - \frac{\partial A_{z}}{\partial x}\Big) \hat{y} +
+\Big(\frac{\partial A_{y}}{\partial x} - \frac{\partial A_{x}}{\partial y}\Big) \hat{z}.
+\end{eqnarray*}
+
+Taking the curl one more time gives
+
+$$
+\vec{\nabla} \times (\vec{\nabla} \times \vec{A}) = 
+$$
+
+$$
+\Big(\frac{\partial^{2}A_{y}}{\partial x \partial y} - \frac{\partial^{2} A_{x}}{\partial y^{2}} - \frac{\partial^{2} A_{x}}{\partial z^{2}} + \frac{\partial^{2} A_{z}}{\partial z \partial x} \big) \hat{x} \\
+- \Big(-\frac{\partial^{2}A_{x}}{\partial y \partial x} + \frac{\partial^{2} A_{y}}{\partial x^{2}} + \frac{\partial^{2} A_{y}}{\partial z^{2}} - \frac{\partial^{2} A_{z}}{\partial y \partial z} \big) \hat{y} \\
++ \Big(\frac{\partial^{2}A_{x}}{\partial z \partial x} - \frac{\partial^{2} A_{z}}{\partial x^{2}} - \frac{\partial^{2} A_{z}}{\partial y^{2}} + \frac{\partial^{2} A_{y}}{\partial z \partial y} \big) \hat{z}
+$$
+
+Now, for the RHS starting with 
+
+$$
+\vec{\nabla}(\vec{\nabla} \cdot \vec{A}) - \nabla^{2}\vec{A} =
+$$
+
+\begin{center}
+\begin{eqnarray*}
+ = \Big(\frac{\partial}{\partial x}\hat{x} + \frac{\partial}{\partial y}\hat{y} + \frac{\partial}{\partial z}\hat{z}\Big)\Big(\frac{\partial A_{x}}{\partial x} + \frac{\partial A_{y}}{\partial y} + \frac{\partial A_{z}}{\partial z} \Big) - \Big(\frac{\partial^{2}}{\partial x^{2}} +\frac{\partial^{2}}{\partial y^{2}} + \frac{\partial^{2}}{\partial z^{2}}\Big) (A_{x}\hat{x} + A_{y}\hat{y} + A_{z}\hat{z})
+\end{eqnarray*}
+\end{center}
+
+\begin{center}
+\begin{eqnarray*}
+= \Big(\frac{\partial^{2}A_{y}}{\partial y \partial x} - \frac{\partial^{2} A_{x}}{\partial y^{2}} - \frac{\partial^{2} A_{x}}{\partial z^{2}} + \frac{\partial^{2} A_{z}}{\partial z \partial x} \big) \hat{x} 
++ \Big(\frac{\partial^{2}A_{x}}{\partial x \partial y} - \frac{\partial^{2} A_{y}}{\partial y^{x}} - \frac{\partial^{2} A_{y}}{\partial z^{2}} + \frac{\partial^{2} A_{z}}{\partial z \partial y} \big) \hat{y}
++ \Big(\frac{\partial^{2}A_{x}}{\partial x \partial z} - \frac{\partial^{2} A_{z}}{\partial x^{2}} - \frac{\partial^{2} A_{z}}{\partial y^{2}} + \frac{\partial^{2} A_{y}}{\partial y \partial z} \big) \hat{z}
+\end{eqnarray*}
+\end{center}
+
+Thus, because the LHS is equal to the RHS using explicit calculation then $\vec{\nabla} \times (\vec{\nabla} \times \vec{A}) 
+= \vec{\nabla}(\vec{\nabla} \cdot \vec{A}) - \nabla^{2}\vec{A}$ is true.
+
+\clearpage
+
+\section*{Problem 3}
+
+Prove 
+$$
+\vec{A} \cdot (\vec{B} \times \vec{C}) = 
+\vec{B} \cdot (\vec{C} \times \vec{A}) = 
+\vec{C} \cdot (\vec{A} \times \vec{B}) 
+$$
+
+To prove that all combinations of calculations above are the same with
+the method of explicit calculations, the calculations need to be broke up. 
+Starting with the cross product in the parenthesis. 
+
+\begin{eqnarray*}
+\vec{B} \times \vec{C} = 
+(B_{x}\hat{x} + \hat{y}\frac{\partial}{\partial y} + B_{z}\hat{z}) \times
+(B_{x}\hat{x} + B_{y}\hat{y} + B_{z}\hat{z}) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= ( 
+B_{x}\hat{x} \times C_{x}\hat{x} + B_{x}\hat{x} \times C_{y}\hat{y} + B_{x}\hat{x} \times C_{z}\hat{z} \\
+B_{y}\hat{y} \times C_{x}\hat{x} + B_{y}\hat{y} \times C_{y}\hat{y} + B_{y}\hat{y} \times C_{z}\hat{z} \\
+B_{z}\hat{z} \times C_{x}\hat{x} + B_{z}\hat{z} \times C_{y}\hat{y} + B_{z}\hat{z} \times C_{z}\hat{z} 
+) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= B_{x}C_{y}\hat{z} - B_{x}C{z}\hat{y} 
+- B_{y}C_{x}\hat{z} + B_{y}C_{z}\hat{x} 
++ B_{z}C_{x}\hat{y} - B_{z}C_{y}\hat{x}
+\end{eqnarray*}
+
+This can be simplified by factoring out the vector components of similar direction,
+
+\begin{eqnarray*}
+= (B_{y}C_{z} - B_{z}C_{y})\hat{x} 
++ (B_{y}C_{x} - B_{z}C_{x})\hat{y}
++ (B_{x}C_{y} - B_{z}C_{x})\hat{z}.
+\end{eqnarray*}
+
+Now, the dot product of $\vec{A}$ on the above equation will satisfy 
+the calculation for this combination of vectors. So 
+
+$$
+\vec{A} \cdot (\vec{B} \times \vec{C})
+$$
+
+\begin{eqnarray*}
+= (A_{x}\hat{x} + A_{y}\hat{y} + A_{z}\hat{z}) \cdot
+(B_{y}C_{z} - B_{z}C_{y})\hat{x} 
++ (B_{y}C_{x} - B_{z}C_{x})\hat{y}
++ (B_{x}C_{y} - B_{z}C_{x})\hat{z}.
+\end{eqnarray*}
+
+Taking the dot product such that $\vec{A} \cdot (\vec{B} \times \vec{C})$
+results as
+    
+\begin{eqnarray*}
+= A_{x}B_{y}C_{z} - A_{x}B_{z}C_{y} + A_{y}B_{y}C_{x} 
+- A_{y}B_{z}C_{x} + A_{z}B_{x}C_{y} - A_{z}B_{z}C_{x}
+\end{eqnarray*}
+
+% 2-----------------
+
+The same steps as above can be done for
+
+\begin{eqnarray*}
+\vec{C} \times \vec{A} = 
+(C_{x}\hat{x} + C_{y}\hat{y} + C_{z}\hat{z}) \times
+(C_{x}\hat{x} + C_{y}\hat{y} + C_{z}\hat{z}) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= ( 
+C_{x}\hat{x} \times A_{x}\hat{x} + C_{x}\hat{x} \times A_{y}\hat{y} + C_{x}\hat{x} \times A_{z}\hat{z} \\
+C_{y}\hat{y} \times A_{x}\hat{x} + C_{y}\hat{y} \times A_{y}\hat{y} + C_{y}\hat{y} \times A_{z}\hat{z} \\
+C_{z}\hat{z} \times A_{x}\hat{x} + C_{z}\hat{z} \times A_{y}\hat{y} + C_{z}\hat{z} \times A_{z}\hat{z} 
+) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= C_{x}A_{y}\hat{z} - C_{x}A{z}\hat{y} 
+- C_{y}A_{x}\hat{z} + C_{y}A_{z}\hat{x} 
++ C_{z}A_{x}\hat{y} - C_{z}A_{y}\hat{x}
+\end{eqnarray*}
+
+This can be simplified by factoring out the vector components of similar direction,
+
+\begin{eqnarray*}
+= (C_{y}A_{z} - C_{z}A_{y})\hat{x} 
++ (C_{y}A_{x} - C_{z}A_{x})\hat{y}
++ (C_{x}A_{y} - C_{z}A_{x})\hat{z}.
+\end{eqnarray*}
+
+Now, the dot product of $\vec{A}$ on the above equation will satisfy 
+the calculation for this combination of vectors. So 
+
+$$
+\vec{B} \cdot (\vec{C} \times \vec{A}) 
+$$
+
+\begin{eqnarray*}
+= (B_{x}\hat{x} + B_{y}\hat{y} + B_{z}\hat{z}) \cdot
+(C_{y}A_{z} - C_{z}A_{y})\hat{x} 
++ (C_{y}A_{x} - C_{z}A_{x})\hat{y}
++ (C_{x}A_{y} - C_{z}A_{x})\hat{z}.
+\end{eqnarray*}
+
+Taking the dot product such that $\vec{A} \cdot (\vec{C} \times \vec{A})$
+results as
+    
+\begin{eqnarray*}
+= B_{x}C_{y}A_{z} - B_{x}C_{z}A_{y} + B_{y}C_{y}A_{x} 
+- B_{y}C_{z}A_{x} + B_{z}C_{x}A_{y} - B_{z}C_{z}A_{x}
+\end{eqnarray*}
+
+
+Taking the dot product such that $\vec{A} \cdot (\vec{B} \times \vec{C})$
+results as
+    
+\begin{eqnarray*}
+= A_{z}B_{x}C_{y} - A_{y}B_{x}C_{z} + A_{z}B_{y}C_{x} + A_{y}B_{z}C_{x} - A_{x}B_{z}C_{y}
+\end{eqnarray*}
+
+% 3-----------------
+
+Finally
+
+\begin{eqnarray*}
+\vec{A} \times \vec{B} = 
+(A_{x}\hat{x} + A_{y}\hat{y} + A_{z}\hat{z}) \times
+(B_{x}\hat{x} + B_{y}\hat{y} + B_{z}\hat{z}) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= ( 
+A_{x}\hat{x} \times B_{x}\hat{x} + A_{x}\hat{x} \times B_{y}\hat{y} + A_{x}\hat{x} \times B_{z}\hat{z} \\
+A_{y}\hat{y} \times B_{x}\hat{x} + A_{y}\hat{y} \times B_{y}\hat{y} + A_{y}\hat{y} \times B_{z}\hat{z} \\
+A_{z}\hat{z} \times B_{x}\hat{x} + A_{z}\hat{z} \times B_{y}\hat{y} + A_{z}\hat{z} \times B_{z}\hat{z} 
+) 
+\end{eqnarray*}
+
+\begin{eqnarray*}
+= A_{x}B_{y}\hat{z} - A_{x}B{z}\hat{y} 
+- A_{y}B_{x}\hat{z} + A_{y}B_{z}\hat{x} 
++ A_{z}B_{x}\hat{y} - A_{z}B_{y}\hat{x}
+\end{eqnarray*}
+
+This can be simplified by factoring out the vector components of similar direction,
+
+\begin{eqnarray*}
+= (A_{y}B_{z} - A_{z}B_{y})\hat{x} 
++ (A_{y}B_{x} - A_{z}B_{x})\hat{y}
++ (A_{x}B_{y} - A_{z}B_{x})\hat{z}.
+\end{eqnarray*}
+
+Now, the dot product of $\vec{A}$ on the above equation will satisfy 
+the calculation for this combination of vectors. So 
+
+$$
+\vec{C} \cdot (\vec{A} \times \vec{B}) 
+$$
+
+\begin{eqnarray*}
+= (A_{x}\hat{x} + A_{y}\hat{y} + A_{z}\hat{z}) \cdot
+(A_{y}B_{z} - A_{z}B_{y})\hat{x} 
++ (A_{y}B_{x} - A_{z}B_{x})\hat{y}
++ (A_{x}B_{y} - A_{z}B_{x})\hat{z}.
+\end{eqnarray*}
+
+Taking the dot product such that $\vec{C} \cdot (\vec{A} \times \vec{B})$
+results as
+    
+\begin{eqnarray*}
+= A_{y}B_{z}C_{x} - A_{z}B_{y}C_{x} + A_{z}B_{x}C_{y} 
+- A_{x}B_{z}C_{y} + A_{x}B_{y}C_{z} - A_{y}B_{x}C_{z}.
+\end{eqnarray*}
+
+Each result had a different order, but ordering in the same way shows that they all have the exact same components which proves that $\vec{A} \cdot (\vec{B} \times \vec{C}) = \vec{B} \cdot (\vec{C} \times \vec{A}) = \vec{C} \cdot (\vec{A} \times \vec{B})$.
+
+
+\clearpage
+
+\section*{Problem 4}
+
+The integral to integrate over all space using spherical coordinates is found using the following
+$$
+Q = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{\infty} \rho(r, \theta, \phi) r^{2}sin(\theta) d\phi d\theta dr.
+$$
+
+Substituting $\rho(x)$ in for the Dirac $\delta$-function, $C\delta(r - R)$, creates the integral 
+
+$$
+Q = \int_{0}^{2\pi} \int_{0}^{\pi} \int_{0}^{\infty}  C\delta(r - R) r^{2}sin(\theta) d\phi d\theta dr.
+$$
+
+First integrating over $\phi$ gives
+
+$$
+Q =  2\pi \int_{0}^{\pi} \int_{0}^{\infty}  C\delta(r - R) r^{2}sin(\theta) d\theta dr .
+$$
+
+Then integrating over $\theta$ gives
+
+$$
+Q =  4\pi \int_{0}^{\infty}  C\delta(r - R) r^{2} dr.
+$$
+
+Finally integrating over $r$ gives
+
+$$
+Q =  4\pi C \int_{0}^{\infty} \delta(r - R) r^{2} dr.
+$$
+
+The selector function works in a way as such
+
+$$
+\int_{0}^{\infty} f(a)\delta(a - A) = A.
+$$
+
+Therefore, for this problem the function defined as $f(a)$ in the integral above is $r^{2}$. The Delta function is $\delta(r - R)$, therefore, $r$ is going to be replaced with $R$. Then, integrating over all space the total charge is now
+
+$$
+Q =  \frac{4\pi}{C R^{2}}.
+$$
+
+The constant can now be solved for and becomes
+
+$$
+C =  \frac{Q}{4\pi  R^{2}}.
+$$
+
+% -------------------------- EOD -------------------------- 
+\end{document}

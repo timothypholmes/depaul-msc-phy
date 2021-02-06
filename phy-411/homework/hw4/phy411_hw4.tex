@@ -1,0 +1,308 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{4} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{411}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject~411 Electrodynamics I}
+
+\maketitle
+
+\section*{Problem 1}
+
+
+
+If we start this problem such that we are parallel to the plane of Incidence then this problem becomes similar to the problem in homework 3. However, the electric field and magnetic field have to be wrote in a way such that they satisfy the boundary conditions. That is
+
+
+\begin{align*}
+\vec{E} = \hat{x}E_{0}e^{i(\hat{k}z - \omega t)} \\
+\vec{E'} = \hat{x}E_{0}e^{i(k'z - \omega t)}\\
+\vec{E''} = \hat{x}E_{0}e^{-i(\hat{k}z + \omega t)} \\
+\end{align*}
+
+
+and
+
+\begin{align*}
+\vec{B} = \hat{y}\sqrt{\mu_{0} \epsilon_{0}}E_{0}e^{i(\hat{k}z - \omega t)} \\
+\vec{B'} = \hat{y}\sqrt{\mu_{0}' \epsilon_{0}'}E_{0}e^{i(k'z - \omega t)}\\
+\vec{B''} = -\hat{y}\sqrt{\mu_{0} \epsilon_{0}}E_{0}e^{-i(\hat{k}z + \omega t)} \\
+\end{align*}
+
+Now, at $z = 0$, the exponential will cancel and the boundary then looks like
+
+$$
+(E_{0} + E_{0}'') = E_{0}'.
+$$
+
+We now assume $\mu = \mu_{0}$ and we know $\vec{B} = \mu\vec{H}$ then 
+
+\begin{align*}
+(B_{0} + B_{0}'') &= B_{0}' \\
+\rightarrow (\sqrt{\mu_{0} \epsilon_{0}} E_{0} - \sqrt{\mu_{0} \epsilon_{0}} E_{0}'') &= \sqrt{\mu' \epsilon'} E_{0}' \\
+\rightarrow (E_{0} - E_{0}'') &= \sqrt{\frac{\epsilon(\omega)}{\epsilon_{0}}} E_{0}' \\
+\rightarrow  (E_{0} - E_{0}'') &= n(\omega) E_{0}'
+\end{align*}
+
+
+The incidence and reflective angles are $0$. This means that we have $i = 0$ and $r = 0$. Thus, $cos(0) = 1$ and $sin(0) = 0$, we get
+
+$$
+\vec{s} \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}|^{2},
+$$
+
+$$
+\vec{s}' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon'}{\mu'}}|E_{0}'|^{2},
+$$
+
+$$
+\vec{s}'' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}''|^{2}.
+$$
+
+Now the final transmission and reflection coefficients can be calculated by
+
+$$
+R = \frac{\vec{s}'' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} = \frac{|E_{0}''|^{2}}{|E_{0}|^{2}} = \Bigg|\frac{n' - n}{n' + n}\Bigg|^{2}
+$$
+
+$$
+T = \frac{\vec{s}' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} = \sqrt{\frac{\mu \epsilon'}{\epsilon \mu'}} \frac{|E_{0}'|^{2}}{|E_{0}|^{2}} = n'\Bigg|\frac{2n}{n' + n}\Bigg|^{2}.
+$$
+
+For the sake of simplicity, we will rewrite our equations as
+
+$$
+1 + \frac{E_{0}''}{E_{0}} = \frac{E_{0}'}{E_{0}} \rightarrow 1 + r = t
+$$
+
+and
+
+$$
+1 - \frac{E_{0}''}{E_{0}} = n(\omega)\frac{E_{0}'}{E_{0}} \rightarrow 1 - r = n(\omega)t
+$$
+
+where $r = E_{0}''/E_{0}$ and $t = E_{0}'/E_{0}$. Entering these components into the transmission and reflection coefficients, we get
+
+$$
+R = \Bigg|\frac{1 - n(\omega)}{1 + n(\omega)}\Bigg|^{2}
+$$
+
+$$
+T = \frac{4Re n(\omega)}{|1 + n(\omega)|^{2}}.
+$$
+
+\clearpage
+
+\section*{Problem 2}
+
+$$
+\vec{P} = N\big<\vec{P}_{mol}\big>
+$$
+
+$$
+\vec{P} = N\big(\epsilon_{0}\gamma_{mol}(\vec{E} + \vec{E_{i}})\Big)
+$$
+
+From equation 4.63, Jackson finds that 
+
+$$
+\vec{E}_{i} = \frac{\vec{P}}{3\epsilon_{0}}
+$$
+
+where $\vec{P} = \epsilon_{0} \chi_{e} \vec{E}_{0}$. Therefore, the equation becomes 
+
+$$
+\vec{P} = N\bigg(\epsilon_{0}\gamma_{mol}\Bigg(\vec{E} + \frac{\vec{P}}{3\epsilon_{0}}\Bigg)\Bigg)
+$$
+
+Now, the equations is set up to solve for $\gamma_{mol}$. In order to do this, the equations can be rearranged such that 
+
+$$
+\gamma_{mol} = \frac{3\vec{P}}{3\epsilon_{0}N\vec{E} + N\vec{P}}
+$$
+
+This equation then reduces to 
+
+$$
+\gamma_{mol} = \frac{3\epsilon_{0}\vec{E}}{\epsilon_{0}\vec{E}N}\Bigg(\frac{\chi_{e}}{3 + \chi_{e}}\Bigg)
+$$
+
+From equation 4.38 it is known that $\epsilon = \epsilon_{0}(1 + \chi_{e})$ so
+
+\begin{equation*}
+\begin{aligned}
+\epsilon = \epsilon_{0}(1 + \chi_{e}) \\
+\implies \epsilon = (\epsilon_{0} + \epsilon_{0} \chi_{e}) \\ 
+\implies \frac{\epsilon}{\epsilon_{0}} = (\chi_{e} + 1) \\
+\implies \chi_{e} = \frac{\epsilon}{\epsilon_{0}} - 1
+\end{aligned}
+\end{equation*}
+
+Thus, the equation will become
+
+$$
+\gamma_{mol} = \frac{3}{N}\Bigg(\frac{(\epsilon/\epsilon_{0} - 1)}{3 + (\epsilon/\epsilon_{0} - 1)}\Bigg).
+$$
+
+Finally, the equation can reduce down to 
+
+$$
+\gamma_{mol} = \frac{3}{N}\Bigg(\frac{\epsilon/\epsilon_{0} - 1}{\epsilon/\epsilon_{0} + 2}\Bigg)
+$$
+
+\clearpage
+
+\section*{Problem 3}
+\subsection*{(a)}
+
+The ideal gas law is gave by
+
+$$
+PV = \aleph kT
+$$
+
+where $P$ is pressure, $V$ is volume, $\aleph$ is the number of molecules, $k$ is Boltzmann constant, and $T$ is the temperature. Therefore, solving for $N$ gives 
+
+$$
+N = \frac{\aleph}{V} = \frac{P}{kT}.
+$$
+
+Substituting $N$ in the Clausius-Mossotti equation gives
+
+$$
+\gamma_{mol} = \frac{3kT}{P} \frac{(\epsilon/\epsilon_{0} - 1)}{(\epsilon/\epsilon_{0} + 2)}
+$$
+
+Furthermore, the dielectric constant, $\epsilon_{r}$, where $\epsilon_{r} = \epsilon/\epsilon_{0}$. Therefore, we can further reduce the equation to 
+
+$$
+\gamma_{mol} = \frac{3kT}{P} \frac{(\epsilon_{r} - 1)}{(\epsilon_{r} + 2)}
+$$
+
+\begin{center}
+Data set 1: $y_{mol} = 2.0884168312789617e-29$\\
+Data set 2: $y_{mol} = 2.1926261245954468e-29$\\
+Data set 3: $y_{mol} = 2.03284310760267e-29$\\
+Data set 4: $y_{mol} = 1.0923118774613062e-29$\\
+\end{center}
+
+\subsection*{(b)}
+
+All of the data sets have the same order of magnitude. The values for data set 1, 2, and 3 are similar enough where the difference is minuscule. However, the value of data set 4 is half the value of data sets 1, 2, and 3. Some noticeable differences, in sequence from data set 1 to 4, the values of the dielectric constant increase. Moreover, the only other value that changes in our calculation is pressure. Again, in sequence from data set 1 to 4, each data set pressure value increase by one order of magnitude. In the last data set the value of pressure becomes so large that the idea gas law begins to break down and does not seem to work when the pressure is increased to this large of a value
+
+\clearpage
+
+\section*{Problem 4}
+
+\subsection*{(a)}
+
+The plasma frequency of the medium is gave by
+
+$$
+\omega_{p}^{2} = \frac{NZe^{2}}{\epsilon_{0}m}.
+$$
+
+where $NZ$ is the total number of electrons per unit volume as $NZ = 1.5 \times 10^{12} m^{-3}$, $e$ is the charge of an electron, $m$ is the mass of an electron, and $\epsilon_{0}$ is vacuum permittivity. The plasma frequency of the medium $\omega_{p}$ can also be wrote as 
+
+$$
+\omega_{p} = \sqrt{\frac{NZe^{2}}{\epsilon_{0}m}}.
+$$
+
+The frequency of $\omega_{p}$ can also be calculated by $\omega_{p}/2\pi$. Calculating this in python, the value of $\omega_{p}$ is
+
+$$
+\omega_{p} \approx 10 Mhz.
+$$
+
+Now, the wave number in high frequency limit is gave by
+
+$$
+ck = \sqrt{\omega^{2} - \omega_{p}^{2}}.
+$$
+
+Problem 3a asks if a $2MHz$ wave can communicate with a satellite. In this case the value of $\omega = 2*10^{6}Hz$ and the value of $\omega_{p} = 1*10^{7}Hz$, as shown above. From this we can calculate the 
+
+$$
+ck = \sqrt{2*10^{6}Hz - 1*10^{7}Hz} = 2000i\sqrt{2}.
+$$
+
+Ignoring the actual value and recognizing that it is imaginary is important here. What the imaginary value immediately indicated that the waves on a plasma are reflected. This means that this wave would not penetrate the ionosphere and therefore can not communicate with a satellite.
+
+\subsection*{(b)}
+
+Now, the same calculation can be done for the second value, $2GHz$,
+
+$$
+ck = \sqrt{2*10^{9}Hz - 1*10^{7}Hz} = 1000\sqrt{1900}.
+$$
+
+Again, ignoring the actual value and recognizing that it is not imaginary is important. The lack of an imaginary number shows that this wave would not reflect off the ionosphere and could communicate with a satellite.
+
+\clearpage
+
+\section*{Appendix}
+
+\subsection*{Problem 3 Calculations}
+\lstinputlisting{homework4.py}
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}
