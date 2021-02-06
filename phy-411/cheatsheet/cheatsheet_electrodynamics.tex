@@ -87,17 +87,46 @@
 
 \begin{multicols*}{3}
 
+\section{Vector Formulas}
+\subsection{Triple Products}
+\begin{compactenum}
+    \begin{align*}
+        A &\cdot (B \times C) = B \cdot (C \times A) = C \cdot (A \times B )\\
+        A &\times (B \times C) = B(A \cdot C) - C(A \cdot B)
+    \end{align*}
+\end{compactenum}
+
+\subsection{Product Rules}
+\begin{compactenum}
+    \begin{align*}
+    &\nabla(fg) = f(\nabla g) + g(\nabla f) \\
+    &\nabla((A \cdot B) = A \times (\nabla \times B) + B \times (\nabla \times A) + (A \cdot)B + (B \cdot \nabla)A\\
+    &\nabla \cdot(fA) = f(\nabla \cdot A) + A \cdot (\nabla f) \\
+    &\nabla \cdot (A \times B) = B \cdot (\nabla \times A) - A \cdot (\nabla \times B) \\
+    &\nabla \times (fA) = f(\nabla \times A) - A \times (\nabla f) \\
+    &\nabla \times (A \times B) = (B \cdot \nabla) - (A \cdot \nabla)B + A(\nabla \cdot B) - B(\nabla \cdot A)
+    \end{align*}
+\end{compactenum}
+
+\subsection{Second Derivatives}
+\begin{compactenum}
+    \begin{align*}
+    &\nabla \cdot (\nabla \times A) = 0 \\
+    &\nabla \times (\nabla f) = 0 \\
+    &\nabla \times (\nabla \times A) = \nabla(\nabla \cdot A) - \nabla^{2}A
+    \end{align*}
+\end{compactenum}
+
 \section{Maxwell Equations}
 \begin{compactenum}
 
     \begin{align*}
-    \textbf{In free space} & \textbf{In free space} \\
-    \vec{\nabla} \cdot \vec{B} &= 0 & \nabla \cdot \vec{B} &= 0 \\
-    \vec{\nabla} \cdot \vec{D} &= 0 & \nabla \cdot \vec{D} &= \rho \\
-    \vec{\nabla} \times \vec{E} - i\omega\vec{B} &= 0 & 
-    \vec{\nabla} \times \vec{E} &= - \frac{\partial \vec{B}}{\partial t} \\
-    \vec{\nabla} \times \vec{B} + i\omega\mu\epsilon\vec{E} &= 0 & 
-    \vec{\nabla} \times H &= \vec{J} + \frac{\partial \vec{D}}{\partial t}
+    &\vec{\nabla} \cdot \vec{B} = 0 & &\nabla \cdot \vec{B} = 0 \\
+    &\vec{\nabla} \cdot \vec{D} = 0 & &\nabla \cdot \vec{D} = \rho \\
+    &\vec{\nabla} \times \vec{E} - i\omega\vec{B} = 0 & 
+    &\vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \\
+    &\vec{\nabla} \times \vec{B} + i\omega\mu\epsilon\vec{E} = 0 & 
+    &\vec{\nabla} \times H = \vec{J} + \frac{\partial \vec{D}}{\partial t}
 	\end{align*}
 
 \end{compactenum}
@@ -187,17 +216,13 @@
 \begin{compactenum}
 \textbf{Normal components}:
 	\begin{align*}
-        [\epsilon(\vec{E_{0}} + \vec{E_{0}''}) - \epsilon'\vec{E_{0}'}] \cdot \hat{n} &= 0 
-	\end{align*}
-	\begin{align*}
-	[\vec{k} \times \vec{E_{0} + \vec{k''} \times \vec{E_{0}''} - \vec{k'} \times \vec{E_{0}'}}] \cdot \hat{n} &= 0
+        &[\epsilon(\vec{E_{0}} + \vec{E_{0}''}) - \epsilon'\vec{E_{0}'}] \cdot \hat{n} = 0 \\
+	&[\vec{k} \times \vec{E_{0} + \vec{k''} \times \vec{E_{0}''} - \vec{k'} \times \vec{E_{0}'}}] \cdot \hat{n} = 0
 	\end{align*}
 \textbf{Tangential components}:
     \begin{align*}
-        [\vec{E_{0}} + \vec{E_{0}''} - \vec{E_{0}'}] \times \hat{n} = 0
-	\end{align*}
-	\begin{align*}
-        \Big[\frac{1}{\mu}(\vec{k} \times \vec{E_{0}} + \vec{k''} \times \vec{E_{0}''}) - \frac{1}{\mu'}(\vec{k'} \times \vec{E_{0}'}\Big] \times \hat{n} = 0
+        &[\vec{E_{0}} + \vec{E_{0}''} - \vec{E_{0}'}] \times \hat{n} = 0 \\
+        &\Big[\frac{1}{\mu}(\vec{k} \times \vec{E_{0}} + \vec{k''} \times \vec{E_{0}''}) - \frac{1}{\mu'}(\vec{k'} \times \vec{E_{0}'}\Big] \times \hat{n} = 0
 	\end{align*}
 \end{compactenum}
 
@@ -219,13 +244,13 @@
 \subsection{Reflection and Transmission Coefficients}
 \begin{compactenum}
 	\begin{align*}
-        \vec{s} \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}|^{2}cos(i) \\
-        \vec{s}' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon'}{\mu'}}|E_{0}'|^{2}\cos(r) \\
-        \vec{s}'' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}''|^{2}\cos(r)' \\
+        &\vec{s} \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}|^{2}cos(i) &
+        &T = \frac{\vec{s}' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} \\
+        &\vec{s}' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon'}{\mu'}}|E_{0}'|^{2}\cos(r) &
+        &R = \frac{\vec{s}'' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} \\
+        &\vec{s}'' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}''|^{2}\cos(r)' &
+        &T + R = 1 \\
 	\end{align*}
-	\begin{align*}
-	    T &= \frac{\vec{s}' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} & R &= \frac{\vec{s}'' \cdot \hat{n}}{\vec{s} \cdot \hat{n}}
-    \end{align*}
 \end{compactenum}
 
 \subsection{Dispersion Model for time-varying field}
