@@ -1,0 +1,374 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{6} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{411}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{tikz}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject~411 Electrodynamics I}
+
+\maketitle
+
+\section*{Problem 1}
+
+The time-averaged potential of a neutral hydrogen atom is given by
+
+$$
+\Phi = \frac{q}{4\pi \epsilon_{0}} \frac{e^{-\alpha r}}{r}\Bigg(1 + \frac{\alpha r}{2}\Bigg)
+$$
+
+Starting with the Poisson equation in spherical coordinates
+
+$$
+\nabla^{2} \Phi = -\frac{\rho}{\epsilon_{0}}
+$$
+
+entering the spherical coordinates (gave in the back of Jackson) gives
+
+$$
+\frac{1}{r^{2}}\frac{\partial}{\partial r} \Bigg(r^{2} \frac{\partial \Phi}{\partial r} \Bigg) + \frac{1}{r^{2}sin\theta} \frac{\partial}{\partial \theta} \Bigg(sin\theta \frac{\partial \Phi}{\partial \theta} \Bigg) + \frac{1}{r^{2}sin^{2}\theta} \frac{\partial^{2}\Phi}{\partial \phi^{2}} = -\frac{\rho}{\epsilon_{0}}.
+$$
+
+Looking back at the potential $\Phi$ it is clear that it only depends of $r$. There are no appearances of $\theta$ or $\phi$. Therefore, the spherical component of this. equation can be reduced down to only have terms with $r$ where the derivatives won't be zero, since the derivatives of $\theta$ and $\phi$ will just be zero. Therefore, the equation will become
+
+$$
+\frac{1}{r^{2}}\frac{\partial}{\partial r}  \Bigg(r^{2} \frac{\partial \Phi}{\partial r} \Bigg) + 0 + 0 = -\frac{\rho}{\epsilon_{0}}.
+$$
+
+Now, entering the potential yields 
+
+$$
+\frac{1}{r^{2}}\frac{\partial}{\partial r}  \Bigg(r^{2} \frac{\partial}{\partial r} \Bigg( \frac{q}{4\pi \epsilon_{0}} \frac{e^{-\alpha r}}{r}\Bigg(1 + \frac{\alpha r}{2}\Bigg) \Bigg)\Bigg) = -\frac{\rho}{\epsilon_{0}}.
+$$
+
+To be able to differentiate the equation can be setup as
+
+$$
+\frac{1}{r^{2}}\frac{\partial}{\partial r}  \Bigg(r^{2} \Bigg[ \frac{q}{4\pi \epsilon_{0}} \Bigg(\frac{\partial}{\partial r} \frac{e^{-\alpha r}}{r} + \frac{\partial}{\partial r} \frac{\alpha e^{-\alpha r} }{2}\Bigg) \Bigg]\Bigg) = -\frac{\rho}{\epsilon_{0}}.
+$$
+
+The derivatives from the equation above are
+
+\begin{align*}
+    \frac{\partial}{\partial r} \frac{e^{-\alpha r}}{r} &= -\frac{e^{-\alpha r}(\alpha r + 1)}{r^{2}} & 
+    \frac{\partial}{\partial r} \frac{\alpha e^{-\alpha r} }{2} &= -\frac{\alpha^{2} e^{-\alpha r}}{2}
+\end{align*}
+
+Therefore, the equation becomes
+
+\begin{align*}
+    -\frac{\rho}{\epsilon_{0}} &= \frac{q}{4\pi\epsilon_{0}}\frac{1}{r^{2}}\frac{\partial}{\partial r}\Bigg(-\alpha r e^{\alpha r} + r^{2}e^{-\alpha r} 
+    \frac{\partial}{\partial r} \frac{1}{r} - \frac{\alpha^{2}r^{2}e^{-\alpha r}}{r} \Bigg) \\
+    -\rho &= \frac{q}{4\pi}\frac{1}{r^{2}}\frac{\partial}{\partial r}\Bigg(-\alpha r e^{\alpha r} + r^{2}e^{-\alpha r} 
+    \frac{\partial}{\partial r} \frac{1}{r} - \frac{\alpha^{2}r^{2}e^{-\alpha r}}{r} \Bigg)
+\end{align*}
+
+Taking the final derivatives and sorting the equation gives
+
+$$
+\rho = -\frac{q\alpha^{3}e^{-\alpha r} }{8\pi}- \frac{q e^{-\alpha r} }{4\pir^{2}} \frac{\partial}{\partial r} \Bigg(r^{2} \frac{\pratial}{\partial r} \frac{1}{r}\Bigg).
+$$
+
+Now, if we have a value of $r$ that is very small or is zero, this equation will not work. part of the equation will just be zero and go away. However, this can not happen. A fix around this is to use the relation that Jackson has on page 35 just before equation 1.31. The relation shows that 
+
+$$
+\nabla^{2}\Bigg(\frac{1}{r}\Bigg) = -4\pi\delta(x).
+$$
+
+Using this relationship, all of 
+
+$$
+\frac{\partial}{\partial r} \Bigg(r^{2} \frac{\pratial}{\partial r} \frac{1}{r}\Bigg) = -4\pi\delta(x).
+$$
+
+Thus, the piece-wise function we have is 
+
+\[ \rho = \begin{cases} 
+      -\frac{q\alpha^{3} }{8\pi} + q\delta(r)  & for \; r \approx 0 \\
+      -\frac{q\alpha^{3}e^{-\alpha r}}{8\pi} & for \; r > 0 \\
+      -\frac{q\alpha^{3}e^{-\alpha r}}{8\pi} + q\delta(r) & for \; all \; r \\
+   \end{cases}
+\]
+
+
+
+%\begin{align*}
+%-\frac{\rho}{\epsilon_{0}} &= \frac{1}{r^{2}}\frac{\partial}{\partial r} 
+%\Bigg(r^{2} 
+%\Bigg[ \frac{q}{4\pi \epsilon_{0}} \Bigg(-\frac{e^{-\alpha r}(\alpha r + 1)}{r^{2}} -\frac{\alpha^{2} e^{-\alpha r}}{2}\Bigg) \Bigg]\Bigg) \\
+%\rho &= 
+% \frac{1}{r^{2}} \frac{\partial}{\partial r} \frac{q  e^{-\alpha r}(\alpha r + 1)}{4\pi} + 
+%\frac{1}{r^{2}} \frac{\partial}{\partial r}
+%\frac{q r^{2} \alpha^{2} e^{-\alpha r}}{8 \pi}
+%\end{align*}
+
+
+\clearpage
+
+\section*{Problem 2}
+
+\iffalse
+
+\begin{center}
+\begin{tikzpicture}
+    \fill[gray]
+        (0, 0) rectangle (2, 12)
+        (8, 0) rectangle (10, 12)
+        (0, 0) rectangle (10, 2);
+
+    \node[anchor = north] at (2, 2)   {\scriptsize 0};
+    \node[anchor = north] at (8, 2)   {\scriptsize $a$};
+    \node[anchor = north] at (10.2, 2)   {\scriptsize $x$};
+    \node[anchor = north] at (2, 12.5)   {\scriptsize $y$};
+    \node[anchor = south] at (5, 2.5) {\scriptsize $\Phi = V$}
+    \node[anchor = south] at (2.5, 6) {\scriptsize $\Phi = 0$};
+    \node[anchor = south] at (7.5, 6) {\scriptsize $\Phi = 0$};
+    \node[anchor = south] at (5, 11) {\scriptsize $\Phi = 0$};
+    \draw[->] (5, 11.5) to (5, 12);
+
+    \draw[->] (2, 2) to (10, 2);
+    \draw[->]  (2, 2) to (2, 12);
+    \draw[->]  (8, 2) to (8, 12);
+\end{tikzpicture}
+\end{center}
+\fi
+
+The two-dimensional Laplace equation is gave by
+
+$$
+\frac{\partial \Phi}{\partial x^{2}} + \frac{\partial^{2}\Phi}{\partial y^{2}} = 0
+$$
+
+while the boundary conditions are $\Phi = 0$ at $x = 0$ and $x = a$, $\Phi = V$ at $y = 0$ for $0 \leq x \leq a$, and $\Phi \rightarrow 0$ for large $y$.
+
+To begin separating the variables and to apply the boundary conditions, this begins with the form
+
+$$
+\Phi(x, y) = X(x)Y(y)
+$$
+
+which can be entered back into the Laplace equation as
+
+$$
+\frac{\partial }{\partial x^{2}} (X(x)Y(y))+ \frac{\partial^{2}}{\partial y^{2}} (X(x)Y(y))= 0.
+$$
+
+From here, the variables are separated to find a familiar equation
+
+$$
+\frac{1}{X(x)}\frac{\partial^{2} X(x)}{\partial x^{2}} + \frac{1}{Y(y)}\frac{\partial^{2} Y(y)}{\partial y^{2}} = 0
+$$
+
+of which the variables are now independent of one another. Now, part of the equation can be set as a constant such that
+
+$$
+\frac{1}{X(x)}\frac{\partial^{2} X(x)}{\partial x^{2}} = -Z
+$$
+
+which implies that
+
+$$
+\frac{1}{Y(y)}\frac{\partial^{2} Y(y)}{\partial y^{2}} = Z.
+$$
+
+Setting the new coefficient $Z$ to $Z = k^{2}$ for the general solutions. The general solution for $X(x)$ is
+
+$$
+X(x) = Asin(kx) + Bcos(kx)
+$$
+
+while the general solution for $Y(y)$ is
+
+$$
+Y(y) = Ce^{ky} + De^{-ky}
+$$
+
+where $k = n\pi/a$. With the general solutions now set, boundary conditions can be applied. The following boundary conditions are satisfied. 
+
+\begin{align*}
+    \Phi(x = 0, y) &= 0 \rightarrow Asin(0) + Bcos(0) \rightarrow B = 0\\  
+    \Phi(x = a, y) &= 0 \rightarrow Asin(ka) \\
+    \Phi(x, y = 0) &= V \rightarrow Ce^{k0} + De^{-k0 }  \rightarrow C + D\\
+    \Phi(x, y = \infty) &= 0 \rightarrow C \rightarrow \infty \; \text{and} \; D \rightarrow 0\\
+\end{align*}
+
+Therefore, the surviving terms are
+
+$$
+Asin(ka) \; \text{and} \; De^{-n\pi y/a}.
+$$
+
+
+Thus, the solution to the Laplace's equation is 
+
+$$
+\Phi(x, y) = \sum_{n = 1}^{\infty} A_{n}sin\Big(\frac{n\pi x}{a}\Big) e^{-n\pi y/a}.
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+Show that 
+
+\[ A_{n} = \begin{cases} 
+       \frac{4V}{\pi n} & for \; n \; odd \\
+      0 & for \; n \; even. \\
+   \end{cases}
+\]
+
+Starting with the equation in Problem 2
+
+$$
+\Phi(x, y) = \sum_{n = 1}^{\infty} A_{n}sin\Big(\frac{n\pi x}{a}\Big) e^{-n\pi y/a}
+$$
+
+Using the boundary condition where $y = 0$ the equation can be set up such that
+
+$$
+\Phi(x, y = 0) =  \sum_{n = 1}^{\infty} A_{n}sin\Big(\frac{n\pi x}{a}\Big) e^{-n\pi 0/a} = V
+$$
+
+which reduces down to 
+
+$$
+\Phi(x, y = 0) =  \sum_{n = 1}^{\infty} A_{n}sin\Big(\frac{n\pi x}{a}\Big) = V.
+$$
+
+Multiplying both sides by $sin(nx)$ and integrating between $0 \leq x \leq a$ creates
+
+\begin{align*}
+\sum_{n = 1}^{\infty} A_{n} \int_{0}^{a} sin(nx) sin\Big(\frac{n\pi x}{a}\Big) dx &=  \int_{0}^{a} sin(nx) V dx. \\
+A_{n} \frac{a}{2} \delta &= \int_{0}^{a} sin(nx) V dx
+\end{align*}
+
+Integrating the LHS gives us
+
+$$
+A_{n} = \frac{2}{a} \int_{0}^{a} sin\Big(\frac{n\pi x}{a}\Big) V dx.
+$$
+
+Integrating the equation above gives 
+
+\begin{align*}
+    A_{n} &= \frac{2}{a} \int_{0}^{a} sin\Big(\frac{n\pi x}{a}\Big) V dx \\
+          &= \Bigg[-\frac{2V}{\pi n} (cos\Big(\frac{n\pi x}{a}\Big) - 1) \Bigg]_{0}^{a} \\
+          &= -\frac{2V}{\pi n} (cos(\pi n) - 1).
+\end{align*}
+
+When $n$ is even we have
+
+$$
+A_{n} = -\frac{2V}{\pi n} (1 - 1) = 0
+$$
+
+and when $n$ is odd we have
+
+$$
+A_{n} = -\frac{2V}{\pi n} (-1 - 1) = \frac{4V}{\pi n}.
+$$
+
+Thus,
+
+\[ A_{n} = \begin{cases} 
+       \frac{4V}{\pi n} & for \; n \; odd \\
+      0 & for \; n \; even. \\
+   \end{cases}
+\]
+
+or
+
+$$
+\Phi(x, y) = \sum_{n = odd}^{\infty} \frac{4V}{\pi n}sin\Big(\frac{n\pi x}{a}\Big) e^{-n\pi y/a}
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+Rodrigues' formula is gave by:
+
+$$
+P_{l}(x) = \frac{1}{2^{l}l!}\frac{d^{l}}{dx^{l}}(x^{2} - 1)^{l}.
+$$
+
+First, we can rewrite the expression as $P_{l+1}$, this just adds a 1 wherever a $l$ is, which gives
+
+$$
+P_{l+1}(x) = \frac{1}{2^{l+1}(l+1)!}\Big(\frac{d}{dx}\Big)^{l+1}(x^{2} - 1)^{l+1}.
+$$
+
+Which can be also wrote as
+
+$$
+P_{l+1}(x) = \frac{1}{2(l+1)}\frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}\Big(\frac{d^{2}}{dx^{2}}(x^{2} - 1)^{l+1}\Big).
+$$
+
+differentiating the term in the parenthesis give
+
+\begin{align*}
+\frac{d^{2}}{dx^{2}}(x^{2} - 1)^{l+1} &= 4l(l+1)x^{2}(x^{2} - 1)^{l-1}+2(l+1)(x^{2} - 1)^{l}. \\
+\end{align*}
+
+This can now be entered back into the working equation
+
+$$
+P_{l+1}(x) = \frac{1}{2(l+1)}\frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}\Big(4l(l+1)x^{2}(x^{2} - 1)^{l-1}+2(l+1)(x^{2} - 1)^{l}\Big).
+$$
+
+Factoring in the $1/(2(l+1))$ will reduce the equation to 
+
+\begin{align*}
+P_{l+1}(x) &= \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}\Big(2lx^{2}(x^{2} - 1)^{l-1}+(x^{2} - 1)^{l}\Big) \\
+ &= \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}\Big(2lx^{2}(x^{2} - 1)^{l-1}+(x^{2} - 1)^{l}\Big) \\
+ &= \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}\Big(2l(x^{2} - 1)^{l-1}+(2l+1)(x^{2} - 1)^{l}\Big)
+\end{align*}
+
+Now, if the equation is expanded, certain terms will look familiar,
+
+$$
+P_{l+1}(x) = \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l} 2l(x^{2} - 1)^{l-1} + \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}(2l+1)(x^{2} - 1)^{l}
+$$
+
+Breaking the RHS of the equation up into two components it is clear that
+
+\begin{align*}
+    P_{l-1}(x) &= \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l} 2l(x^{2} - 1)^{l-1} & (2l+1)P_{l}(x) &= \frac{1}{2^{l}l!}\Big(\frac{d}{dx}\Big)^{l}(x^{2} - 1)^{l}
+\end{align*}
+
+Thus, the equation in its final form is
+
+$$
+\frac{dP_{l+1}}{dx} - \frac{dP_{l-1}}{dx} - (2l+1)P_{l} = 0
+$$
+
+\clearpage
+
+% -------------------------- EOD -------------------------- 
+\end{document}
