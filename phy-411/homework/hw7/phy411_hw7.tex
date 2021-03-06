@@ -1,0 +1,326 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{7} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{411}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{tikz}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject~411 Electrodynamics I}
+
+\maketitle
+
+\section*{Problem 1}
+
+The potential of a localized distribution of charge described by the charge density $\rho(\vec{x})$ is given by 
+
+$$
+\Phi(\vec{x}) = \frac{1}{4\pi\epsilon_{0}} \sum_{l=0}^{\infty} \sum_{m=-l}^{l} \frac{4\pi}{2l+1}q_{lm}\frac{Y_{lm}(\theta, \phi)}{r^{l+1}}
+$$
+
+where the \textit{multipole moments} $q_{lm}$ are given by
+
+$$
+q_{lm} = \int Y^{*}_{lm}(\theta', \phi')r'^{l} \rho(\vec{x}) d^{3}x'.
+$$
+
+The evaluation for $q_{11}$ means that $l = 1$ and $m = 1$. Therefore, starting with the equation gave above we have
+
+$$
+q_{11} = \int Y^{*}_{11}(\theta', \phi') r'^{1} \rho(\vec{x}) d^{3}x'
+$$
+
+where $Y^{*}_{11}$ is 
+
+\begin{align*}
+Y^{*}_{lm} &= (-1)^{m} \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} P_{l}^{m}(cos\theta')e^{-im\phi'} \\
+Y^{*}_{11} &= -\sqrt{\frac{3}{4\pi}\frac{1}{2}} (cos\theta')e^{-i\phi'} \\ 
+Y^{*}_{11}&= -\sqrt{\frac{3}{8\pi}} (cos\theta'cos(\phi') - icos\theta'sin(\phi'))
+\end{align*}
+
+Entering this back into the equation $q_{11}$ will produce the equation
+
+\begin{align*}
+q_{11} = -\sqrt{\frac{3}{8\pi}} \int \rho(\vec{x})((r'cos\theta')cos(\phi') - i(r'cos\theta')sin(\phi')) d^{3}x'
+\end{align*}
+
+From Spherical coordinates it is know that to Cartesian coordinates it is known that 
+
+\begin{align*}
+x &= rsin\theta cos\phi & y &= rsin\theta sin\phi & z &= rcos\theta
+\end{align*}
+
+Therefore, rewriting the problem in Cartesian coordinates the equation becomes
+
+$$
+q_{11} = -\sqrt{\frac{3}{8\pi}} \int \rho(\vec{x})((x - iy) d^{3}x'.
+$$
+
+Now, $p$ is given by
+
+$$
+\vec{p} = \int \vec{x}'d^{3}x'
+$$
+
+Thus, the final equation is
+
+$$
+q_{11} = -\sqrt{\frac{3}{8\pi}}(p_{x} - ip_{y}).
+$$
+
+The evaluation for $q_{10}$ means that $l = 1$ and $m = 0$. Therefore, starting with the equation gave above we have
+
+$$
+q_{10} = \int Y^{*}_{10}(\theta', \phi') r'^{1} \rho(\vec{x}) d^{3}x'
+$$
+
+where $Y^{*}_{10}$ is 
+
+\begin{align*}
+Y^{*}_{lm} &= (-1)^{m} \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} P_{l}^{m}(cos\theta')e^{-im\phi'} \\
+Y^{*}_{10} &= \sqrt{\frac{3}{4\pi}\frac{1}{1}} (cos\theta') \\ 
+Y^{*}_{10} &= \sqrt{\frac{3}{4\pi}} (cos\theta') 
+\end{align*}
+
+Entering this all back in gives 
+
+$$
+q_{10} = \sqrt{\frac{3}{4\pi}} \int \rho(\vec{x}) r' cos\theta' d^{3}x'.
+$$
+
+Therefore, rewriting the problem in Cartesian coordinates the equation becomes
+
+$$
+q_{10} = \sqrt{\frac{3}{4\pi}} \int \rho(\vec{x}) z' d^{3}x'.
+$$
+
+With our relation to what $p$ is the final equation becomes
+
+$$
+q_{10} = \sqrt{\frac{3}{4\pi}}p_{z}.
+$$
+
+
+\clearpage
+
+\section*{Problem 2}
+
+Show that 
+
+$$
+q_{21} = -\frac{1}{3}\sqrt{\frac{15}{8\pi}}(Q_{13}-iQ_{23})
+$$
+
+where $Q_{ij}$ is the quadrupole moment tensor given by
+
+$$
+Q_{ij} = \int (3x'_{i}x'_{j}-r'^{2}\delta_{ij})\rho(\vec{x'})d^{3}x'.
+$$
+
+The evaluation for $q_{21}$ means that $l = 2$ and $m = 1$. Therefore, starting with the equation gave above we have
+
+$$
+q_{21} = \int Y^{*}_{21}(\theta', \phi') r'^{2} \rho(\vec{x}) d^{3}x'
+$$
+
+where $Y^{*}_{21}$ is 
+
+\begin{align*}
+Y^{*}_{lm} &= (-1)^{m} \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}} P_{l}^{m}(cos\theta')e^{-im\phi'} \\Y^{*}_{21} &= \sqrt{\frac{15}{8\pi}}sin(\theta')\cos(\theta')e^{-i\phi'}\\ 
+&= \sqrt{\frac{15}{8\pi}}sin(\theta')(cos(\theta')cos(\phi') - icos(\theta')sin(\phi'))
+\end{align*}
+
+Entering this back into the main equation gives
+
+$$
+q_{21} = \sqrt{\frac{15}{8\pi}}sin(\theta')(cos(\theta')cos(\phi') - icos(\theta')sin(\phi'))r'^{2} \rho(\vec{x}) d^{3}x'
+$$
+
+Converting from spherical coordinates gives 
+
+$$
+q_{21} = \sqrt{\frac{15}{8\pi}} (x'z' - iy'z') \rho(\vec{x}) d^{3}x'
+$$
+
+Where
+
+\begin{align*}
+Q_{13} &= \int (3x'z') \rho(\vec{x}) d^{3}x' & Q_{23} &= \int (3y'z') \rho(\vec{x}) d^{3}x'
+\end{align*}
+
+Divide a 3 out for the equations above and the final equation is
+
+$$
+q_{21} = -\frac{1}{3}\sqrt{\frac{15}{8\pi}}(Q_{13}-iQ_{23}).
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+\begin{align*}
+    E_{r} &= \frac{(l+1)}{(2l+1)\epsilon_{0}}q_{lm} \frac{Y_{lm}(\theta, \phi)}{r^{l+2}} &
+    E_{\theta} &= -\frac{1}{(2l+1)\epsilon_{0}} q_{lm} \frac{1}{r^{l+2}}\frac{\partial}{\partial \theta} Y_{lm}(\theta, \phi) &
+    E_{\phi} &= \frac{1}{(2l+1)\epsilon_{0}}q_{lm} \frac{1}{r^{l+2}} \frac{im}{sin\theta}Y_{lm}(\theta, \phi)
+\end{align*}
+
+For a dipole $\vec{p}$ along the z-axis, show that the fields above reduce to:
+
+\begin{align*}
+    E_{r} &= \frac{2pcos\theta}{4\pi\epsilon_{0}r^{3}} &
+    E_{\theta} &= -\frac{psin\theta}{4\pi\epsilon_{0}r^{3}}&
+    E_{\phi} &= 0
+\end{align*}
+
+The dipole $\vec{p}$ is given along the $z$-axis. From problem 1 we found that 
+
+$$
+q_{11} = -\sqrt{\frac{3}{8\pi}}(p_{x} - ip_{y}).
+$$
+
+
+But since this dipole is along the $z$-axis that means that $p_{x} = 0$ and $p_{y}=0$. With both $p_{x} = 0$ and $p_{y}=0$ this means that $q_{11} = 0$. On the other hand, from problem 1 we also found that
+
+$$
+q_{10} = \sqrt{\frac{3}{4\pi}}p_{z}.
+$$
+
+Therefore, this is the only $q$ value that will survive. More importantly this means that $l = 1$ and $m = 0$. From Jackson
+
+$$
+Y_{10} = \sqrt{\frac{3}{4\pi}} cos(\theta)
+$$
+
+Substituting all of this into the equation $E_{r}$ gives us
+
+\begin{align*}
+    E_{r} &= \frac{(1+1)}{(2(1)+1)\epsilon_{0}}q_{10} \frac{Y_{10}(\theta, \phi)}{r^{1+2}} \\
+    &= \frac{2}{3\epsilon_{0}} \sqrt{\frac{3}{4\pi}}p_{z} \frac{1}{r^{3}} \sqrt{\frac{3}{4\pi}} cos(\theta) \\
+\end{align*}
+
+This reduces to 
+
+$$
+E_{r} &= \frac{2pcos\theta}{4\pi\epsilon_{0}r^{3}} 
+$$
+
+Applying the same process for $E_{\theta}$ will give
+
+\begin{align*}
+    E_{\theta} &= -\frac{1}{(2(1)+1)\epsilon_{0}}q_{10} \frac{1}{r^{1+2}}\frac{\partial}{\partial \theta} Y_{10}(\theta, \phi) \\
+    &= -\frac{1}{3\epsilon_{0}} \sqrt{\frac{3}{4\pi}}p_{z} \frac{1}{r^{3}} \frac{\partial}{\partial \theta} \sqrt{\frac{3}{4\pi}} cos(\theta) 
+\end{align*}
+
+where 
+
+$$
+\frac{\partial}{\partial \theta} Y_{10}(\theta, \phi) = \frac{\partial}{\partial \theta} \sqrt{\frac{3}{4\pi}} cos(\theta) = -\sqrt{\frac{3}{4\pi}} sin(\theta).
+$$
+
+Therefore, the equation will reduce to
+
+$$
+E_{\theta} &= -\frac{psin\theta}{4\pi\epsilon_{0}r^{3}}.
+$$
+
+Finally, applying the same process for $E_{\phi}$ will give
+
+\begin{align*}
+    E_{\phi} &= \frac{1}{(2(1)+1)\epsilon_{0}}q_{10} \frac{1}{r^{1+2}} \frac{i(0)}{sin\theta}Y_{10}(\theta, \phi) \\
+\end{align*}
+
+Since $m = 0$ and there is a fraction in this equation that is $(im)/sin\theta$ the entire equation will be zero. Thus, 
+
+$$
+E_{\phi} &= 0.
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+Suppose that we have a uniform magnetic field $\vec{B_{0}} = B_{0}\hat{z}$, where $B_{0}$ is a constant.
+
+\subsection*{(a)}
+
+Examine whether
+
+$$
+\vec{A} = \frac{\vec{B_{0}}}{2} \times \vec{x} 
+$$
+
+is an appropriate vector potential for this given field.
+
+The uniform magnetic field can be entered into the vector potential as
+
+\begin{align*}
+\vec{A} &= \frac{B_{0}\hat{z}}{2} \times \vec{x} \\
+        &= \frac{\vec{B_{0}}\hat{z}}{2} \times (x\vec{x} + y\vec{y} + z\vec{z}) \\
+        &= \frac{\vec{B_{0}}}{2} (x\hat{y} - y\hat{x})
+\end{align*}
+
+The curl of $\vec{A}$ has to be zero for this to be an appropriate vector. Therefore, 
+
+\begin{align*}
+\vec{\nabla} \times \vec{A} &= \Big( \hat{x}\Big(\frac{\partial}{\partial x} \Big) +  \hat{y}\Big(\frac{\partial}{\partial y} \Big) +  \hat{z}\Big(\frac{\partial}{\partial z} \Big)\Big) \times \frac{\vec{B_{0}}}{2} (x\hat{y} - y\hat{x}) \\
+&= \frac{\partial}{\partial x}x\hat{z} - \frac{\partial}{\partial z}x\hat{x} + \frac{\partial}{\partial y}y\hat{x} + \frac{\partial}{\partial z}y\hat{y} \\
+&= \hat{z}+\hat{x}
+\end{align*}
+
+This will obviously not be zero so it is not an appropriate vector.
+
+\subsection*{(b)} Does this vector potential satisfy the Coulomb gauge, $\vec{\nabla} \cdot \vec{A} = 0$?
+
+Given
+
+\begin{align*}
+\vec{\nabla} \cdot \vec{A} &=  \Big( \hat{x}\Big(\frac{\partial}{\partial x} \Big) +  \hat{y}\Big(\frac{\partial}{\partial y} \Big) +  \hat{z}\Big(\frac{\partial}{\partial z} \Big)\Big) \cdot \frac{\vec{B_{0}}}{2} (x\hat{y} - y\hat{x})\\
+&= \frac{\vec{B_{0}}}{2} (\frac{\partial}{\partial y}x - \frac{\partial}{\partial x}y)
+\end{align*}
+
+\begin{align*}
+\vec{\nabla} \cdot \vec{A} &=  \Big( \hat{x}\Big(\frac{\partial}{\partial x} \Big) +  \hat{y}\Big(\frac{\partial}{\partial y} \Big) +  \hat{z}\Big(\frac{\partial}{\partial z} \Big)\Big) \cdot \frac{\vec{B_{0}}}{2} (x\hat{y} - y\hat{x})\\
+&= \frac{\vec{B_{0}}}{2} (\frac{\partial}{\partial y}x - \frac{\partial}{\partial x}y)
+\end{align*}
+
+where 
+
+\begin{align*}
+\frac{\partial}{\partial y}x &= 0 & \frac{\partial}{\partial x}y &= 0
+\end{align*}
+
+so
+
+$$
+\vec{\nabla} \cdot \vec{A} &= 0
+$$
+
+\clearpage
+
+% -------------------------- EOD -------------------------- 
+\end{document}
