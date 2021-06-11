@@ -1,0 +1,269 @@
+\documentclass[a4paper, 11pt, landscape]{article}
+
+\usepackage{mathptmx} % more compact font
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{amssymb} 
+\usepackage{paralist} % for compacter lists
+\usepackage{hyperref} % for Todo's and similar things
+\usepackage[left=4.5mm, right=4.5mm, top=4.5mm, bottom=6mm, landscape, nohead, nofoot]{geometry}
+\usepackage[small,compact]{titlesec}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{xparse}
+
+% compact text
+\linespread{0.9}
+\setlength{\parindent}{0pt}
+
+% compact lists even more
+\setdefaultleftmargin{0em}{0em}{0em}{0em}{0em}{0em}
+
+% compact sections
+\titlespacing*{\section}{0pt}{0em}{0em}
+\titlespacing*{\subsection}{0pt}{0em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0em}{0em}
+
+% coloured section headings for easier read
+\titleformat{name=\section}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\colorsection}
+\newcommand{\colorsection}[1]{%
+	\colorbox{red!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesection\ #1}}}
+
+
+\titleformat{name=\subsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subcolorsection}
+\newcommand{\subcolorsection}[1]{%
+	\colorbox{orange!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsection\ #1}}}
+
+
+\titleformat{name=\subsubsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subsubcolorsection}
+\newcommand{\subsubcolorsection}[1]{%
+	\colorbox{blue!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsubsection\ #1}}}
+	
+% environment for multicols inside a list
+\NewDocumentEnvironment{listcols}{O{2} O{0pt}}
+	{%
+		\bgroup %
+		\setlength{\multicolsep}{#2} %
+		\begin{multicols*}{#1} %
+		\end{multicols*} %
+		\egroup %
+	}
+
+% multicols lines & spacing
+\setlength{\columnsep}{0.2cm}
+\setlength{\columnseprule}{0.2pt}
+
+% No page numbers
+\pagenumbering{gobble}
+
+% math helpers
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\begin{document}
+\begin{multicols*}{3}
+
+\section{Definitions and Ideas}
+\subsection{Stellar Timescales}
+\begin{compactenum}
+	\item dynamical timescale: $t_{dyn} = \Big( \frac{R^{3}}{GM} \Big)^{1/2}$
+	\item Kelvin-Helmholtz timescale: $t_{KH} = \frac{GM^{2}}{RL_{s}}$
+	\item nuclear timescale: $t_{nuc} = 10^{10} years \Big( \frac{M}{M_{\odot}}\Big)\Big(\frac{L_{s}}{L_{\odot}}\Big)^{-1}$
+\end{compactenum}
+
+\subsection{Distance Measures}
+\begin{compactenum}
+	\item Astronomical Unit (AU)
+	\item parsec (pc)
+	\item Light Year (Ly)
+\end{compactenum}
+
+\subsection{Stellar Brightnesses}
+\begin{compactenum}
+	\item magnitude scale
+\end{compactenum}
+
+\subsection{Stellar Spectra}
+\begin{compactenum}
+    \item [\color{red}interstellar absorption:]  - The interstellar space contains matter, in the form of gas and dust, which affects the light on the way from a star to the observer. Thus, except for the nearest stars, we cannot immediately measure the intrinsic properties of the stars.
+	\item [\color{red}Natural Broadening:] - Since we cannot know how long the atom or electron will remain in its upper state, but only assign a probability, we will have a spread in the energy of each level. This leads to a broadening of the line.
+	\item [\color{red}Lorentzian profile:] : $\phi(\nu) d\nu = \frac{\gamma_{n}/4\pi}{(\nu - \nu_{0})^{2} + (\gamma_{n}/4\pi)^{2}}\frac{d\nu}{\pi}$
+	\item [\color{red}Collisional (or pressure) Broadening:]  - results from the fact that atoms are not isolated. Instead, they interact with their neighbors. They will collide directly with some (neutral) neighbors, and positive ions will also feel the electric fields of nearby (charged) particles (e.g., electrons)
+	\item [\color{red}Doppler Broadening:]  - arises because the atoms in a gas move around randomly with a distribution of speeds that is described by the Maxwell-Boltzmann distribution.
+\end{compactenum}
+
+\section{The Physics of Stars}
+\subsection{Thermodynamic Equilibrium}
+\begin{compactenum}
+	\item [\color{red}Maxwellian distribution:]:\\ 
+	$f(v) = 4\pi \Big(\frac{m}{2\pi k T_{kin}}\Big)^{3/2}v^{2} exp\Big(-\frac{mv^{2}}{2kT_{kin}}\Big)$
+	\item [\color{red}Boltzmann distribution:]: \\
+	$\frac{n_2}{n_1} = \frac{g_2}{g_1}exp\Big(-\frac{E_{2} - E_{1}}{k T_{ex}}\Big)$
+	\item [\color{red}Planck distribution:]: \\
+	$B_{\nu}(T) = \frac{2hv^{3}}{c^{2}} \frac{1}{exp(h\nu / kT_{rad}) - 1}$
+\end{compactenum}
+
+\subsubsection{Ideal Gas}
+\begin{compactenum}
+	\item mass fraction of H and He by X and Y respectively, heavy elements by Z
+	\item [\color{red}mean molecular weight:]: $\mu = \frac{4}{3 + 5X - Z}$
+\end{compactenum}
+
+\subsection{Hydrostatic Equilibrium}
+Balance of forces inside a star
+\begin{compactenum}
+	\item [\color{red}Mass in shell:]: $\frac{dm}{dr} = 4\pi r^{2}\rho$
+	\item [\color{red}Central pressure:]: $P_{c} = \frac{GM^{2}}{R^{4}}$
+	\item [\color{red}Central temperature:]: $T_{c} = \frac{\mu_{c} m_{p}}{k} \frac{GM}{R}$
+	\item [\color{red}Hydrostatic equilibrium:]: \frac{dP}{dr} = -\rho \frac{Gm}{r^{2}}
+\end{compactenum}
+
+\subsubsection{The Virial Theorem}
+Describes a system in equilibrium
+\begin{compactenum}
+	\item [\color{red}Viral theorem:]: $\Omega + 2U = 0$ where $\Omega$ is the gravitational potential energy and $U$ is the (total) internal energy
+\end{compactenum}
+
+\subsubsection{Polytropic models, Lane-Emden equation}
+\begin{compactenum}
+    \item [\color{red}Polytropic relation:]: $P(r) = K[\rho(r)]^{\gamma}$
+	\item [\color{red}Lane-Emden equation:]: $\frac{1}{\zeta^{2}} \frac{d}{d \zeta} \Big( \zeta^{2} \frac{d \theta}{d \zeta} \Big) = -\theta^{n}$
+\end{compactenum}
+
+\subsection{Energy Transport in Stellar Interiors}
+\begin{compactenum}
+	\item [\color{red}radiation:] - energy carried by photons
+	\item [\color{red}convection:] - energy carried by bulk motions of gas
+\end{compactenum}
+
+\subsection{Stellar Atmospheres}
+The atmosphere of a star is where the opaque interior becomes semi-transparent.
+\begin{compactenum}
+	\item [\color{red}Scale height:]: 
+	$\begin{aligned*}
+	    H &= \frac{kT}{\mu m_{p} g} \;\;\; \text{where} \;\;\; g &= \frac{Gm}{r^{2}}
+	\end{aligned*}$
+	\item [\color{red}Photosphere:] - the bottom of the atmosphere, corresponds to the visible surface of the star.
+\end{compactenum}
+
+\subsection{Energy Production}
+\begin{compactenum}
+	\item 
+\end{compactenum}
+
+\subsection{Energy Transport by Convection}
+\begin{compactenum}
+	\item [\color{red}Adiabatic gradient:] \\
+	$\nabla_{ad} = \frac{\Gamma_{2} - 1}{\Gamma_{2}} = \Big(\frac{\partial \; ln \; T}{\partial \; ln \; P}\Big)_{ad}$
+	\item For a fully ionized ideal gas, $\nabla_{ad} = 2/5$
+	\item [\color{red}Radiative temperature gradient:]: $\\ \nabla_{R} = \frac{d\; ln \; T}{d\; ln \; P} = \frac{3 k_{B}}{16 \pi a c G m_{p}}\frac{\kappa}{\mu}\frac{L(r)}{m(r)}\frac{\rho}{T^{3}}$
+	\item [\color{red}Condition for instability:]: $\nabla_{R} > \nabla_{ad}$
+\end{compactenum}
+Convection may occur under the following circumstances:
+\begin{compactenum}
+    \item The ratio $L(r)/m(r)$ is large (massive stars)
+    \item The opacity $(\kappa)$ is large (low mass stars) 
+    \item The quantity $\rho/T^{3}$ is large (low mass stars) 
+    \item The adiabatic temperature gradient $(\nabla_{ad})$ is small (low mass stars) 
+\end{compactenum}
+
+\subsection{Mass-Luminosity Relations}
+\begin{compactenum}
+	\item mean free path (covey the same as opacity): \\ $\lambda = \frac{1}{n \sigma}$
+	\item [\color{red}particle density:]: $n = \rho/(\mu m_{p})$
+	\item [\color{red}opacity:] - parametrizes the microscopic interaction between radiation and matter: $\kappa = \frac{\sigma n}{\rho}$
+\subsubsection{Contributions to Opacity}
+	\item electron scattering
+	\item [\color{red}Bound-free (bf) absorption:] - an electron that is initially bound to an atom is ejected by the interaction with a photon of sufficient energy; the freed electron then has a kinetic energy equal to the difference between the energy of the photon and the ionization potential: \\ $\kappa = \kappa \rho T^{-3.5}$
+	\item [\color{red}Free-free (ff) absorption:] - a free electron in the vicinity of an ion absorbs energy from a photon and becomes a free electron with greater energy.
+	\item [\color{red}Bound-bound (bb) absorption:] - electrons bound to a neutral or partially ionized atom absorb energy from a photon and are excited to a higher energy state, but one which is still bound.
+	\item [\color{red}Thomson cross-section of the electron (cgs):]:\\
+	$\sigma_{e} = \frac{8\pi}{3}\Big(\frac{e^{2}}{m_{e}c^{2}}\Big)^{2}$
+	\item [\color{red}power law:]: $\kappa = \kappa_{0} \rho^{\lambda}T^{-\nu}$
+	\item [\color{red}Surface luminosity:]: \\
+	$L_{s} = \frac{ac}{\kappa_{0}} \Big(\frac{G\mum_{p}}{k_{B}}\Big)^{4+\nu}R^{3\lambda-\nu}M^{3+\nu-\lambda}$\\
+	where $a = 7.565 \times 10^{-15} \; erg \; cm^{-3} \; K^{-4}$
+\end{compactenum}
+
+\section{Energy Generation in Stars}
+\subsection{Nuclear Energy Generation}
+\begin{compactenum}
+	\item [\color{red}Coulomb barrier:]: $E_coul = \frac{Z_{1} Z_{2} e^{2}}{r_{0}} = Z_{1}Z_{2} MeV$
+	\item [\color{red}cross sections:]: $\sigma(E) = \frac{S(E)}{E} exp \Big(-\frac{2\pi Z_{1} Z_{2} e^{2}}{\hslash v}\Big)$
+	\item [\color{red}binding energy:] - the mass difference is released as energy: $Q(Z, N) = c^{2}[zm_{p} + N m_{n} - m(Z, N)]$ where $Z$ is protons and $N$ is neutrons.
+	\item [\color{red}mass excess:]: $\deltam = m - m_{p}(Z + N)$
+\end{compactenum}
+
+\subsection{Hydrogen Fusion}
+\begin{compactenum}
+	\item [\color{red}PP chain:] - involves direct fusion of protons, produces most of the energy in the Sun, and is dominant in stars of a solar mass or less.
+	\item [\color{red}CNO cycle:] - fusion occurs through a sequence of reactions involving $C$, $N$, and $O$, which effectively act as catalysts, quickly surpasses the PP-chain in energy production as soon as the mass exceeds about $1 \; M_{\odot}$
+\end{compactenum}
+
+\section{Stellar Evolution}
+\subsection{Evolution before the Main Sequence}
+\begin{compactenum}
+	\item [\color{red}Hayashi track:]
+	\item [\color{red}Henyey track:]
+\end{compactenum}
+
+\subsection{The Main Sequence}
+Stars spend most of their lifetime fusing hydrogen to helium on the Main Sequence.
+\subsubsection{The Zero Age Main Sequence (ZAMS)}
+\begin{compactenum}
+	\item [\color{red}Time spent on the Main Sequence:]: $t_{MS} \propto M^{-2.5}$
+\end{compactenum}
+\subsubsection{Evolution during core hydrogen fusion}
+
+\subsection{The Sun}
+\begin{compactenum}
+	\item Standard Solar Model - $1 \; M_{\odot}$ ZAMS has evolved to the present-day Sun subject to the following assumptions:
+	\begin{itemize}
+        \item The Sun was formed from a homogeneous mixture of gases.
+        \item It is powered by nuclear reactions in its core.
+        \item It is approximately in hydrostatic equilibrium, with gravitational forces exactly compensated by gradients arising from gas and radiation pressure.
+        \item Some deviations from equilibrium are permitted as the Sun evolves, but these are small and slow.
+        \item Energy is transported from the core to the surface by photons (radiative) and by large-scale vertical motion of packets of gas (convection).
+    \end{itemize}
+	\item solar neutrinos - The production of each ${4}^He$ nucleus during nuclear fusion in the Sun is accompanied by two neutrinos
+\end{compactenum}
+
+\subsection{Post Main Sequence Evolution}
+At the end of the Main Sequence stage, the star is left with a core of helium and a small amount of heavy elements.
+\begin{compactenum}
+	\item 
+\end{compactenum}
+
+\subsection{High Mass Stars}
+\begin{compactenum}
+	\item 
+\end{compactenum}
+
+\subsection{Stellar Remnants: White Dwarfs and Neutron Stars}
+\begin{compactenum}
+	\item [\color{red}\% mass loss:]: $\Big( \frac{\text{original mass} - \text{remnant mass}}{\text{original mass}} \Big) \times 100$
+\end{compactenum}
+
+\subsection{Elements beyond Iron}
+\begin{compactenum}
+	\item [\color{red}s-process:] - (slow neutron capture) neutron capture is much slower than the $\beta$-decay
+	\item [\color{red}r-process:] - (rapid neutron capture) neutron capture is much more rapid than the$\beta$-decay
+\end{compactenum}
+
+\raggedcolumns
+\end{multicols*}
+\end{document}

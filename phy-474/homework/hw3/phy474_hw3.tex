@@ -1,0 +1,259 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{3} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{474}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject ~ \CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Stellar Astrophysics}
+
+\maketitle
+
+\section*{Problem 1}
+
+\subsection*{(a)}
+
+Given the integral
+
+$$
+1 \simeq \int_{0}^{\infty} \kappa \rho dh
+$$
+
+where
+
+\begin{align*}
+    \kappa &= \kappa_{0}^{(ph)} \rho^{a} T^{b} && and & \rho = \rho_{ph}exp\Bigg(-\frac{h}{H}\Bigg).
+\end{align*}
+
+Substituting $\kappa$ and $\rho$ into the integral, the integral is expressed as
+
+$$
+1 \simeq \int_{0}^{\infty} \kappa_{0}^{(ph)} \Bigg[ \rho_{ph}exp\Bigg(-\frac{h}{H}\Bigg)\Bigg]^{a+1} T^{b} dh
+$$
+
+Evaluating this integral gives the following
+
+\begin{align*}
+    1 &\simeq  \kappa_{0}^{(ph)} T^{b} \Bigg[-\frac{H(\rho_{ph} exp(-h/H)^{a+1}}{a+1}\Bigg]_{0}^{\infty} \\
+    1 &\simeq  \kappa_{0}^{(ph)} T^{b} \Bigg[-\frac{H(\rho_{ph} exp(-0/H)^{a+1}}{a+1} + \frac{H(\rho_{ph} exp(-\infty/H)^{a+1}}{a+1}\Bigg] \\
+    1 &\simeq  -\kappa_{0}^{(ph)}  \frac{H\rho_{ph}^{a+1}}{a+1} T^{b} \\
+    1 &\simeq  -\kappa_{0}^{(ph)}\rho_{ph} \frac{H}{a+1} \rho_{ph}^{a} T^{b}
+\end{align*}
+
+The final component, the opacity of the photosphere, is gave as $\kappa_{ph} = \kappa_{0}^{(ph)} \rho_{ph}^{a} T_{eff}^{b}$. Our evaluation of the integral left the components: $\kappa_{0}^{a}$, $\rho_{ph}^{a}$, and $T_{eff}^{b}$ all of which are in the opacity of the photosphere equation. Therefore, we can rewrite the equation as
+
+$$
+1 \simeq \frac{H}{a + 1} \kappa_{ph}\rho_{ph}.
+$$
+
+\subsection*{(b)}
+
+The ideal gas law is gave by
+
+$$
+P = \frac{\rho k_{B} T}{\mu m_{p}} 
+$$
+
+From which we can rewrite pressure as
+
+$$
+P_{ph} = \frac{GM(a + 1)}{\kappa_{ph} R^{2}}.
+$$
+
+
+From problem 1 (a) we found that 
+
+\begin{align*}
+    1 &\simeq \frac{H}{a + 1} \kappa_{ph}\rho_{ph}
+    && or & \rho_{ph} &= \Bigg(\frac{a + 1}{H\kappa^{(ph)}_{0}T^{b}}\Bigg)^{-1-a}
+\end{align*}
+
+where
+
+$$
+H = \frac{k_{B} T}{\mu m_{p} g}.
+$$
+
+Substituting $\kappa_{ph}$ into the equation we get
+
+$$
+P_{ph} = \frac{GM(a + 1)}{\kappa_{0}^{(ph)} \rho^{a}_{ph} T^{b}_{eff} R^{2}}.
+$$
+
+Then we can substitute $\rho_{ph}$ into the equation above to get
+
+$$
+P_{ph} = \frac{GM(a + 1)}{\kappa_{0}^{(ph)}  T^{b}_{eff} R^{2}} \Bigg(\frac{a + 1}{H\kappa^{(ph)}_{0}T^{b}}\Bigg)^{a(a+1)}
+$$
+
+From here we can substitute $H$ in and rearrange terms. Applying some exponential algebra yields
+
+$$
+P_{ph} = \Bigg[\frac{GM(a+1)}{R^{2}\kappa_{0}^{(ph)}}\Bigg]^{1/(a+1)} \Bigg(\frac{k_{B}}{\mu m_{u}}\Bigg)^{-1/(a+1)} T_{eff}^{-(b+1)/(a+1)}.
+$$
+
+\clearpage
+
+\section*{Problem 2}
+
+\subsection*{(a)}
+
+As seen in the figure, the opacity  is low when the temperature is low. The decline of $\kappa$ when $T$ is low is due to a highly abundant amount of $H^{-}$, that is sensitive enough to cause this drastic reduction.  
+
+\subsection*{(b)}
+
+From the figure, as temperatures continue to increase, there is a slight decline in each line. This happens from the maximum of each line to roughly $\kappa \approx 0$. The reason for this drop off is due to electron scattering. This becomes dominate with in the star when temperatures increase and reach large numbers. The opacity then slowly decreases. 
+
+\clearpage
+
+\section*{Problem 3}
+
+We are able to tell if the energy transport is radiative or convective by solving got the radiative temperature gradient. This gradient is required to transport the entire luminosity by radiation. The condition for instability is gave by
+
+$$
+\nabla_{R} > \nabla_{ad}
+$$
+
+If this condition is met, then convection must take place. Now, adiabatic temperature gradient is gave by
+
+$$
+\nabla_{ad} = \frac{\Gamma_{2} - 1}{\Gamma_{2}} = \Bigg(\frac{\partial ln T}{\partial ln P}\Bigg)_{ad} = \frac{2}{5}.
+$$
+
+For a fully ionized ideal gas, $\nabla_{ad} = \frac{2}{5}$. While the radiative temperature gradient is gave by
+
+$$
+\nabla_{R} = \frac{d ln T}{d ln P} = \frac{3k_{B}}{16\pi a c G m_{p}} \frac{\kappa}{\mu} \frac{L(r)}{m(r)} \frac{\rho}{T^{3}}
+$$
+
+therefore, we have
+
+\begin{gather*}
+    \nabla_{R} = \frac{3(1.38 \times 10^{-23} m^{2} kg \; s^{-2} \; K^{-1})}{16\pi \; \cdot \; (7.57 \times 10^{-16} J \; m^{-3} K^{-4}) \cdot \; (3 \times 10^{8} m \; s^{-1}) \cdot (6.67 \times 10^{-11} \; m^{3} \; kg^{-1} \; s^{-2}) \cdot (1.67 \times 10^{-27} \; kg)} ...\\ ...\frac{0.04 \; m^{2} \; kg^{-1}}{0.7} \frac{9.34 \times 10^{27} J \; s}{5.57 \times 10^{28} kg} \frac{3.1 \times 10^{4} \; kg \; m^{-3}}{(2.2 \times 10^{7})^{3} \; K}
+\end{gather*} 
+
+
+The values for the temperature gradients are
+
+\begin{align*}
+\nabla_{R} &= 0.90 && and & \nabla_{ad} &= 0.40
+\end{align*}
+
+which means the inequality $\nabla_{R} > \nabla_{ad}$, the condition is satisfied. As explained above, when this condition is satisfied, energy transport by radiation requires too large of a temperature gradient. Thus, convection must take place for this scenario.   
+
+\clearpage
+
+\section*{Problem 4}
+
+The luminosity $L(r)$ is given by
+
+$$
+L = -\frac{4\pir^{2}ac}{3\kappa \rho} \frac{d}{dr} (T^{4})
+$$
+
+replacing $r$ with $R$, $-d(T^{4})/dr$ with $T^{4}/R$, and opacity $(\kappa)$ with the power law $\kappa \simeq \kappa_{0} \rho^{\lambda}T^{-\nu}$. Replacing these values the equation becomes
+
+\begin{align*}
+    L = \frac{4\pi R^{2}ac}{3\kappa_{0} \rho^{\lambda}T^{-\nu} \rho} \frac{T^{4}}{R}.
+\end{align*}
+
+This equation can be further reduced to
+
+$$
+    L = \frac{4\pi R a c T^{4+\nu}}{3\kappa_{0} \rho^{\lambda+1}}.
+$$
+
+The assumption here is that the ideal gas law holds up and that we neglect radiation pressure. The temperature can be estimated to be 
+
+$$
+T \simeq \frac{GMm_{u}\mu}{k_{B} R}
+$$
+
+which is gave in \textit{Delsgaard} as equation (7.1). \textit{Delsgaard} has equation (7.2) as an estimate of the density by the mean density gave as
+
+$$
+\rho \simeq \frac{M}{R^{3}}.
+$$
+
+If we substitute the estimated equations into our equation for luminosity then we get
+
+$$
+    L = \frac{4\pi R a c}{3\kappa_{0}} \Bigg(\frac{GMm_{u} \mu}{k_{B}R}\Bigg)^{4+\nu} \Bigg(\frac{R^{3}}{M}\Bigg)^{\lambda+1}.
+$$
+ 
+\newpage
+ 
+We can drop the factor of $4\pi$. The $M$ variable and $R$ variable all have different powers, some exponential mathematics is needed to get the final equation. The variable $M$ has two components in the equation above. Therefore, we have $M^{4+\nu} \cdot M^{-\lambda - 1} = M^{3+\nu-\lambda}$. The $R$ variable has 3 components. Thus, we have $R^{1} \cdot R^{-4-\nu} \cdot R^{3\lambda + 3} = R^{3\lambda - \nu}$. Thus, the surface luminosity can be expressed as 
+
+$$
+L_{s} \simeq \frac{ac}{\kappa_{0}} \Bigg(\frac{G \mu m_{p}}{k_{B}}\Bigg)^{4+\nu} R^{3\lambda - \nu} M^{3+\nu-\lambda}
+$$
+
+\clearpage
+
+%\section*{Appendix}
+
+%\subsection*{}
+%\lstinputlisting{.py}
+
+%\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

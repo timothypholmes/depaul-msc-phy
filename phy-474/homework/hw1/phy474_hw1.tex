@@ -1,0 +1,229 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{1} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{474}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject ~ \CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Stellar Astrophysics}
+
+\maketitle
+
+\section*{Problem 1}
+
+Some calculation can be found in the appendix where some calculations in this problem were carried out in python. The Thomson scattering cross section is gave by
+
+\begin{align*}
+\sigma_{T} &= \frac{8\pi}{3} \Bigg( \frac{e^{2}}{4\pi\epsilon_{0}m_{e}c^{2}} \Bigg)^{2}
+\end{align*}
+
+and the value we obtain is
+
+\begin{align*}
+\sigma_{T} &= \frac{8\pi}{3} \Bigg( \frac{(1.602 \times 10^{-19} C)^{2}}{4 \cdot \pi \cdot 8.85\times10^{-12} Fm^{-1} \cdot 9.109\times10^ {-31} kg \cdot 3.00\times10^{2} ms^{-1}} \Bigg)^{2} = 6.68\times10^{-29} m^{2}.
+\end{align*}
+
+The photon scattering timescale is then given by
+
+$$
+t_{s} &= \frac{l}{c}, \;\; \text{where} \;\; l = \frac{1}{n_{e} \sigma_{T}} \text{is the mean free path}.
+$$
+
+In order to find the photon scattering timescale, the electron density of the sun needs to be found first. The electron density of the sun can be found by 
+
+$$
+n_{e} = \frac{\rho}{\mu_{e} m_{u}} = \frac{1.4\times10^{3} \; kg \; m^{-3}}{(1.5) \cdot 1.6\times10^{-27} kg} = 5.8\times10^{29} m^{-3}
+$$
+
+\newpage 
+
+Given the electron density, the mean free path is
+
+$$
+l = \frac{1}{n_{e} \sigma_{T}} = \frac{1}{5.8\times10^{29} \; m^{-3} \cdot 6.68\times10^{-29} \; m^{2}} = 0.026 \; m
+$$
+
+Finally, the photon scattering timescale is
+
+\begin{align*}
+t_{s} &= \frac{0.026 \; m}{3.00\times10^{8} \; m \; s^{-1}} = 8.6*10^{-11} s
+\end{align*}
+
+% If you insert the command below
+\clearpage
+
+\section*{Problem 2}
+\subsection*{(a)}
+
+The equation to find the angular separation of two stars as seen from earth is given by
+
+$$
+tan(p) = \frac{AU}{d} \rightarrow tan(p) = \frac{3\times10^{-4}\; pc}{6 \; pc} \rightarrow  p = tan^{-1}(5\times10^{-5}) = (3.2\times10^{-3})^{\circ}
+$$
+
+converting this to arcseconds gives
+
+$$
+(3.2\times10^{-3})^{\circ} \cdot \frac{60'}{1^{\circ}} \cdot \frac{60''}{1'} = 11.5''.
+$$
+
+\subsection*{(b)}
+
+Given that the angle of separation is $6.2''$, this value in degrees is
+
+$$
+6.2'' = \frac{1'}{60''} \cdot \frac{1^{\circ}}{60'} = (1.72\times10^{-3})^{\circ}.
+$$
+
+The value of degrees can be converted into radians by
+
+$$
+\frac{(1.72\times10^{-3})^{\circ}}{180^{\circ} \cdot \pi} = 3\times10^{-6}
+$$
+
+Using the equation from part (a) we have
+
+$$
+tan(3\times10^{-6}) = \frac{x}{6 \; pc} \rightarrow x = tan(3\times10^{-6}) \cdot 6 \; pc = 3.7 AU
+$$
+
+\clearpage
+
+\section*{Problem 3}
+\subsection*{(a)}
+The absolute magnitude of star system $\beta$. The absolute magnitude $M$ is gave by 
+
+$$
+m - M = 5 \ log_{10} \ d - 5
+$$
+
+where $m = 3.18$ and $d = 119.6 \; pc$. Therefore, the absolute magnitude is
+
+$$
+M = (3.18 - 5 \ log_{10} \ 119.6 + 5)) = - 2.21
+$$
+
+\subsection*{(b)}
+
+The apparent magnitude $m$ of a star is
+
+$$
+m_{1} - m_{2} = -2.5log\Bigg(\frac{l_{1}}{l_{2}}\Bigg)
+$$
+
+where $m_{1} = 3.18$ and $l_{1}\l_{2} = 5.9$. Therefore,
+
+$$
+m_{2} = 2.5log(5.9) + 3.18 = 5.1
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+The Lorentzian distribution is gave by
+
+$$
+\phi(\nu) = \frac{\gamma_{n}/4\pi^{2}}{(\nu - \nu_{0})^{2}-(\gamma_{n}/4\pi)^{2}}.
+$$
+
+To find if it normalized to unity, the integral has to be set up as
+
+$$
+\int_{0}^{\infty} \phi(\nu) d\nu \rightarrow \int_{0}^{\infty}  \frac{\gamma_{n}/4\pi^{2}}{(\nu - \nu_{0})^{2}-(\gamma_{n}/4\pi)^{2}} d\nu 
+$$
+
+For simplicity, let $\alpha = \gamma_{n}/4\pi$ so that the integral can be expressed as
+
+$$
+\frac{\alpha}{\pi} \int_{0}^{\infty}  \frac{1}{(\nu - \nu_{0})^{2}-\alpha^{2}} d\nu.
+$$
+
+Evaluating the integral results in
+
+\begin{align*}
+&=\frac{1}{\pi} \Bigg[-tan^{-1}\Big(\frac{\nu_{0} - \nu}{\alpha}\Big) \Bigg]_{0}^{\infty} \\
+&= \frac{1}{\pi} \Bigg[-tan^{-1}\Big(\frac{4\pi(\nu_{0} - 0)}{\gamma}\Big) + tan^{-1}\Big(\frac{4\pi(\nu_{0} + \infty)}{\gamma}\Big)  \Bigg].
+\end{align*}
+
+The first component must have a value that is very large. Therefore, we need an assumption where the numerator will be much larger than the denominator. We need values to approach infinity, moreover, values that will fix this problem are when the following is satisfied: $\nu_{0} >> \gamma$ and this results in a large enough number. When these conditions are met, the following is true,
+
+\begin{align*}
+&= \frac{1}{\pi} \Bigg[-tan^{-1}(-\infty) + tan^{-1}(\infty) \Bigg] \\
+&= \frac{1}{\pi} \Bigg[\frac{\pi}{2} + \frac{\pi}{2}\Bigg] = 1.
+\end{align*}
+
+Thus,
+
+$$
+\int_{0}^{\infty} \phi(\nu) d\nu = 1
+$$
+
+\clearpage
+
+\section*{Appendix}
+
+\subsection*{Problem 1 Calculations}
+\lstinputlisting{homework_1.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

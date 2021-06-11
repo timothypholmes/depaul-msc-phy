@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 def problem_3():
     df = pd.read_csv('ssm.txt', delimiter = '\s+')#, delimiter = '\t')
     print(df)
-    #df['Y'] = 1 - df['X']
+    df['Y'] = 1 - df['X']
 
     plt.plot(df['X'], df['R/Rsun'])
-    plt.plot(df['Y(He4)'], df['R/Rsun'])
+    plt.plot(df['Y'], df['R/Rsun'])
     plt.xlabel(r'$X/Y$')
     plt.ylabel(r'$R/R_{\odot}$')
     plt.show()
