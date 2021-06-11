@@ -1,0 +1,244 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{4} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+
+The wave equation for the vector potential $\vec{A}$ is gave by
+
+$$
+\nabla^{2} \vec{A} - \frac{1}{C^{2}} \frac{\partial^{2}\vec{A}}{\partial t^{2}} = - \mu_{0}\vec{J}
+$$
+
+\subsection*{(a)}
+
+The Green function equation for the equation above can be expressed as
+
+$$
+\Bigg(\nabla^{2} - \frac{1}{c^{2}} \frac{\partial^{2}}{\partial t^{2}} \Bigg) G_{k}^{(\pm)} (\vec{x}, t; \vec{x}', t') = \mu_{0} \vec{J} \delta(\vec{x} - \vec{x}') \delta(t - t')  
+$$
+
+\subsection*{(b)}
+
+$$
+G^{(\pm)}(\vec{x}, t; \vec{x}', t') = \frac{1}{|\vec{x} - \vec{x}'|} \delta \Bigg[t' - t + \frac{|\vec{x} - \vec{x}'|}{c} \Bigg]
+$$
+
+\subsection*{(c)}
+
+We first need
+
+$$
+\psi^{(\pm)}(\vec{x}, t) = \int \int G^{(\pm)}(\vec{x}, t; \vec{x}, t') f(\vec{x}, t) d^{3}x' dt' 
+$$
+
+then this can be expressed as
+
+$$
+\vec{A}(\vec{x}, t) = \int d^{3}x'\int  \frac{\vec{J}(\vec{x}', t')}{|\vec{x} - \vec{x}'|}\delta\Bigg(t' - \Bigg(t - \frac{|\vec{x} - \vec{x}'|}{c}\Bigg)\Bigg)
+$$
+
+
+\clearpage
+
+\section*{Problem 2}
+
+The vector potential $\vec{A}$ of an oscillating electric dipole is given by 
+
+$$
+\vec{A}(\vec{x}) = -\frac{i\mu_{0} \omega}{4\pi} \; \vec{p} \; \frac{e^{ikr}}{r}.
+$$
+
+To find its magnetic field we first have to write it as the curl of $\vec{A}$ such that
+
+$$
+\vec{H} = \frac{1}{\mu_{0}} \vec{\nabla} \times \vec{A}.
+$$
+
+$\vec{A}$ will only have the radial dependence, therefore, we only have to express this equation in terms of $x$. This is expressed as
+
+$$
+\vec{H} = \frac{1}{\mu_{0}}  \frac{\partial}{\partial x} \hat{n} \times \Bigg( -\frac{i\mu_{0}\omega}{4\pi} \; \vec{p} \; \frac{e^{ikx}}{x} \Bigg).
+$$
+
+Taking the partial derivative of $\vec{A}$ with respect to $x$ gives the result
+
+\begin{align*}
+    \vec{H} &= -\frac{i\omega}{4\pi} (\hat{n} \times \vec{p}) \Bigg(-\frac{e^{ikx}}{x^{2}} + \frac{ike^{ikx}}{x}\Bigg) \\
+    \vec{H} &= \frac{ck^{2}}{4\pi} (\hat{n} \times \vec{p}) \frac{e^{ikx}}{x} \Bigg(1 - \frac{1}{ikx}\Bigg)
+\end{align*}
+
+Therefore, the final expression when $r = x$ is
+
+$$
+    \vec{H} = \frac{ck^{2}}{4\pi} (\hat{n} \times \vec{p}) \frac{e^{ikr}}{r} \Bigg(1 - \frac{1}{ikr}\Bigg)
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+The electric field of an oscillating electric dipole is given by
+
+$$
+\vec{E} = \frac{1}{4\pi \epsilon_{0}} \Bigg\{ k^{2} (\hat{n} \times \vec{p}) \times \hat{n} \frac{e^{ikr}}{r} + [3\hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}] \Bigg(\frac{1}{r^{3}} - \frac{ik}{r^{2}}\Bigg )e^{ikr} \Bigg\}
+$$
+
+and in the prior question the magnetic field was found to be
+
+$$
+    \vec{H} = \frac{ck^{2}}{4\pi} (\hat{n} \times \vec{p}) \frac{e^{ikr}}{r} \Bigg(1 - \frac{1}{ikr}\Bigg).
+$$
+
+To find these fields in the near zone, the factor $kr << 1$ must remain true. If this holds then the magnetic field is
+
+$$
+    \vec{H} = \frac{ck^{2}}{4\pi} (\hat{n} \times \vec{p}) \frac{e^{i  \cdot 0}}{r} \Bigg(1 - \frac{1}{i \cdot 0}\Bigg).
+$$
+
+Then $exp(i \cdot 0) = 1$ and $1/0 = 0$, and multiply by $i/kr$ our equation becomes 
+
+$$
+    \vec{H} = \frac{ck}{4\pi} (\hat{n} \times \vec{p}) \frac{1}{r^{2}}.
+$$
+
+The same logic can be applied to the electric field. The electric field is gave again by
+
+$$
+\vec{E} = \frac{1}{4\pi \epsilon_{0}} \Bigg\{ k^{2} (\hat{n} \times \vec{p}) \times \hat{n} \frac{e^{ikr}}{r} + [3\hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}] \Bigg(\frac{1}{r^{3}} - \frac{ik}{r^{2}}\Bigg )e^{ikr} \Bigg\}
+$$
+
+The first part of the equation will be zero because of the denominator. Therefore, we are left with 
+
+\begin{align*}
+\vec{E} &= \frac{1}{4\pi \epsilon_{0}} \Bigg\{[3\hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}] \Bigg(\frac{i}{kr^{4}} + \frac{1}{r^{3}}\Bigg )e^{ikr} \Bigg\} \\
+&= \frac{1}{4\pi \epsilon_{0}} \Bigg\{[3\hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}] \Bigg(0 + \frac{1}{r^{3}}\Bigg )e^{0} \Bigg\} \\
+\end{align*}
+
+\newpage
+
+Therefore, we are just left with
+
+$$
+\vec{E} = \frac{1}{4\pi \epsilon_{0}} [3\hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}] \frac{1}{r^{3}}
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+The time-averaged power radiated per unit solid angle by an oscillating dipole is given by
+
+$$
+\frac{dP}{d \omega} = \frac{1}{2} Re[r^{2}\hat{n} \cdot \vec{E} \times \vec{H}^{*}]
+$$
+
+where the fields $\vec{E}$ and $\vec{H}$ in the far zone are given by
+
+\begin{align*}
+    \vec{H} &= \frac{ck^{2}}{4\pi}(\hat{n} \times \vec{p}) \frac{e^{ikr}}{r} &
+    \vec{E} &= \frac{k^{2}}{4\pi \epsilon_{0}} [(\hat{n} \times \vec{p}) \times \hat{n}] \frac{e^{ikr}}{r}
+\end{align*}
+
+Substituting $\vec{H}$ and $\vec{E}$ into the equation above gives 
+
+$$
+\frac{dP}{d \omega} = \frac{1}{2} Re[r^{2}\hat{n} \cdot \frac{k^{2}}{4\pi \epsilon_{0}} \Bigg[(\hat{n} \times \vec{p}) \times \hat{n}] \frac{e^{ikr}}{r} \times \frac{ck^{2}}{4\pi}(\hat{n} \times \vec{p}) \frac{e^{ikr}}{r}\Bigg]
+$$
+
+so
+
+\begin{align*}
+    \vec{E} \times \vec{H}^{*} &= \frac{c}{\epsilon_{0}} \Bigg(\frac{k^{2}}{4\pi r}\Bigg)^{2} [\hat{n} \times (\vec{p} \times \het{n}] \times (\hat{n} \times \vec{p})^{*} \\
+    &= \frac{c}{\epsilon_{0}} \hat{n} \times (\hat{n} \times \vec{p}) \cdot (\hat{n} \times \vec{p})^{*}.
+\end{align*}
+
+This can reduce to 
+
+$$
+\frac{dP}{d \omega} = \frac{1}{2} \frac{c}{\epsilon_{0}} \Bigg(\frac{k^{2}}{4\pi r}\Bigg)^{2} | (\hat{n} \times \vec{p}) \times \hat{n}|^{2}
+$$
+
+and further reduced to 
+
+$$
+\frac{dP}{d \omega} = \frac{c^{2} Z^_{0}}{32\pi^{2}} k^{4} |(\hat{n} \times \vec{p}) \times \hat{n}|^{2}
+$$
+
+where $Z_{0} = \sqrt{\mu_{0}/\epsilon_{0}}$.
+
+\clearpage
+
+%\section*{Appendix}
+
+%\subsection*{}
+%\lstinputlisting{.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

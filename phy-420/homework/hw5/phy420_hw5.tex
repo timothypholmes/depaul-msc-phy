@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{5} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+
+
+\[ \vec{J}(\vec{x})e^{-i \omega t} = 
+   \begin{cases} 
+       I sin(kz)\delta(x)\delta(y)e^{-i\omega t}\hat{z} & \text{if} \;\; -\frac{d}{2} < z < \frac{d}{2} \\
+       0 & \text{if} \;\; |z| > \frac{d}{2}
+   \end{cases}
+\]
+
+The vector potential $\vec{A}(\vec{x})$ is gave by
+
+$$
+A(\vec{x}) = \frac{\mu_{0}}{4\pi} \frac{e^{ikr}}{r} \int J(\vec{x}') d'x.
+$$
+
+Therefore, if we substitute the current density equation, with the proper bounds, into the vector potential equation we get
+
+$$
+A(\vec{x}) = \frac{\mu_{0}}{4\pi} \frac{e^{ikr}}{r} \int_{-\infty}^{\infty} \delta(x) \; dx \int_{-\infty}^{\infty} \delta(y) \; dy \; \int_{-d/2}^{d/2} I sin(kz) \; \hat{z} \; dz.
+$$
+
+Since we are in the far zone and the equation is difficult set up this way, we can rewrite it as 
+
+$$
+A(\vec{x}) = \frac{i I \mu_{0}}{4\pi} \frac{e^{ikr}}{r} \int_{0}^{d/2} 2sin(kz)sin(kz cos \theta) \; \hat{z} \; dz
+$$
+
+Integrating the equation above will result in
+
+$$
+A(\vec{x}) = \frac{i I \mu_{0}}{4\pi} \frac{e^{ikr}}{kr} \Bigg[ \frac{1}{1-cos \theta}sin((1 - cos \theta) kz) - \frac{1}{1+cos \theta} sin((1 + cos \theta) kz) \Bigg]_{0}^{d/2}
+$$
+
+and entering the bounds on integration gives
+
+$$
+\vec{A}(\vec{x}) = \frac{\mu_{0} I}{2\pi} \frac{e^{ikr}}{ikr} \Bigg[ \frac{sin(\pi \; cos \theta))}{sin^{2} \theta} \Bigg]\hat{z}.
+$$
+
+\clearpage
+
+\section*{Problem 2}
+
+Use your expression for $\vec{A}(\vec{x})$ to find $\vec{B}$ and $\vec{E}$ in the radiation zone.
+
+We can now work in spherical coordinates, therefore $\hat{z} = \hat{r} cos \theta - \hat{\theta} sin \theta$. The vector potential can now be expressed as 
+
+$$
+\vec{A}(\vec{x}) = \frac{\mu_{0} I}{2\pi} \frac{e^{ikr}}{ikr} \Bigg[ \frac{sin(\pi cos \theta))}{sin^{2} \theta} \Bigg](\hat{r} cos \theta - \hat{\theta} sin \theta).
+$$
+
+The magnetic field is gave by
+
+\begin{align*}
+H &= \frac{ik}{\mu_{0}}\hat{n} \times \vec{A} \\
+  &= \frac{ik}{\mu_{0}} \hat{r} \times \frac{\mu_{0} I}{2\pi} \frac{e^{ikr}}{ikr} \Bigg[ \frac{sin(\pi cos \theta))}{sin^{2} \theta} \Bigg](\hat{r} cos \theta - \hat{\theta} sin \theta) \\
+  &= -\hat{\phi} \frac{Ie^{ikr}}{2\pi r} \frac{sin(\pi cos \theta)}{sin \theta}
+\end{align*}
+
+or 
+
+$$
+\vec{B} = -\hat{\phi} \frac{Ie^{ikr} \mu_{0}}{2\pi r} \frac{sin(\pi cos \theta)}{sin \theta}
+$$
+
+The electric field is gave by
+
+\begin{align*}
+E &= ikz_{0} (\hat{n} \times \vec{A}) \times \hat{n} \\
+  &= ikz_{0} \hat{r} \times \frac{\mu_{0} I}{2\pi} \frac{e^{ikr}}{ikr} \Bigg[ \frac{sin(\pi cos \theta))}{sin^{2} \theta} \Bigg](\hat{r} cos \theta - \hat{\theta} sin \theta) \times \hat{r} \\
+  &= -\hat{\phi} \frac{Ie^{ikr}}{2\pi r} \frac{sin(\pi cos \theta)}{sin \theta} \times \hat{r} \\
+  &= -\hat{\theta} \frac{Iz_{0} \mu_{0} e^{ikr}}{2\pi r} \frac{sin(\pi cos \theta)}{sin \theta} 
+\end{align*}
+
+\clearpage
+
+\section*{Problem 3}
+
+Calculate $\frac{dP}{d\Omega}$, the power radiated per unit solid angle. 
+
+The time averaged power radiated per unit solid angle by the oscillating dipole moment is gave by
+
+$$
+\frac{dP}{d\Omega} = \frac{1}{2} Re[r^{2} n \cdot E \times H^{*}]
+$$
+
+By rearranging and eliminating some terms, this equation can also be wrote as
+
+$$
+\frac{dP}{d\Omega} = \frac{r^{2}}{2} \mu_{0} \epsilon_{0} |\vec{H}|^{2}
+$$
+
+The magnitude of $\vec{H}$ can be found by
+
+$$
+|\vec{H}| = k \; sin \theta \; |\vec{A}_{z} |/ \mu_{0}
+$$
+
+Therefore, we have the power radiated per unit solid angle as
+
+$$
+\frac{dP}{d\Omega} = \frac{Z_{0}I^{2}}{8\pi^{2}} \Bigg| \frac{sin(\pi cos \theta)}{sin \theta}  \Bigg|^{2}.
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+My top picks for the project go by:
+
+\begin{enumerate}
+  \item Synchrotron Radiation: Bridging Particle Accelerators and Astrophysics
+     \begin{itemize}
+     \item My prior work with Dr. Gonzalez and current thesis work (as well as prior work) with Dr. Landahl at the APS make this topic my top choice. While understanding the idea of Synchrotron Radiation, I have yet to work through this topic mathematically. 
+   \end{itemize}
+  \item Thomas Precession
+     \begin{itemize}
+     \item This topic is of interest since it will allow me to expand my knowledge of relativity. 
+   \end{itemize}
+  \item Green Function for the sphere
+     \begin{itemize}
+     \item This topic interests me by allowing me to expand my mathematical knowledge. 
+   \end{itemize}
+\end{enumerate}
+
+\clearpage
+
+%\section*{Appendix}
+
+%\subsection*{}
+%\lstinputlisting{.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

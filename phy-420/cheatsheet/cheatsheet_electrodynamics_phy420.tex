@@ -1,0 +1,569 @@
+\documentclass[a4paper, 11pt, landscape]{article}
+
+\usepackage{mathptmx} % more compact font
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{paralist} % for compacter lists
+\usepackage{hyperref} % for Todo's and similar things
+\usepackage[left=4.5mm, right=4.5mm, top=4.5mm, bottom=6mm, landscape, nohead, nofoot]{geometry}
+\usepackage[small,compact]{titlesec}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{xparse}
+
+% compact text
+\linespread{0.9}
+\setlength{\parindent}{0pt}
+
+% compact lists even more
+\setdefaultleftmargin{0em}{0em}{0em}{0em}{0em}{0em}
+
+% compact sections
+\titlespacing*{\section}{0pt}{0em}{0em}
+\titlespacing*{\subsection}{0pt}{0em}{0em}
+\titlespacing*{\subsubsection}{0pt}{0em}{0em}
+
+% coloured section headings for easier read
+\titleformat{name=\section}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\colorsection}
+\newcommand{\colorsection}[1]{%
+	\colorbox{red!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesection\ #1}}}
+
+
+\titleformat{name=\subsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subcolorsection}
+\newcommand{\subcolorsection}[1]{%
+	\colorbox{orange!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsection\ #1}}}
+
+
+\titleformat{name=\subsubsection}[block]
+  {\sffamily}
+  {}
+  {0pt}
+  {\subsubcolorsection}
+\newcommand{\subsubcolorsection}[1]{%
+	\colorbox{blue!10}{\parbox[t][0em]{\dimexpr\columnwidth-2\fboxsep}{\thesubsubsection\ #1}}}
+	
+% environment for multicols inside a list
+\NewDocumentEnvironment{listcols}{O{2} O{0pt}}
+	{%
+		\bgroup %
+		\setlength{\multicolsep}{#2} %
+		\begin{multicols*}{#1} %
+	}
+	{%
+		\end{multicols*} %
+		\egroup %
+	}
+
+\usepackage{tabstackengine}
+
+% multicols lines & spacing
+\setlength{\columnsep}{0.2cm}
+\setlength{\columnseprule}{0.2pt}
+
+% No page numbers
+\pagenumbering{gobble}
+
+% math helpers
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\begin{document}
+
+% set equations to have no white space above or below
+\setlength{\abovedisplayskip}{0pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\begin{multicols*}{3}
+
+\section{Vector Formulas}
+\subsection{Triple Products}
+\begin{compactenum}
+    \begin{align*}
+        A &\cdot (B \times C) = B \cdot (C \times A) = C \cdot (A \times B )\\
+        A &\times (B \times C) = B(A \cdot C) - C(A \cdot B)
+    \end{align*}
+\end{compactenum}
+
+\subsection{Product Rules}
+\begin{compactenum}
+    \begin{align*}
+    &\nabla(fg) = f(\nabla g) + g(\nabla f) \\
+    &\nabla((A \cdot B) = A \times (\nabla \times B) + B \times (\nabla \times A) + (A \cdot)B + (B \cdot \nabla)A\\
+    &\nabla \cdot(fA) = f(\nabla \cdot A) + A \cdot (\nabla f) \\
+    &\nabla \cdot (A \times B) = B \cdot (\nabla \times A) - A \cdot (\nabla \times B) \\
+    &\nabla \times (fA) = f(\nabla \times A) - A \times (\nabla f) \\
+    &\nabla \times (A \times B) = (B \cdot \nabla) - (A \cdot \nabla)B + A(\nabla \cdot B) - B(\nabla \cdot A)
+    \end{align*}
+\end{compactenum}
+
+\subsection{Second Derivatives}
+\begin{compactenum}
+    \begin{align*}
+    &\nabla \cdot (\nabla \times A) = 0 \\
+    &\nabla \times (\nabla f) = 0 \\
+    &\nabla \times (\nabla \times A) = \nabla(\nabla \cdot A) - \nabla^{2}A
+    \end{align*}
+\end{compactenum}
+
+\section{Maxwell Equations}
+\begin{compactenum}
+
+    \begin{align*}
+    &\vec{\nabla} \cdot \vec{B} = 0 & &\nabla \cdot \vec{B} = 0 \\
+    &\vec{\nabla} \cdot \vec{D} = 0 & &\nabla \cdot \vec{D} = \rho \\
+    &\vec{\nabla} \times \vec{E} - i\omega\vec{B} = 0 & 
+    &\vec{\nabla} \times \vec{E} = - \frac{\partial \vec{B}}{\partial t} \\
+    &\vec{\nabla} \times \vec{B} + i\omega\mu\epsilon\vec{E} = 0 & 
+    &\vec{\nabla} \times H = \vec{J} + \frac{\partial \vec{D}}{\partial t}
+	\end{align*}
+
+\end{compactenum}
+
+\subsection{Constructive Relations}
+\begin{compactenum}
+
+	\begin{align*}
+	\vec{D} &= \epsilon\vec{E} & \vec{B} &= \mu\vec{H}
+	\end{align*}
+
+\end{compactenum}
+
+\section{Electromagnetic Waves and Propagation}
+\subsection{Helmholtz wave equations}
+\begin{compactenum}
+\begin{align*}
+(\nabla^{2} + \mu \epsilon \omega^{2})\vec{E} &= 0 & 
+(\nabla^{2} + \mu \epsilon \omega^{2})\vec{B} &= 0 
+\end{align*}
+\end{compactenum}
+
+\subsection{Constructive Relations}
+\begin{compactenum}
+    \item \textbf{Wave number:} $k = \omega\sqrt{\mu \epsilon}$
+	\item \textbf{Phase velocity:} $v = \frac{\omega}{k} = \frac{1}{\sqrt{\mu \epsilon}} = \frac{c}{n}$ 
+	\item \textbf{Index of refraction of the medium:} $n = \frac{\mu \epsilon}{\mu_{0} \epsilon_{0}}$
+\end{compactenum}
+
+\subsection{Plane Electromagnetic Waves}
+\begin{compactenum}
+	\begin{align*}
+	    \vec{E} &= \vec{E}_{0}e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	    \vec{B} &= \sqrt{\mu \epsilon}\frac{\vec{k}\times\vec{E}}{k}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Polarization of Waves}
+\begin{compactenum}
+	\begin{align*}
+	    \vec{E_{1}} &= \hat{\epsilon_{1}}E_{1}e^{i(\vec{k}\cdot\vec{x} - \omega t)}  &
+	    \vec{E_{2}} &= \hat{\epsilon_{2}}E_{2}e^{i(\vec{k}\cdot\vec{x} - \omega t)}
+	\end{align*}
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{1}}E_{1} + \hat{\epsilon_{2}}E_{2})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+\end{compactenum}
+
+\subsection{Stokes Parameters}
+\begin{compactenum}
+	\textbf{Linear polarization basis}:
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{1}}E_{1} + \hat{\epsilon_{2}}E_{2})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+	\begin{align*}
+	    E_{1} &= a_{1}e^{i\delta_{1}} & E_{2} &= a_{2}e^{i\delta_{2}}
+	\end{align*}
+	\textbf{Circular polarization basis}:
+	\begin{align*}
+	    \vec{E}(\vec{x}, t) &= (\hat{\epsilon_{+}}E_{+} +             \hat{\epsilon_{-}}E_{-})e^{i(\vec{k}\cdot\vec{x} - \omega t)}   
+	\end{align*}
+	\begin{align*}
+	    E_{+} &= a_{+}e^{i\delta_{+}} & E_{-} &= a_{-}e^{i\delta_{-}}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Reflection and Refraction: Kinematic Properties}
+\begin{compactenum}
+	\textbf{Incident wave}:
+		\begin{align*}
+	        \vec{E} &= \vec{E}_{0}e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	        \vec{B} &= \sqrt{\mu \epsilon}\frac{\vec{k}\times\vec{E}}{k}
+	    \end{align*}
+	\textbf{Refracted wave}:
+		\begin{align*}
+	        \vec{E'} &= \vec{E}_{0}'e^{i(\vec{k}\cdot\vec{x} - \omega t)} &
+	        \vec{B'} &= \sqrt{\mu' \epsilon'}\frac{\vec{k}'\times\vec{E}'}{k}
+	    \end{align*}
+	\textbf{Reflected wave}:
+		\begin{align*}
+	        \vec{E''} &= \vec{E}_{0}''e^{i(\vec{k}''\cdot\vec{x} - \omega t)} &
+	        \vec{B''} &= \sqrt{\mu \epsilon}\frac{\vec{k}''\times\vec{E}''}{k}
+	    \end{align*}
+\end{compactenum}
+
+\subsection{Reflection and Refraction: Boundary condition}
+\begin{compactenum}
+\textbf{Normal components}:
+	\begin{align*}
+        &[\epsilon(\vec{E_{0}} + \vec{E_{0}''}) - \epsilon'\vec{E_{0}'}] \cdot \hat{n} = 0 \\
+	&[\vec{k} \times \vec{E_{0} + \vec{k''} \times \vec{E_{0}''} - \vec{k'} \times \vec{E_{0}'}}] \cdot \hat{n} = 0
+	\end{align*}
+\textbf{Tangential components}:
+    \begin{align*}
+        &[\vec{E_{0}} + \vec{E_{0}''} - \vec{E_{0}'}] \times \hat{n} = 0 \\
+        &\Big[\frac{1}{\mu}(\vec{k} \times \vec{E_{0}} + \vec{k''} \times \vec{E_{0}''}) - \frac{1}{\mu'}(\vec{k'} \times \vec{E_{0}')}\Big] \times \hat{n} = 0
+	\end{align*}
+\end{compactenum}
+
+\subsection{Brewster’s Angle}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Snell's Law}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Total Internal Reflection}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Reflection and Transmission Coefficients}
+\begin{compactenum}
+	\begin{align*}
+        &\vec{s} \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}|^{2}cos(i) &
+        &T = \frac{\vec{s}' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} \\
+        &\vec{s}' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon'}{\mu'}}|E_{0}'|^{2}\cos(r) &
+        &R = \frac{\vec{s}'' \cdot \hat{n}}{\vec{s} \cdot \hat{n}} \\
+        &\vec{s}'' \cdot \hat{n} = \frac{1}{2}\sqrt{\frac{\epsilon}{\mu}}|E_{0}''|^{2}\cos(r)' &
+        &T + R = 1 \\
+	\end{align*}
+\end{compactenum}
+
+\subsection{Dispersion Model for time-varying field}
+\begin{compactenum}
+	\begin{align*}
+        m[\ddot{\vec{x}} + \gamma\dot{\vec{x}} + \omega_{0}^{2}\vec{x}] = -e\vec{E}(\vec{x}, t)
+	\end{align*}
+\end{compactenum}
+
+\subsection{Dispersion}
+\begin{compactenum}
+	\begin{align*}
+        \frac{\epsilon(\omega)}{\epsilon_{0}} = 1 + \frac{Ne^{2}}{\epsilon_{0}m}\sum_{j}\frac{f_{j}}{\omega^{2}_{j} - \omega^{2} - i\omega\gamma_{j}}
+	\end{align*}
+\end{compactenum}
+
+\subsection{Attenuation of a plane wave}
+\begin{compactenum}
+
+\end{compactenum}
+
+\subsection{Propagation through Discursive Media}
+\begin{compactenum}
+\textbf{Fourier series}:
+    \begin{align*}
+        u(x,t) = \frac{1}{sqrt{2\pi}} \int_{-\infty}^{\infty} A(k)e^{ikx-i\omega(k)t}dk \\
+        A(k) = \frac{1}{\sqrt{2\pi}}  \int_{-\infty}^{\infty} u(x,0)e^{-ikx} dx\\
+         \end{align*}
+    \textbf{Group velocity}:
+     \begin{align*}
+        v_{g} = \frac{d\omega}{dk}\Bigg|_{k_{0}}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Propagation through Discursive Media}
+\begin{compactenum}
+     \begin{align*}
+        \vec{B} &= \vec{\nabla} \times \vec{A} &
+        \vec{E} &= \vec{\nabla}\Phi - \frac{\partial \vec{A}}{\partial t} 
+    \end{align*}
+    \begin{center}
+    \begin{align*}
+        \nabla^{2}\Phi + \frac{\partial}{\partial t}(\vec{\nabla} \cdot \vec{A}) = -\frac{\rho}{\epsilon_{0}} \\
+        \nabla^{2}\vec{A} - \frac{1}{c^{2}}\frac{\partial^{2} \vec{A}}{\partial t^{2}} - \vec{\nabla}\Big[ \vec{\nabla} \cdot \vec{A} + \frac{1}{c^{2}}\frac{\partial \Phi}{\partial t} \Big] = -\mu_{0} \vec{J}
+    \end{align*}
+    \end{center}
+\end{compactenum}
+
+\subsection{Propagation through Discursive Media}
+\begin{compactenum}
+\textbf{Gauge transformation}:
+    \begin{align*}
+        \vec{A} &\rightarrow \vec{A} + \vec{\nabla}\Lambda &
+        \Phi &\rightarrow \Phi - \frac{\partial \Lambda}{\partial t}
+    \end{align*}
+    \textbf{Restricted gauge transformation}:
+     \begin{align*}
+        \nabla^{2} \Lambda - \frac{1}{c^{2}}\frac{\partial^{2} \Lambda}{\partial t^{2}} = 0
+    \end{align*}
+\end{compactenum}
+
+\subsection{Laplace's Equation in rectangular coordinates}
+\begin{compactenum}
+    \begin{align*}
+        \frac{\partial^{2} \phi}{\partial x^{2}} + \frac{\partial^{2} \phi}{\partial y^{2}} + \frac{\partial^{2} \phi}{\partial z^{2}} = 0
+    \end{align*}
+    \textbf{Separation of variables}:
+     \begin{align*}
+        \Phi(\vec{x}) = X(x)Y(y)Z(z) \\
+        \frac{1}{X} \frac{\partial^{2} X}{\partial x^{2}} + 
+        \frac{1}{Y} \frac{\partial^{2} Y}{\partial y^{2}} +
+        \frac{1}{Z} \frac{\partial^{2} Z}{\partial z^{2}}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Laplace's Equation in spherical coordinates}
+\begin{compactenum}
+    \begin{align*}
+        \frac{1}{r} \frac{\partial^{2}}{\partial r^{2}} (r\Phi) + \frac{1}{r^{2}sin\theta} \frac{\partial}{\partial \theta}\Big(sin\theta \frac{\partial \Phi}{\partial \theta} \Big) + \frac{1}{r^{2}sin^{2}\theta} \frac{\partial^{2}\Phi}{\partial \phi^{2}}
+    \end{align*}
+\end{compactenum}
+
+\section{Energy conservation in the electromagnetic field}
+\subsection{Rate of decrease of energy}
+\begin{compactenum}
+    \begin{align*}
+        \int_{v} \vec{J} \cdot \vec{E} d^{3} x = \ \int_{v}\Bigg[\vec{\nabla} \cdot (\vec{E} \times \vec{H}) + \vec{E} \cdot \frac{\partial \vec{D}}{\partial t} + \vec{H} \cdot \frac{\partial \vec{B}}{\partial t} \Bigg] d^{3}x
+    \end{align*}
+\end{compactenum}
+
+\subsection{Total energy density}
+\begin{compactenum}
+    \begin{align*}
+    u = \frac{1}{2}(\vec{E} \cdot \vec{D} + \vec{B} \cdot \vec{H})
+    \end{align*}
+\end{compactenum}
+
+\subsection{Differential continuity equation}
+\begin{compactenum}
+    \begin{align*}
+    \frac{\partial u}{\partial t} + \vec{\nabla} \cdot (\vec{S}) = - \vec{J} \cdot \vec{E}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Poynting Vector}
+\begin{compactenum}
+    \begin{align*}
+   \vec{S} = \vec{E} \times \vec{H}
+    \end{align*}
+\end{compactenum}
+
+\section{Conservation of linear momentum}
+\subsection{Force on a single charge $q$}
+\begin{compactenum}
+    \begin{align*}
+   \vec{F} &= q\vec{E} + q\vec{v} \times \vec{b} & \frac{d\vec{P}_{mech}}{dt} &= \int_{v} (\rho\vec{E} + \vec{J} \times \vec{B}) d^{3}x
+    \end{align*}
+\end{compactenum}
+
+\subsection{Maxwell Stress Tensoer}
+\begin{compactenum}
+    \begin{align*}
+    T_{\alpha \beta} = \epsilon_{0} \Bigg[E_{\alpha}E_{\beta} + c^{2}B_{\alpha}B_{\beta} - \frac{1}{2}(\vec{E} \cdot \vec{E} + c^{2}\vec{\beta} \cdot \vec{B}) \delta_{\alpha \beta}\Bigg]
+    \end{align*}
+\end{compactenum}
+
+\section{Radiation}
+\begin{compactenum}
+\textbf{Harmonic time dependence:} 
+    \begin{align*}
+    \rho(\vec{x}, t) &= \rho(\vec{x})e^{-i\omega t} & \vec{J}(\vec{x}, t) &= \vec{J}(\vec{x})e^{-i\omega t}
+    \end{align*}
+    \item \textbf{Wave equation for $\vec{A}$:} 
+    \begin{align*}
+    \vec{A}(\vec{x}) = \frac{\mu_{0}}{4 \pi} \int \vec{J}(\vec{x}') \frac{e^{ik|\vec{x} - \vec{x}'|}}{|\vec{x} - \vec{x}'} d^{3}x'
+    \end{align*}
+    \begin{align*}
+    \vec{B} &= \vec{\nabla} \times \vec{A} &
+    \vec{H} &= \frac{1}{\mu_{0}} \vec{\nabla} \times \vec{A} &
+    \vec{E} &= \frac{i Z_{0}}{k} \vec{\nabla} \times \vec{H} &
+    \end{align*}
+\end{compactenum}
+
+\subsection{Zones}
+\begin{compactenum}
+    \item \textbf{The near (static) zone:} $d << r << \lambda$
+    \item \textbf{The intermediate zone} $d << r \approx \lambda$
+    \item \textbf{The far (radiation) zone:} $d >> \lambda << r$
+\end{compactenum}
+
+\subsection{Electric Dipole Radiation and Fields}
+\begin{compactenum}
+    \begin{align*}
+        \vec{A}(\vec{x}) &= -\frac{i\omega \mu_{0}}{4\pi} \vec{p} \frac{e^{ikr}}{r} && \text{where} & \vec{p} = \int x' \rho(\vec{x'}) d^{3}x'
+    \end{align*}
+    
+    \begin{align*}
+        \vec{H} &= \frac{ck^{2}}{4\pi} (\hat{n} \times \vec{p}) \frac{e^{ikr}}{r} \Bigg( 1 - \frac{1}{ikr}\Bigg) \\
+        \vec{E} &= \frac{1}{4\pi \epsilon_{0}} \Bigg\{ k^{2}(\hat{n} \times \vec{p}) \times \hat{n} \frac{e^{ikr}}{r} + [3\hat{n}(\hat{n} \cdot \vec{p} - \vec{p}] \Bigg(\frac{1}{r^{3}} - \frac{ik}{r^{2}} \Bigg) e^{ikr} \Bigg\}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Near Zone}
+\begin{compactenum}
+    \begin{align*}
+        \vec{H} &= \frac{i \omega}{4 \pi} ( \hat{n} \times \vec{p}) \frac{1}{r^{2}} & 
+        \vec{E} &= \frac{1}{4\pi \epsilon_{0}} [3 \hat{n}(\hat{n} \cdot \vec{p}) - \vec{p}]\frac{1}{r^{3}}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Far Zone $kr >> 1$}
+\begin{compactenum}
+    \begin{align*}
+        \vec{H} &= \frac{ck^{2}}{4 \pi} (\hat{n} \times \vec{p}) \frac{e^{ikr}}{r} &
+        \vec{E} &= \frac{k^{2}}{4\pi \epsilon_{0}} [(\hat{n} \times \vec{p}) \times \hat{n}] \frac{e^{ikr}}{r}
+        \end{align*}
+\end{compactenum}
+
+\subsection{Electric Dipole Radiation}
+\begin{compactenum}
+\textbf{Time-averaged power radiated per unit solid angle}
+    \begin{align*}
+        \frac{dP}{d \Omega} = \frac{1}{2} Re[r^{2}\hat{n} \cdot \vec{E} \times \vec{H}^{\big*}]
+        \end{align*}
+\end{compactenum}
+
+\section{Relativistic Electrodynamics}
+\subsection{Lorentz Transformations}
+\begin{compactenum}
+    \begin{align*}
+        x_{0} &= ct & x_{1} &= z & x_{2} &= x & x_{3} &= y \\
+        x_{0}' &= \gamma(x_{0} - \beta x_{1}) & x_{1}' &= \gamma(x_{1} - \beta x_{0})\\
+        x_{2}' &= x_{2} & x_{3}' &= x_{3} && \text{where}\\
+        \beta & = \frac{v}{c} & \vec{\beta} &= \frac{\vec{v}}{c} & \gamma &= \frac{1}{\sqrt{(1 - \beta^{2}})}
+    \end{align*}
+\end{compactenum}
+
+\subsection{Relativistic Energy and Momentum}
+\begin{compactenum}
+    \begin{align*}
+        \vec{p} &= \gamma m \vec{u} = \frac{m \vec{u}}{\sqrt{1 - \frac{u^{2}}{c^{2}}}} \\ 
+        \vec{E} &= \gamma m c^{2} = \frac{mc^{2}}{\sqrt{1 - \frac{u^{2}}{c^{2}}}} \\
+        E &= \sqrt{p^{2}c^{2} + m^{2}c^{4}}
+    \end{align*}
+\end{compactenum}
+
+\subsection{4-vectors}
+\begin{compactenum}
+    \textbf{4-vectors:} $A^{\alpha} = (A^{0}, \vec{A}) \rightarrow (A^{0}, A^{1}, A^{2}, A^{3})$ \\
+    \textbf{Relation:} $dt = \gamma_{u} d\tau$ \\
+    \textbf{4-velocity:} $U = (U_{0}, \vec{U}) = (\gamma_{u} c, \gamma_{u} \vec{u})$ \\
+    \textbf{4-momentum:} $P = (\gamma_{u} m c, \gamma_{u} m \vec{u}) = \Bigg(\frac{E}{c}, \vec{p} \Bigg)$ \\
+    where $\gamma_{u} = \Bigg(1 - \frac{u^{2}}{c^{2}}\Bigg)^{-1/2}$ \\
+\end{compactenum}
+
+\subsection{Tensors}
+\begin{compactenum}
+    \textbf{Space-time continuum:} $(ct, z, x, y) = (x^{0}, x^{1}, x^{2}, x^{3})$ \\
+    \textbf{Transformation:} $x'^{\alpha}} = x'^{\alpha}(x^{0}, x^{1}, x^{2}, x^{3}$ \\
+    \textbf{Lorentz transformations for general contravariant vector:}
+    \begin{align*}
+        A'^{0} &= \gamma(A^{0} - \beta A^{1}) & A'^{2} &= A^{2} \\
+        A'^{1} &= \gamma(A^{1} - \beta A^{0}) & A'^{3} &= A^{3} 
+    \end{align*}
+    \textbf{Contravariant vectors:}
+    $A'^{\alpha} \frac{\partial x'^{\alpha}}{\partial x^{\beta}} A^{\beta}$ \\
+    \textbf{Covariant vectors:}
+    $B'_{\alpha} = \frac{\partial x^{\beta}}{\partial x'^{\alpha}} B_{\beta}$ \\
+    \textbf{Scalar Product:} $B \cdot A = B_{\alpha} A^{\alpha}$
+\end{compactenum}
+
+\subsection{Metric Tensor}
+\begin{compactenum}
+    $(ds)^{2} = g_{\alpha \beta} dx^{\alpha} dx^{\beta}$ \\
+    \textbf{Raising indices} $x_{\alpha} = g_{\alpha \beta} x^{\beta}$
+    \textbf{Lowering indices} $x^{\alpha} = g^{\alpha \beta} x_{\beta}$\\
+    \begin{align*}
+        g &= 
+        \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & -1 & 0 & 0 \\
+        0 & 0 & -1 & 0\\
+        0 & 0 & 0 & -1
+        \end{pmatrix}
+        &
+        x &= 
+        \begin{pmatrix}
+        x^{0} \\
+        x^{1} \\
+        x^{2} \\
+        x^{3}
+        \end{pmatrix}
+        & 
+        gx &= 
+        \begin{pmatrix}
+        x^{0}  \\
+        -x^{1} \\
+        -x^{2} \\
+        -x^{3}
+        \end{pmatrix}
+    \end{align*}  
+\end{compactenum}
+
+\subsection{4-derivative}
+\begin{compactenum}
+\begin{align*}
+    \partial_{\alpha} &= \frac{\partial}{\partial x^{\alpha}} = \Bigg(\frac{\partial}{\partial x^{0}}, \vec{\nabla} \bigg) &
+    \partial^{\alpha} &= \frac{\partial}{\partial x_{\alpha}} = \Bigg(\frac{\partial}{\partial x_{0}}, \vec{\nabla} \bigg)
+\end{align*}
+\end{compactenum}
+
+\subsection{Covariance of Electrodynamics}
+\begin{compactenum}
+\textbf{Continuity equation:} $J^{\alpha} = (c\rho, \vec{J}$\\
+\textbf{Covariant Continuity equation:} $\partial_{\alpha} J^{\alpha} = 0$\\
+\end{compactenum}
+
+\subsection{The Field Strength Tensor}
+\begin{compactenum}
+\textbf{Covariant form of the two inhomogenous Maxwell equation:}
+    \begin{align*}
+    \vec{\nabla} \cdot \vec{E} &= 4\pi \rho & \vec{\nabla} \times \vec{B} - \frac{1}{c} \frac{\partial \vec{E}}{\partial t} &= \frac{4\pi}{c} \vec{J}
+    \end{align*}
+    \begin{center}
+        $\partial_{\alpha}F^{\alpha \beta} = \frac{4\pi}{c} J^{\beta}$
+    \end{center}
+    \textbf{Vector potential:} F^{\alpha \beta} = \partial^{\alpha}A^{\beta} - \partial^{\beta}A^{\alpha}
+\end{compactenum}
+
+\subsection{The Dual Field Strength Tensor}
+\begin{compactenum}
+\textbf{Covariant form of the two homogenous Maxwell equation}
+    \begin{align*}
+    \vec{\nabla} \cdot \vec{E} + \frac{1}{c} \frac{\partial \vec{B}}{\partial t} &= 0 & \vec{\nabla} \times \vec{B} &= 0
+    \end{align*}
+    \begin{center}
+        $\partial_{\alpha}F^{\alpha \beta} = 0$
+    \end{center}
+    \textbf{Vector potential:} F^{\alpha \beta} = \partial^{\alpha}A^{\beta} - \partial^{\beta}A^{\alpha}
+\end{compactenum}
+
+\subsection{Covariant Equations}
+\begin{compactenum}
+    \textbf{Wave Equations:} $ \msquare A^{\alpha} = \frac{4 \pi}{c} J^{\alpha}$ \\
+   \textbf{Lorenz condition:} $\partial_{\alpha}A^{\alpha} = 0$ \\
+   \textbf{Macroscopic Equations:} $\partial_{\alpha}G^{\alpha \beta} = \frac{4 \pi}{c} J^{\beta}, \;\;\; \partial_{\alpha}F^{\alpha \beta}$
+\end{compactenum}
+
+\subsection{Covariant Equation for Force Equation}
+\begin{compactenum}
+    $\frac{dp^[\alpha}}{d\tau} = m \frac{dU^{\alpha}}{d\tau} = \frac{q}{c}F^{\alpha \beta} U_{\beta}$
+\end{compactenum}
+
+\raggedcolumns
+\end{multicols*}
+\end{document}

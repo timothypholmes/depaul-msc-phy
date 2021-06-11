@@ -1,0 +1,306 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+\usepackage{setspace}\onehalfspacing
+\AtBeginDocument{%
+  \addtolength\abovedisplayskip{-0.5\baselineskip}%
+  \addtolength\belowdisplayskip{-0.5\baselineskip}%
+%  \addtolength\abovedisplayshortskip{-0.5\baselineskip}%
+%  \addtolength\belowdisplayshortskip{-0.5\baselineskip}%
+}
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+
+The inverse Lorentz transformation equations for a frame K' traveling at velocity $v$ along the positive $x$-direction of a frame $K$ are given by
+
+\begin{align*}
+    t &= \gamma \Bigg(t' + \frac{vx'}{c^{2}} \Bigg) & x &= \gamma(x' + vt') & y &= y' & z &= z'
+\end{align*}
+
+The $x$ and $t$ equations in differential form are gave as
+
+\begin{align*}
+    dx &= \gamma(dx' - v\; dt') && \text{and} &
+    dt &= \gamma\Bigg(dt' - \frac{v}{c^{2}} dx'\Bigg)
+\end{align*}
+
+where $\gamma = (1 - v^{2}/c^{2})^{-1/2}$. Now,  $u_x$ can be found by
+
+$$
+u_x = \frac{dx}{dt} = \frac{ \gamma(dx' - v\; dt')}{\gamma\big(dt' - \frac{v}{c^{2}} dx'\big)}.
+$$
+
+This can also be expressed as
+
+$$
+u_{x} = \frac{\frac{dx'}{dt'} - v}{1 - \frac{v(dx'/dt')}{c^{2}}}
+$$
+
+which can be reduced down to
+
+$$
+u_{x} = \frac{u_{x}' - v}{1 - \frac{v u_{x}'}{c^{2}}}
+$$
+
+The same approach is used to find $u_{y}$. The differential form for $y$ is $dy = dy'$. Then,  $u_{y}$ is gave as
+
+$$
+u_{y} = \frac{dy}{dt} = \frac{dy'}{\gamma\big(dt' - \frac{v}{c^{2}} dy'\big)}.
+$$
+
+This can then be written as
+
+$$
+\frac{\frac{dy'}{dt'}}{\gamma\big(1 - \frac{v(dy'/dt')}{c^{2}}\big)}
+$$
+
+and reduced to 
+
+$$
+\frac{u_{y}'}{\gamma\big(1 - \frac{v u_{y}'}{c^{2}}\big)}.
+$$
+
+\clearpage
+
+\section*{Problem 2}
+
+\section*{(a)}
+
+For $u'$ parallel to $\vec{v}$, we start with 
+
+$$
+u_{\parallel} = \frac{u_{\parallel}' + v}{1+ \frac{\vec{v} \cdot \vec{u}'}{c^{2}}}
+$$
+
+The angle between $u'$ and $v$ is zero when parallel, this can also be shown by
+
+$$
+u =  \frac{u_{\parallel}' + v}{1+ \frac{|v||u|cos(0)}{c^{2}}}
+$$
+
+and reduced to
+
+$$
+u =  \frac{u' + v}{1+ \frac{v u'}{c^{2}}}
+$$
+
+\section*{(b)}
+
+If $u' = c$, then
+
+$$
+u = \frac{u' + v}{1+ \frac{v u'}{c^{2}}} = \frac{c + v}{1+ \frac{v}{c}} = c.
+$$
+
+From the equation above we find that $u = c$, just as we have $u' =c$. Therefore, this tells us that $c$ is the maximum limit of the speed of light, this is the upper bound of speed in the universe. This limit is a key aspect and a postulate of Special Relativity. 
+
+\section*{(c)}
+
+Speeds $u'$ and $v$ both small compared to $c$. From part (a) we found the equation for $u$. Since $u'$ and $v$ are small compared to $c$, then the part of the equation $u'v/c^{2} = 0$ since $c$ will be much larger than $u \cdot v$. Therefore, our new equation
+
+$$
+u = \frac{u' + v}{1 + 0} = \frac{u' + v}{1} = u' + v.
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+The 4-velocity equation is gave by
+
+$$
+U = (\gamma_{u}c, \gamma_{u}\vec{u})
+$$
+
+where $\gamma_{u} = (1 - u^{2}/c^{2})^{-1/2}$, and $\vec{u} = d\vec{x}/dt$ is the 3-dimensional velocity.
+
+\section*{(a)}
+
+From the equation for $U$ above, $U$ can also be rewrote as
+
+\begin{align*}
+U &= \gamma_{u} (c - \vec{u}) && \text{or} & U^{2} &= \gamma_{u}^{2} (c^{2} - \vec{u} \cdot \vec{u})
+\end{align*}
+
+Therefore, $U^{2}$ can be wrote and reduced to
+
+\begin{align*}
+U^{2} &= \gamma_{u}^{2} (c^{2} - \vec{u} \cdot \vec{u}) \\
+U^{2} &= \frac{(c^{2} - u^{2})}{(1 - u^{2}/c^{2})} \\
+U^{2} &= c^{2}
+\end{align*}
+
+\section*{(b)}
+
+We know that
+
+$$
+U = \frac{dx}{d \tau} 
+$$
+
+Therefore, the 4-acceleration 
+
+\begin{align*}
+A &= \frac{dU}{dt} \frac{dt}{d \tau} \\
+A &= \gamma \frac{d}{dt} (c, u \gamma )\\
+A &= \gamma \Bigg(c \frac{d \gamma}{dt}, \frac{d \gamma}{dt}u + \gamma \frac{du}{dt}\Bigg)
+\end{align*}
+
+where $du/dt = a$.
+
+\section*{(c)}
+
+
+Find the scalar product $U \cdot A$ of the 4-velocity and the 4-acceleration. After taking the derivatives in the equation for $A$, we find that
+
+$$
+U \cdot A = 0
+$$
+
+%This is true since they will not have the same components.
+
+
+\clearpage
+
+\section*{Problem 4}
+
+The Lorentz transformation equations are given by
+
+\begin{align*}
+    x_{0}' &= \gamma(x_{0} - \beta x_{1}) \\
+    x_{1}' &= \gamma(x_{1} - \beta x_{0}) \\
+    x_{2}' &= x_{2} \\
+    x_{3}' &= x_{3} \\
+\end{align*}
+
+where
+
+\begin{align*}
+   \beta &= \frac{v}{c} && \text{and} & \gamma = (1 - \beta^{2})^{-1/2}
+\end{align*}
+
+\section*{(a)}
+
+If we have $\beta = tanh \zeta$, then we can use the equation for $\gamma$ to find that
+
+$$
+\gamma = (1 - \beta^{2})^{-1/2} = (1 - tanh^{2}\zeta)^{-1/2}.
+$$
+
+The alternative form for this equation is then
+
+$$
+\gamma = cosh \zeta.
+$$
+
+Now, if we know that $\gamma = cosh \zeta$, then 
+
+$$
+\gamma \beta = cosh \zeta tanh \zeta
+$$
+
+where the identity for $cosh(x)tanh(x)$ is
+
+$$
+\gamma \beta = sinh \zeta.
+$$
+
+\section*{(b)}
+
+The Lorentz transformation equations can now be wrote as
+
+\begin{align*}
+    x_{0}' &= \gamma x_{0} - \gamma \beta x_{1} = cosh \zeta x_{0} - sinh \zeta x_{1}\\
+    x_{1}' &= \gamma x_{1} - \gamma \beta x_{0} = cosh \zeta x_{1} - sinh \zeta x_{0}\\
+    x_{2}' &= x_{2} \\
+    x_{3}' &= x_{3} \\
+\end{align*}
+
+and in matrix for this is
+
+\begin{align*}
+\begin{pmatrix} x_{0}' \\ x_{1}' \\ x_{2}' \\ x_{3}' \end{pmatrix} =
+\begin{pmatrix} 
+cosh \zeta & -sinh \zeta & 0 & 0 \\ 
+-sinh \zeta & cosh \zeta & 0 & 0 \\ 
+0 & 0 & 1 & 0 \\ 
+0 & 0 & 0 & 1 \\ 
+\end{pmatrix}
+\begin{pmatrix} x_{0} \\ x_{1} \\ x_{2} \\ x_{3}  \end{pmatrix} 
+\end{align*}
+
+\clearpage
+
+%\section*{Appendix}
+
+%\subsection*{}
+%\lstinputlisting{.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

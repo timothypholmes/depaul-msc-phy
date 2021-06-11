@@ -1,0 +1,281 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{2} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+An infinitely long straight wire along the z-axis carries a uniform current I (moving upward toward the positive z-direction). A spherical shell of radius R with a total charge Q uniformly distributed over its surface is centered at the origin (through which the wire also passes, since the wire is along the z-axis).
+
+\subsection*{(a)}
+The electric field for this problem can be expressed as 
+
+$$
+\vec{E} = \frac{Q}{4\pi\epsilon_{0}R^{2}}\hat{r}
+$$
+
+this is just a point charge. 
+
+\subsection*{(b)}
+The magnetic field for this problem can be expressed as 
+
+$$
+\int \vec{B} \cdot \ell \rightarrow \vec{B} = \frac{\mu_{0} I}{2\pi R} \hat{\phi}
+$$
+
+\subsection*{(c)}
+
+The Poynting vector is expressed as
+
+$$
+\vec{S} = (\vec{E} \times \vec{H}).
+$$
+
+From the prior two sections of this problem, both $\vec{E}$ and $\vec{B}$ were found. However, the Poynting vector requires the $\vec{H}$. The only real change for $\vec{B}$ is by a factor of $\mu_{0}$. Where $\vec{B} = \mu_{0}\vec{H} + \vec{M}$ but since this is a linear media $\vec{B} = \mu_{0}\vec{H}$ or $\vec{H} = \vec{B} / \mu_{0}$. Therefore,
+
+$$
+\vec{H} = \frac{I}{2\pi R} \hat{\phi}
+$$
+
+and then the Poynting vector becomes
+
+$$
+\vec{S} = (\frac{Q}{4\pi\epsilon_{0}R^{2}}\hat{r} \times \frac{I}{2\pi R} \hat{\phi}) = - \frac{QI}{8\pi^{2} \epsilon_{0} R^{3}} \hat{\theta}
+$$
+
+\subsection*{(d)}
+
+We can express the spherical vectors as Cartesian vectors by
+
+\begin{align*}
+\hat{r} &= sin(\theta) cos(\phi) \hat{x} + cos(\theta) sin(\phi) \hat{y} + cos(\theta) \hat{z}&
+\hat{\phi} & = -sin(\phi) \hat{x} + cos(\phi) \hat{y}
+\end{align*}
+
+Therefore, $\vec{E}$ can be wrote as
+
+$$
+\vec{E} = \frac{Q}{4\pi\epsilon_{0}R^{2}}sin(\theta) cos(\phi) \hat{x} + cos(\theta) sin(\phi) \hat{y} + cos(\theta) \hat{z}
+$$
+
+Since $\vec{J}$ only depends on th $\hat{z}$ component, the $\hat{x}$ and $\hat{y}$ components drop. The current density is gave as 
+
+$$
+\vec{J} = \frac{I}{2\pi R} \hat{z}.
+$$
+
+Therefore,
+
+$$
+\vec{J} \cdot \vec{E} =
+ \frac{I}{2\pi R} \hat{z} \cdot \frac{Q}{4\pi\epsilon_{0}R^{2}}cos(\theta) \hat{z} = \frac{QI}{8\pi^{2} \epsilon_{0} R^{3}} cos(\theta).
+$$
+
+
+
+%The problem in question asks to use $\vec{J} \cdot \vec{E}$ to determine the sign of the work as well as to verify that this is consistent with the sign of the energy flow due to its configuration. In order to do so $\vec{J}$ needs to be found first, $\vec{J}$ is gave by
+
+%$$
+%\vec{J} = \frac{1}{\mu_{0}} \vec{\nabla} \times \vec{B} - \epsilon_{0} \frac{\partial \vec{E}}{\partial t}.
+%$$
+
+%Since nothing in the electric field depends on time, we have 
+
+%$$
+%\frac{\partial \vec{E}}{\partial t} = 0.
+%$$
+
+
+
+\clearpage
+
+\section*{Problem 2}
+
+Let's assume that our wave is traveling along the $\hat{z}$ direction. This would put the screen on the $xy$-plane. Meaning that
+
+\begin{align*}
+    \vec{E} &= \vec{E}_{x}\hat{x} & \vec{B} &= \vec{B}_{y}\hat{y}.
+\end{align*}
+
+The Maxwell stress tensor is gave as
+
+$$
+T_{\alpha \beta} = \epsilon_{0}\Bigg[E_{\alpha}E_{\beta} + c^{2}B_{\alpha}B_{\beta} - \frac{1}{2} (\vec{E} \cdot \vec{E} + c^{2}\vec{B} \cdot \vec{B}) \delta_{\alpha \beta} \Bigg]
+$$
+
+Therefore, the similar components can be wrote as
+
+\begin{align*}
+    T_{xx} & = -\frac{\epsilon_{0}}{2}\Bigg[ E_{x}^{2} + c^{2}B_{y}^{2}\Bigg] &  
+    T_{yy} & = \frac{\epsilon_{0}}{2}\Bigg[ E_{x}^{2} - c^{2}B_{y}^{2}\Bigg] &
+    T_{zz} & = \frac{\epsilon_{0}}{2}\Bigg[ -E_{x}^{2} + c^{2}B_{y}^{2}\Bigg] &
+\end{align*}
+
+Equation 6.121 is expressed in the course notes as
+
+$$
+\frac{d}{dt}\Bigg[\Bigg(\vec{P}_{mech} + \vec{P}_{field}\Bigg)_{\alpha}\Bigg] = \sum_{\beta} \int_{V} \frac{\partial}{\partial x_{\beta}} T_{\alpha \beta} d^{3}x
+$$
+
+With our values this can be expressed as
+
+$$
+\frac{d}{dt}\Bigg[\Bigg(\vec{P}_{mech} + \vec{P}_{field}\Bigg)_{z}\Bigg] = \sum_{z} \int_{V} \frac{\partial}{\partial x_{z}} T_{zz} d^{3}x
+$$
+
+Therefore, the pressure can be found by
+
+$$
+P = \frac{\epsilon_{0}}{2}\Big[\vec{E}_{x}^{2} + c^{2}\vec{B}_{y}^{2}]
+$$
+
+and 
+
+$$
+u = \frac{\epsilon_{0}}{2}\Big[\vec{E}_{x}^{2} + c^{2}\vec{B}_{y}^{2}]
+$$
+
+Thus, 
+
+$$
+P = u
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+The pressure can be found by
+
+$$
+P = \frac{S}{c} = \frac{1.4\times10^{3} \; Wm^{-2}}{3\times10^{8} \; ms^{-1}} = 5\times10^{-6} \; Nm^{-2}
+$$
+
+We have a pressure and pressure is force over and area or simply $P = F \cdot A^{-1}$. But this problem requires us to find the acceleration and acceleration is gave by $F = m \cdot a$ or $a = F \cdot m^{-1}$. Substitution the equation with pressure into the equation with acceleration we get
+
+$$
+a = \frac{P \cdot A}{m} = \frac{5\times10^{-6} \; Nm^{-2}}{1\times10^{-3} \; kg \cdot m^{2}} = 5\times 10^{-3} \; m \cdot s^{-2}.
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+The momentum associated with the electromagnetic field is gave by
+
+$$
+\vec{P}_{field} = \epsilon_{0} \int_{V} \vec{E} \times \vec{H} d^{3}x.
+$$
+
+In order to find $\vec{P}_{field}$ both the magnetic and electric filed have to be found first. The magnetic field of a toroidal coil is expressed as
+
+\begin{align*}
+\vec{B} &= \pm \frac{\mu_{0} N I}{2\pi a} \hat{\phi} &
+\vec{H} &= \pm \frac{N I}{2\pi a} \hat{\phi}
+\end{align*}
+
+while the electric field is due to a point charge which is gave by 
+
+$$
+\vec{E} = \frac{Q}{4\pi \epsilon_{0} a^{2}} \hat{r}.
+$$
+
+We can express the spherical vectors as Cartesian vectors by
+
+\begin{align*}
+\hat{r} &= sin(\theta) cos(\phi) \hat{x} + cos(\theta) sin(\phi) \hat{y} + cos(\theta) \hat{z}&
+\hat{\phi} & = -sin(\phi) \hat{x} + cos(\phi) \hat{y}
+\end{align*}
+
+The cross product of $\vec{E} \times \vec{H}$ is
+
+$$
+\vec{E} \times \vec{H} = \pm \frac{ Q I N}{8 \pi^{2} \epsilon_{0} a^{3}} \hat{z}
+$$
+
+Integrating over the volume for the $z$ component yields $2\pi a A$ and the result is
+
+$$
+\vec{P}_{field} = \pm \frac{ \mu_{0} Q I N A}{4 \pi \epsilon_{0} a^{2}}. 
+$$
+
+The components for $x$ and $y$ are then 
+
+\begin{align*}
+(\vec{P}_{field})_{x} &= 0 &
+(\vec{P}_{field})_{y} &= 0 
+\end{align*}
+
+\clearpage
+
+\section*{Appendix}
+
+\subsection*{}
+%\lstinputlisting{.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

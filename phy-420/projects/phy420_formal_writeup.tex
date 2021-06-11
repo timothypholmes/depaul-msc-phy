@@ -1,0 +1,209 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{shapes}
+
+
+\title{Synchrotron Radiation: Bridging Particle Accelerators and Astrophysics}
+
+\author{Timothy Holmes \\ 
+        DePaul University}
+
+\date{\today}
+
+\newcommand{\gfigure}[4]
+{
+	\begin{figure}
+      \begin{center}
+          \includegraphics[#3]{#4}
+          \caption{#1}
+          \label{Figure:#2}
+      \end{center}
+    \end{figure}
+}
+\newcommand{\figref}[1]{Figure~\ref{Figure:#1}}
+
+\begin{document}
+\maketitle
+
+% By working through the equations of Section 8.2(Jackson,  pages 356-359) on waveguides, be able to explain TM and TE waves, along with a TEM mode.
+
+\begin{abstract}
+Synchrotron Radiation is electromagnetic radiation that emits when charged particles are accelerated. The Larmor formula is used to find the total power radiated but is non-relativistic. This formula is corrected and has a relaticistic generalization from the Liénard result. This formula is used to find the power loss in a linear accelerator. Not all accelerators are the angular component of an accelerated charge can be found. Furthermore, the syncrotron radiation equations is derived to determine what occurs when extreme relativistic motion is induced in a system. 
+\end{abstract}
+
+\begin{center}
+\section{INTRODUCTION}
+\end{center}
+
+When a charge particle is accelerated, this accelerated charge particle emits electromagnetic radiation. This phenomenon is formally known as synchrotron radiation. When relativity is not considered this phenomenon is referred to as cyclotron emission. Synchrotron radiation can be found naturally through the universe which is often a topic in astrophysics. Synchrotron radiation can also be created in labs artificially using particle accelerators. These specific particle accelerators are called syncrotrons and are solely made to create Synchrotron radiation, where as a typical particle accelerator is used to collide particles like the Large Hadron Collider at CERN.  
+
+Throughout the Universe, there are many kinds of astronomical objects that have been found to emit syncrotron radiation. This process of syncrotron radiation actually dominates much of the high energy in astrophysics. Radio emission from the galaxy as well as supernova remnants are some examples of syncroton radiation. 
+
+When particle accelerators were first built, scientist notice that they generated syncrotron radiation. This radiation was unwanted as it added noise to the measurements. In time, scientist found out how useful this radiation was to number of different scientific fields from biology to material science. This application has lead to syncrotrons and storage rings that use wigglers and undulators to help vary the brilliance for a desired experiment. 
+
+\begin{center}
+\section{DISCUSSION}
+\end{center}
+
+To begin to understand the mathematical components of syncrotron radiation, the Liénard-Wiechert potentials have to be shown first. These potentials describe the effect of a moving electric point charge in terms of vector and scalar potentials. These potentials begin to describe the potentials that are realistically correct and have electromagnetic field that vary in time for a point charge. The derivation for this is quite extensive, but eventually it can be shown that
+\begin{equation}
+\vec{E}(\vec{x}, t) = e \Bigg[\frac{(\hat{n} - \vec{\beta})}{\gamma^{2}(1 - \vec{\beta} \cdot \hat{n})^{3} R^{2}}\Bigg]_{ret} + \frac{e}{c} \Bigg[ \frac{\hat{n} \times ((\hat{n} - \vec{\beta}) \times \vec{\beta})}{(1 - \vec{\beta} \cdot \hat{n})^{3}R} \Bigg]_{ret}
+\end{equation}
+and
+\begin{equation}
+\vec{B}(\vec{x}, t) = \frac{1}{c}(\hat{n} \times \vec{E}) 
+\end{equation}
+\begin{center}
+\subsection{Larmor's Formula}
+\end{center}
+
+The Larmor formula is used to calculate the total power radiated by a point charge as it accelerates. However, in its original form it is calculated for a non relativistic point charge. There is a solution to this problem, this formula can be generalized to a relativistic generalization. When the observation point is far from the accelerating charge, the fields are expressed using the acceleration component from equation 1. This also means that if the particle is moving slow then $\beta << 1$ and
+\begin{equation}
+\vec{E} = \frac{e}{c} \Bigg[\frac{\hat{n} \times (\hat{n} \times \vec{\beta})}{R}\Bigg]_{ret}.
+\end{equation}
+The instantaneous energy flux is gave by the Poynting vector
+\begin{equation}
+    S = \frac{c}{4 \pi} |E|^{2} \hat{n}
+\end{equation}
+where the derivation can be found in the appendix. The power radiated per unit solid angle is gave by 
+\begin{equation}
+    \frac{dP}{d \Omega}  = \frac{e^{2}}{4 \pi c^{3}} |\dot{v}|^{2} sin^{2} \Theta
+\end{equation}
+which the derivation can also be found in the appendix. This leads the Larmor formula for an non-relativistic, accelerated. Integrating equation 5 yields 
+\begin{equation}
+    P = \frac{2}{3} \frac{e^{2}}{c^{3}} |\dot{v}|^{2}
+\end{equation}
+To find the expression for relativistic radiative power a few things have to be derived. This derivation for the relativistic generalized form is fairly important to begin to understand calculations like radiative loss in accelerators. To show this is valid, first the mass must be factored out to get momentum
+\begin{equation}
+    P = \frac{2}{3} \frac{e^{2}}{c^{3}m^{2}} \Big|\frac{dm}{dt}\vec{v}\Big|^{2}
+\end{equation}
+We can also use $\tau$ in place of $t$ which will give
+\begin{equation}
+    P = \frac{2}{3} \frac{e^{2}}{c^{3}m^{2}} \Big|\frac{dm}{d\tau} \frac{\vec{v}}{\gamma}\Big|^{2}
+\end{equation}
+The following steps will lead us to the formulas final form
+\begin{align}
+    P &= \frac{2}{3} \frac{e^{2}}{c^{3}m^{2}} (1 - \beta^{2}) \Big|\frac{d\vec{p}}{d\tau}\Big|^{2} \\
+    &= \frac{2}{3} \frac{e^{2}}{c^{3}m^{2}} \Bigg(\frac{d\vec{p}}{d\tau}\Bigg)^{2} - \Bigg(\frac{1}{c^{2}}\frac{dE}{d\tau}\Bigg)^{2} \\
+    &= \frac{2}{3} \frac{e^{2}}{c^{3}m^{2}} \Bigg(\frac{dp_{\alpha}}{d \tau} \frac{dp^{\alpha}}{d \tau}\Bigg)
+\end{align}
+Finally, substituting $E = \gamma m c^{2}$ and $p = \gamma m v$ will result in the final relativistic power radiated formula. This result for relativistic radiative power is known as the Liénard result and is gave as
+\begin{equation}
+    P = \frac{2}{3} \frac{e^{2}}{c} \gamma^{6} [(\dot{\beta})^{2} - (\beta \times \dot{\beta})^{2}]
+\end{equation}
+Now, there is more that can be proved from this relativistic equation. The radiated power is proportional to the acceleration and work is proportional to the tangential force with velocity. The radiated power loss in an accelerator can then be calculated, beginning with
+\begin{equation}
+    P = \frac{2}{3}\frac{e^{2}}{m^{2} c^{3}} \Bigg(\frac{dp}{dt}\Bigg)^{2}.
+\end{equation}
+Since this example gives a linear accelerator, we can use the prior equation and find the gradient of the total energy by
+\begin{equation}
+        P = \frac{2}{3}\frac{e^{2}}{m^{2} c^{3}} \Bigg(\frac{dE}{dx}\Bigg)^{2}.
+\end{equation}
+Equation 14 can turn into a rate equation using the chain rule. From there, the rate of change of particle energy with distance is determined by external forces of the power radiated from the linear motion. Thus, the ratio of power radiated to power supplied by the accelerator term is gave by
+\begin{equation}
+    \frac{P_{rad}}{P_{sup}} = \frac{2}{3} \frac{e^{2}}{m^{2}c^{3}} \frac{1}{v} \frac{dE}{dx} \rightarrow \frac{2}{3}\frac{(e^{2}/mc^{2})}{mc^{2}} \frac{dE}{dx}
+\end{equation}
+where the last form is valid for $(\beta \rightarrow 1)$, that is $v \approx c$. Some quick math done in Jackson shows that the energy gain is of the order of $mc^{2} = 0.511 \; MeV$ with a distance of $e^{2}/mc^{2} = 2.82 \times 10^{-13} \; cm$. Essentially, this requires a potential difference on the order of $10^{14} MV/m$. radiative loss can be neglected in a linear accelerator since the forces required to produce these changes in energy when the particle is moving near the speed of light are large. Thus, for radiative loss to be an issue, the particles must be moving slow, not near relativistic speeds.
+Similar equations can be used to find how a circular accelerator works. In a circular accelerator, like a synchrotron. In this circular accelerator, there is a non-zero force proportional to its velocity, the centripetal force on the particle is gave by
+\begin{equation}
+\Big|\frac{dp}{d \tau}\Big| = \gamma \omega |p| >> \frac{1}{c} \frac{dE}{d\tau}.
+\end{equation}
+The radiative power can then be expressed as
+\begin{equation}
+    P = \frac{2}{3} \frac{e^{2}}{m^{2} c^{3}} \gamma^{2} \omega^{2} |p|^{2} = \frac{2}{3} \frac{e^{2} c}{\rho^{2}} \beta^{4} \gamma^{4}
+\end{equation}
+where $\omega = (c\beta/\rho)$ and $\rho$ is the orbit radius. Now that the accelerator is circular, calculations can now be made per revolutions. Thus, the radiative-energy loss per revolution is gave as
+\begin{equation}
+\delta E = \frac{2 \pi \rho}{c \beta} P = \frac{4 \pi}{3} \frac{e^{2}}{\rho} \beta^{3} \gamma^{4}
+\end{equation}
+and Jacksons calculation for high energy electrons is gave as a numerical value as
+\begin{equation}
+    \delta E(MeV) = 8.85 \times 10^{-2} \frac{[E(GeV)]^{4}}{\rho(meters)}
+\end{equation}
+The higher the energy the more efficient the energy gain per cycle will be. It is also true that the larger the circumference of the circle, the more efficient the accelerator will be. 
+Now that both a linear accelerator and a circular accelerator have been found, the relation between the two is gave by
+$$
+P_{circ} = \gamma^{2} P_{lin}
+$$
+for equal applied forces. The extra energy on the R.H.S. is from radiation. It is evident from this equation that the more efficient radiation source is from a circular accelerator. Which is why labs around the world tend to build circular accelerators over their linear counterpart.
+%
+%\begin{center}
+%\subsection{14.5 Distribution in Frequency and Angle of Energy Radiated by Accelerated Charges}
+%\end{center}
+
+%\begin{center}
+%\subsection{14.6 Frequency Spectrum of Radiation Emitted by a Relativistic Charged Particle in Instantaneously Circular Motion}
+%\end{center}
+
+%\begin{center}
+%\subsection{14.7 Undulators and Wigglers for Synchrotron Light Sources}
+%\end{center}
+
+\begin{center}
+\section{CONCLUSIONS}
+\end{center}
+
+In conclusion, syncrotron radiation is an involved subject in the study of electrodynamics. Syncrotron radiation is a naturally occurring physical phenomenon in space and is synthetically made with advanced accelerators here on earth. 
+Radiated power from an Accelerated charge can help calculate the radiative loss in a linear accelerator as well a a circular accelerator. When dealing with speed quantities that are large, relativistic equations are always important. While this paper was able to capture an important key aspect of syncrotron radiation, it was not able to capture all the components that go into this topic. Sycrotron radiation is highly sought after due to frequency spectrum, mostly created by charge particles in instantaneously circular motion, this is typically done in a syncrotron when the radiation is wanted. Advanced engineering has gone into synchrotron light sources, using undulators and wigglers.
+\newpage
+
+\begin{center}
+\nocite{*}
+\bibliographystyle{IEEEannot}
+\bibliography{thesis}
+\end{center}
+
+\newpage
+
+\begin{center}
+\section{APPENDIX}
+\end{center}
+
+\begin{center}
+\subsection{Instantaneous energy flux by the Poynting Vector derivation}
+\end{center}
+\begin{align*}
+    \vec{S} &= \frac{c}{4 \pi}(\vec{E} \times \vec{B}) \\
+    &= \frac{c}{4 \pi} |\hat{n} \times (\hat{n} \times \dot{\vec{\beta}}|^{2}\hat{n} \\
+    &= \frac{e^{2}}{4 \pi c^{3}} |\hat{n} \times (\hat{n} \times c^{2}\dot{\vec{\beta}}|^{2}\hat{n} \\
+    &= \frac{e^{2}}{4 \pi c}  |\hat{n} \times (\hat{n} \times \dot{\vec{v}}|^{2}\hat{n} \\
+    \text{or} \\
+    &= \frac{c}{4 \pi} |\vec{E}|^{2}\hat{n} \\
+\end{align*}
+
+\begin{center}
+\subsection{Power radiated per unit solid angle derivation}
+\end{center}
+
+\begin{align*}
+\frac{dP}{d\Omega} &= \frac{c}{4 \pi} |R\vec{E}|^{2} \\
+&= \frac{e^{2}}{4 \pi c^{3}}  |\hat{n} \times (\hat{n} \times c^{2}\dot{\vec{\beta}})|^{2} \\
+&= \frac{e^{2}}{4 \pi c^{3}}  |\hat{n} \times (\hat{n} \times \dot{\vec{v}})|^{2} \\
+&= \frac{e^{2}}{4\pi c^{3}} |\dot{v}|^{2} sin^{2} \Theta
+\end{align*}
+
+\begin{center}
+\subsection{Power radiated for a circular accelerator}
+\end{center}
+
+Let $|\vec{p}| = m \gamma \omega \rho$ and $\omega = \beta c / \rho$.
+
+\begin{align*}
+\Big|\frac{dp}{d \tau}\Big| &= \gamma \omega |p| >> \frac{1}{c} \frac{dE}{d\tau} \\
+P &= \frac{2}{3} \frac{e^{2}}{m^{2}c^{3}} \gamma^{2} \omega^{2} |\vec{p}|^{2}\\
+  &= \frac{2}{3} \frac{e^{2}}{m^{2}c^{3}} \gamma^{2}\Bigg(\frac{\beta c}{\rho}\Bigg)^{2} (m \gamma \beta c)^{2}\\
+  &= \frac{2}{3} \frac{e^{2} c}{\rho^{2}} \beta^{4} \gamma^{4}
+\end{align*}
+
+\end{document}

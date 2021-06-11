@@ -1,0 +1,464 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{7} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject ~ \CourseNum ~ Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+
+Starting from 
+$$
+A = e^{-\vec{\omega} \cdot \vec{S} - \vec{\zeta} \cdot \vec{K}}
+$$
+and in the case of rotation about the $x^{3}$ axis without any boost, we have $\vec{\omega} = \omega \hat{\epsilon_{3}}$ and $\vec{\zeta} = 0$. Thus, $A$ will become
+$$
+A = e^{-\omega S_{3}}
+$$
+and Taylor expanding this equation gives
+\begin{align*}
+    A = I + \omega S_{3} + \frac{1}{2!}(-\omega S_{3})^{2} - \frac{1}{3!}(-\omega S_{3})^{3} + ...
+\end{align*}
+Which can be rearranged and wrote as
+$$
+A = (I + S_{3}^{2}) - S_{3}sinh(\omega) - S_{3}^{2}cosh(\omega)
+$$
+In matrix for this is
+\begin{gather*}
+A = 
+    \left(
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix} 
+    +
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    \right)
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    sinh(\omega)
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & -1 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    cosh(\omega) \\
+    =
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix} 
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & -sinh(\omega) & 0 \\
+    0 & sinh(\omega) & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & -cosh(\omega) & 0 & 0 \\
+    0 & 0 & -cosh(\omega) & 0 \\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    1 & 0 & 0 & 0 \\
+    0 & cosh(\omega) & sinh(\omega) & 0 \\
+    0 & -sinh(\omega) & cosh(\omega) & 0 \\
+    0 & 0 & 0 & 1 \\
+    \end{pmatrix} 
+\end{gather*}
+\clearpage
+
+\section*{Problem 2}
+
+Express the Lorentz. scalar $F^{\alpha \beta}F_{\alpha \beta}$ in terms of $\vec{E}$ and $\vec{B}$, where $F^{\alpha \beta}$ is given by
+$$
+F^{\alpha \beta} = 
+\begin{pmatrix}
+    0 & -E_{x} & -E_{y} & -E_{z} \\
+    E_{x} & 0 & -B_{z} & B_{y} \\
+    E_{y} & B_{z} & 0 & -B_{x} \\
+    E_{z} & -B_{y} & B_{x} & 0
+\end{pmatrix}
+$$
+and $F^{\alpha \beta}$ can be obtained from $F^{\alpha \beta}$ by the procedure you worked out on the class worksheet (i.e., by putting $E_{i} \rightarrow - E_{i}$, and leaving $B_{i}$ unchanged).
+
+The tensor with two covariant indices can be found by setting all the the $E_{i}$ components to $-E_{i}$ and leaving all the $B_{i}$ components unchanged. This gives us the following
+$$
+F_{\alpha \beta} = 
+\begin{pmatrix}
+    0 & E_{x} & E_{y} & E_{z} \\
+    -E_{x} & 0 & -B_{z} & B_{y} \\
+    -E_{y} & B_{z} & 0 & -B_{x} \\
+    -E_{z} & -B_{y} & B_{x} & 0
+\end{pmatrix}
+$$
+Therefore, 
+\begin{align*}
+F^{\alpha \beta} F_{\alpha \beta} &= 
+ \begin{pmatrix}
+    0 & -E_{x} & -E_{y} & -E_{z} \\
+    E_{x} & 0 & -B_{z} & B_{y} \\
+    E_{y} & B_{z} & 0 & -B_{x} \\
+    E_{z} & -B_{y} & B_{x} & 0
+\end{pmatrix}
+\begin{pmatrix}
+    0 & E_{x} & E_{y} & E_{z} \\
+    -E_{x} & 0 & -B_{z} & B_{y} \\
+    -E_{y} & B_{z} & 0 & -B_{x} \\
+    -E_{z} & -B_{y} & B_{x} & 0
+\end{pmatrix} \\
+&=\left(\begin{array}{cccc}
+E_{x}^{2}+E_{y}^{2}+E_{z}^{2} & -E_{y} B_{z}+E_{z} B_{y} & E_{x} B_{z}-E_{z} B_{x} & -E_{x} B_{y}+E_{y} B_{x} \\
+B_{z} E_{y}-B_{y} E_{z} & E_{x}^{2}-B_{z}^{2}-B_{y}^{2} & E_{x} E_{y}+B_{y} B_{x} & E_{x} E_{z}+B_{z} B_{x} \\
+-B_{z} E_{x}+B_{x} E_{z} & E_{y} E_{x}+B_{x} B_{y} & E_{y}^{2}-B_{z}^{2}-B_{x}^{2} & E_{y} E_{z}+B_{z} B_{y} \\
+B_{y} E_{x}-B_{x} E_{y} & E_{z} E_{x}+B_{x} B_{z} & E_{z} E_{y}+B_{y} B_{z} & E_{z}^{2}-B_{y}^{2}-B_{x}^{2}
+\end{array}\right)
+\end{align*}
+
+\clearpage
+
+\section*{Problem 3}
+Consider the fundamental matrices $S_{1}, S_{2}, S_{3}, K_{1}, K_{2}, K_{3}$ written in equation (11.19) in Jackson. By explicit matrix multiplication, find the commutators 
+\begin{align*}
+    & [S_{2}, S_{3}], & [S_{2}, K_{3}], && \text{and} && [K_{2}, K_{3}]
+\end{align*}
+
+\begin{gather*}
+    [S_{2}, S_{3}] = S_{2}S_{3} - S_{3}S_{2} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0\\
+    0 & -1 & 0 & 0 \\
+    \end{pmatrix} 
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & -1 & 0 \\
+    0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} 
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0\\
+    0 & -1 & 0 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 0 \\
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & -1\\
+    0 & 0 & 1 & 0 \\
+    \end{pmatrix} = S_{1}
+\end{gather*}
+
+\begin{gather*}
+    [S_{2}, K_{3}] = S_{2}K_{3} - K_{3}S_{2} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0\\
+    0 & -1 & 0 & 0 \\
+    \end{pmatrix} 
+\left(\begin{array}{llll}
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{array}\right)
+    -
+\left(\begin{array}{llll}
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{array}\right)
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0\\
+    0 & -1 & 0 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+    0 & -1 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    0 & 1 & 0 & 0 \\
+    1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix} = K_{1}
+\end{gather*}
+
+\begin{gather*}
+    [K_{2}, K_{3}] = K_{2}K_{3} - K_{3}K_{2} \\
+    =
+\left(\begin{array}{llll}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right)
+\left(\begin{array}{llll}
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{array}\right)
+    -
+\left(\begin{array}{llll}
+0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{array}\right)
+\left(\begin{array}{llll}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right) \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 0 \\
+    \end{pmatrix}
+    -
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 1 & 0 \\
+    \end{pmatrix} \\
+    =
+    \begin{pmatrix}
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 \\
+    0 & 0 & -1 & 0 \\
+    \end{pmatrix} = -S_{1}
+\end{gather*}
+
+\clearpage
+
+
+\section*{Problem 4}
+
+\subsection*{(a)}
+
+Recall that the fields $\vec{E}$ and $\vec{B}$ can be expressed in terms of the potentials as 
+\begin{align*}
+    \vec{E} = - \frac{1}{c} \frac{\partial \vec{A}}{\partial t} - \vec{\nabla} \Phi && \text{and} && \vec{B} &= \vec{\nabla} \times \vec{A}
+\end{align*}
+The components of $\vec{E}$ and $\vec{B}$ using the $\partial^{\alpha}$ notation for the $x$ component is
+\begin{align*}
+    \vec{E_{x}} &= -\frac{1}{c}\frac{\partial A_{x}}{\partial t} - \frac{\partial \Phi}{\partial x} = -(\partial^{0}A^{1} - \partial^{1}A^{0}) 
+    && \text{and} &&
+    \vec{B_{x}} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A^{y}}{\partial z} = -(\partial^{2}A^{3} - \partial^{3}A^{2})
+\end{align*}
+where
+$$
+\partial^{\alpha} = \Bigg(\frac{\partial}{\partial x^{0}}, -\vec{\nabla}\Bigg).
+$$
+For the $y$ component
+\begin{align*}
+    \vec{E_{y}} &= -\frac{1}{c}\frac{\partial A_{y}}{\partial t} - \frac{\partial \Phi}{\partial y} = -(\partial^{0}A^{2} - \partial^{2}A^{0}) 
+    && \text{and} &&
+    \vec{B_{y}} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A^{y}}{\partial z} = -(\partial^{1}A^{3} - \partial^{3}A^{1})
+\end{align*}
+where
+$$
+\partial^{\alpha} = \Bigg(\frac{\partial}{\partial y^{0}}, -\vec{\nabla}\Bigg).
+$$
+For the $z$ component 
+\begin{align*}
+    \vec{E_{z}} &= -\frac{1}{c}\frac{\partial A_{z}}{\partial t} - \frac{\partial \Phi}{\partial z} = -(\partial^{0}A^{3} - \partial^{3}A^{0}) 
+    && \text{and} &&
+    \vec{B_{z}} &= \frac{\partial A_{z}}{\partial y} - \frac{\partial A^{y}}{\partial z} = -(\partial^{1}A^{2} - \partial^{2}A^{1})
+\end{align*}
+where
+$$
+\partial^{\alpha} = \Bigg(\frac{\partial}{\partial z^{0}}, -\vec{\nabla}\Bigg).
+$$
+
+\subsection*{(b)}
+The element obtained above are the elements of the field tensor
+$$
+F^{\alpha \beta} = \partial^{\alpha}A^{\beta} - \partial^{\beta}A^{\alpha}
+$$
+The following matrix can be used to match terms:
+\begin{align*}
+F^{\alpha \beta} = 
+\left(\begin{array}{llll}
+F^{00} & F^{01} & F^{02} & F^{03} \\
+F^{10} & F^{11} & F^{12} & F^{13} \\
+F^{20} & F^{21} & F^{22} & F^{23} \\
+F^{30} & F^{31} & F^{32} & F^{33}
+\end{array}\right)
+= 
+\begin{pmatrix}
+    0 & -E_{x} & -E_{y} & -E_{z} \\
+    E_{x} & 0 & -B_{z} & B_{y} \\
+    E_{y} & B_{z} & 0 & -B_{x} \\
+    E_{z} & -B_{y} & B_{x} & 0
+\end{pmatrix}
+\end{align*}
+Thus, we have $F^{\alpha 0}$ which gives
+\begin{align*}
+F^{00} &= (\partial^{0} A^{0} - \partial^{0}A^{0}) = 0 &
+F^{10} &= (\partial^{1} A^{0} - \partial^{0}A^{1}) = E_{x} \\
+F^{20} &= (\partial^{2} A^{0} - \partial^{0}A^{2}) = E_{y} &
+F^{30} &= (\partial^{3} A^{0} - \partial^{0}A^{3}) = E_{z} \\
+\end{align*}
+$F^{\alpha 1}$ which gives
+\begin{align*}
+F^{01} &= (\partial^{0} A^{1} - \partial^{1}A^{0}) = -E_{x} &
+F^{11} &= (\partial^{1} A^{1} - \partial^{1}A^{1}) = 0 \\
+F^{21} &= (\partial^{2} A^{1} - \partial^{1}A^{2}) = B_{z} &
+F^{31} &= (\partial^{3} A^{1} - \partial^{1}A^{3}) = -B_{y} \\
+\end{align*}
+$F^{\alpha 2}$ which gives
+\begin{align*}
+F^{02} &= (\partial^{0} A^{2} - \partial^{2}A^{0}) = -E_{y} &
+F^{12} &= (\partial^{1} A^{2} - \partial^{2}A^{1}) = -B_{z} \\
+F^{22} &= (\partial^{2} A^{2} - \partial^{2}A^{2}) = 0 &
+F^{32} &= (\partial^{3} A^{2} - \partial^{2}A^{3}) = B_{x} \\
+\end{align*}
+$F^{\alpha 3}$ which gives
+\begin{align*}
+F^{03} &= (\partial^{0} A^{3} - \partial^{3}A^{0}) = -E_{z} &
+F^{13} &= (\partial^{1} A^{3} - \partial^{3}A^{1}) = -B_{y} \\
+F^{23} &= (\partial^{2} A^{3} - \partial^{3}A^{2}) = -B_{x} &
+F^{33} &= (\partial^{3} A^{3} - \partial^{3}A^{3}) = 0 \\
+\end{align*}
+
+\clearpage
+
+
+%\section*{Appendix}
+
+\subsection*{}
+%\lstinputlisting{.py}
+
+\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}

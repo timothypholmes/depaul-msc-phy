@@ -1,0 +1,223 @@
+\documentclass[11pt]{article}
+
+\newcommand{\HWnum}{1} 
+\newcommand{\StudName}{Timothy Holmes} % author
+\newcommand{\CourseNum}{420}           % course number
+\newcommand{\Subject}{PHY}
+
+\usepackage{graphicx, amsmath, amssymb,fancyhdr}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\oddsidemargin}{-2cm}
+\addtolength{\evensidemargin}{-2cm}
+\addtolength{\textheight}{1.6in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\headsep}{-0.1in}
+%\addtolength{\footskip}{-0.2in}
+\pagestyle{fancy}
+\cfoot{}
+\lhead{\textbf{\Subject~\CourseNum~--- Homework~\HWnum}}
+\rhead{\textbf{\StudName:~Page~\thepage}}
+
+\addtolength{\parskip}{\baselineskip} % skips a line between paragraphs
+\parindent 0in                        % no indent at start of paragraph
+
+\newcommand{\dd}{\textrm{d}}
+\usepackage{braket}
+\usepackage{lipsum, babel}
+\usepackage{blindtext}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{listings}
+\usepackage{listing}
+\usepackage{supertabular}
+
+
+
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+
+
+\lstset{language=Python,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\begin{document}
+% -------------------------- BOD -------------------------- 
+
+\title{Homework {\HWnum}}
+\author{Timothy Holmes \\ \Subject~420 Electrodynamics II}
+
+\maketitle
+
+\section*{Problem 1}
+
+The potential energy for this problem can be wrote as
+
+$$
+V_{\alpha} = \frac{1}{4\pi \epsilon_{0}} \Bigg( \frac{2e}{r} + \frac{2e}{r}\Bigg)
+$$
+
+which can be further reduced to 
+
+$$
+V_{\alpha} = \frac{e}{r\pi \epsilon_{0}}.
+$$
+
+If given an equilateral triangle with each side being of length $3*10^{-15}m$, then the potential energy can be calculated as
+
+\begin{align*}
+    U &= \frac{3}{2} V_{\alpha} 2e \\
+    &= \frac{3e^{2}}{r\pi\epsilon_{0}} \\
+    & = \frac{3*(1.6*10^{-19}C)^{2}}{3*10^{-15}m*\pi*8.85*10^{-12}F*m^{-1}} = 9.3*10^{-13} J
+\end{align*}
+
+% If you insert the command below
+\clearpage
+
+\section*{Problem 2}
+
+The potential energy can be expressed as an integral of the square of the electric field over all space
+
+$$
+W = \frac{\epsilon_{0}}{2} \int |\vec{E}|^{2} d^{3}x.
+$$
+
+Show that
+
+$$
+W = \frac{3}{5} \Bigg[ \frac{Q^{2}}{4 \pi \epsilon_{0} R} \Bigg]
+$$
+
+Lets assume that the electric field is radial and is gave by
+
+$$
+E_{r}(r) = \frac{Q}{4\pi\epsilon} \frac{r}{R^{3}} \qquad \text{for} \enspace r < R
+$$
+
+whereas for $r > R$, $E_{r}(r)$ is simply the electric field of a point charge $Q$.
+
+The volume integral for spherical coordinates is gave by 
+
+$$
+dV = r^{2}sin(\phi) drd\phi d\theta.
+$$
+
+Therefore, the integral of the square of the electric field over all space can be wrote with the terms above. The $\vec{E}$ field will also have to be split up into two different ranges. One integral for the range $r < R$ and the other integral for the range $r > R$. Thus, the integral can now be wrote as
+
+$$
+W = \frac{\epsilon_{0}}{2} \Bigg[ \int_{0}^{2\pi} d\theta \int_{0}^{\pi} sin(\phi) d\phi \int_{0}^{R} \frac{Q^{2}}{16\pi^{2}\epsilon_{0}^{2}} \frac{r^{2}}{R^{6}} r^{2} dr + \int_{0}^{2\pi} d\theta \int_{0}^{\pi} sin(\phi) d\phi \int_{R}^{\infty} \frac{Q^{2}}{16\pi^{2}\epsilon_{0}^{2}r^{4}} r^{2} dr \Bigg].
+$$
+
+\newpage
+
+The results for the $\phi$ and $\theta$ terms is simple. The result from the $\theta$ component will just be $2\pi$ and the result from the $\phi$ component will just be $2$. This will further reduce the integral and evaluating gives
+
+\begin{align*}
+W &= \frac{\epsilon_{0}}{2} \Bigg[ 4\pi \int_{0}^{R} \frac{Q^{2}}{16\pi^{2}\epsilon_{0}^{2}}  \frac{r^{4}}{R^{6}} + 4\pi \int_{R}^{\infty} \frac{Q^{2}}{16\pi^{2}\epsilon_{0}^{2}r^{2}} dr \Bigg] \\
+&= \frac{\epsilon_{0}}{2} \Bigg[ \frac{Q^{2}}{4\pi \epsilon_{0}^{2}} \frac{r^{5}}{5 R^{6}} \Bigg|_{0}^{R}  + \frac{Q^{2}}{4\pi \epsilon_{0}^{2}r} \Bigg|_{R}^{\infty} \Bigg] \\
+&= \frac{\epsilon_{0}}{2} \Bigg[ \frac{Q^{2}}{20\pi \epsilon_{0}^{2}R} + \frac{Q^{2}}{4\pi \epsilon_{0}^{2}R}  \Bigg]
+\end{align*}
+
+Reducing the equation above gives the following,
+
+$$
+W = \frac{3}{5} \Bigg[\frac{Q^{2}}{4\pi\epsilon_{0}R} \Bigg].
+$$
+
+\clearpage
+
+\section*{Problem 3}
+
+The magnetic analog of equation (4.86) for electrostatics is
+
+$$
+\delta W = \int \vec{H} \cdot \delta \vec{B} d^{3}x.
+$$
+
+If a linear relation exists between \vec{B} and \vec{H}. then show that the total magnetic energy will be
+
+$$
+W = \frac{1}{2} \int \vec{H} \cdot \vec{B} d^{3}x.
+$$
+
+Lets assume that the medium is paramagnetic  or diamagnetic. This will ensure that there is a linear relationship between $\vec{B}$ and $\vec{H}$ so that 
+
+$$
+\vec{H} \cdot \delta \vec{B} = \frac{1}{2}\delta(\vec{H} \cdot \vec{B}).
+$$
+
+The $1/2$ comes from the fact that the linear relation exists. The final expression is then
+
+$$
+W = \frac{1}{2} \int \vec{H} \cdot \vec{B} d^{3}x.
+$$
+
+\clearpage
+
+\section*{Problem 4}
+
+The change in the energy is given by 
+
+$$
+W = \frac{1}{2} \int (\vec{E} \cdot \vec{D} - \vec{E_{0}} \cdot \vec{D_{0}}) d^{3}x
+$$
+
+Show that this can be written as
+
+$$
+W = \frac{1}{2} \int (\vec{E} \cdot \vec{D_{0}} - \vec{D} \cdot \vec{E_{0}}) d^{3}x.
+$$
+
+To get the cross terms as seen above in the last equation, the first equation can be wrote as 
+
+$$
+W = \frac{1}{2} \int (\vec{E} \cdot \vec{D_{0}}  - \vec{D} \cdot \vec{E_{0}}  + (\vec{E} + \vec{E_{0}}) \cdot (\vec{D} - \vec{D_{0}})) d^{3}x.
+$$
+
+From here, the integrals can be split up as
+
+$$
+W = \frac{1}{2} \Bigg[ \int (\vec{E} \cdot \vec{D_{0}}) d^{3}x - \int (\vec{D} \cdot \vec{E_{0}}) d^{3}x + \int (\vec{E} + \vec{E_{0}}) \cdot (\vec{D} - \vec{D_{0}}) d^{3}x \Bigg].
+$$
+
+The total potential is related to the electric field by $E = - \nabla \phi$. The equation can then be wrote as
+
+\begin{align*}
+W &= \frac{1}{2} \Bigg[ \int (\vec{E} \cdot \vec{D_{0}}) d^{3}x - \int (\vec{D} \cdot \vec{E_{0}}) d^{3}x + \int \nabla \phi \cdot (\vec{D} - \vec{D_{0}}) d^{3}x \Bigg] \\
+&= \frac{1}{2} \Bigg[ \int (\vec{E} \cdot \vec{D_{0}}) d^{3}x - \int (\vec{D} \cdot \vec{E_{0}}) d^{3}x + (\rho - \rho_{0}) \Bigg] \\
+\end{align*}
+
+Where $\rho - \rho_{0} = 0$. Thus, the final integral is 
+
+$$
+W = \frac{1}{2} \int (\vec{E} \cdot \vec{D_{0}} - \vec{D} \cdot \vec{E_{0}}) d^{3}x.
+$$
+
+\clearpage
+
+%\section*{Appendix}
+
+%\subsection*{}
+%\lstinputlisting{.py}
+
+%\clearpage
+
+
+% -------------------------- EOD -------------------------- 
+\end{document}
