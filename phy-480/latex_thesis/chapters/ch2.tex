@@ -1,0 +1,184 @@
+\addchapheadtotoc
+\setlength\parindent{0pt}
+
+\chapter{DEEP LEARNING}
+
+\section{Chapter overview}
+
+This chapter begins with a review of the underlying principles of Convolutional Neural Networks (CNN), a matured deep learning approach to image classification that relies on optimising repeated spatial convolutions. I then describe the data handling used to prepare double-pulse speckle images for training a particular CNN for image classification.\\
+
+\section{Motivation}
+
+The previous chapter describes the use of computational spatial convolution , $c^2(Q,\tau)$, to extract the diffusion parameter $D$ and therefore the particle size a from double-pulse speckle image, given a lengthy list of assumptions and limitations that are required for this analysis.  In particular, it is unclear what the grid spacing or weighting should be used in the spatial convolutions.   Furthermore, it is unclear how to best use the additional information available in double-pulse speckle for extracting particle sizes from mixtures of different particles, for averaging out noise from non-ideal signal levels.  Extracting composition when modelling the scattering from first principles is difficult. \\
+
+On the other hand, the double-pulse speckle technique provides a large amount of images, each representing the same mixture, but completely independent due to the random motion of the particles.  This suggests using a model-independent method for sorting the double-pulse speckle patterns, i.e. categorising different mixtures by using a subset of labelled data.  Although many model-independent methods exist for categorising data (e.g. \citep{Eric}), the ideal approach would use a sorting method that depends on spatial convolutions and is trainable.  An emerging approach from Artificial Intelligence research is reviewed in this chapter. \\
+
+\section{Artificial Neural Network}
+
+\vspace{5mm}
+
+Artificial Neural Networks (NNs) are biologically inspired networks designed to process inputs, train such input, forming probability weighted associations, and ultimately project an output. The naming of many neural network terminologies stem from animal brains.  A neuron is a single element on a network with an associated mathematical function that holds an internal state called activation signal. Individual connection link on a network carries information about input signal. A simple neural network, such as a Perceptron, first introduced in 1958 by Frank Rosenblatt, includes an input layer connected to a second layer via connection link and output layer with an expected probabilistic output \citep{Frank}. In contrast, deep neural networks with more than one hidden layer are harder to train than shallow or less densely connected neural networks. Colloquially, we can take the phrase "neurons that fire together wire together" for granted because artificial neural nets tend to behave in such fashion. An output of a node is calculated by multiplied inputs by weights and an added bias. Weights are values that control the strength of the connection between two neurons. Bias are additional constants attached to neurons and added to the weighted input before the activation function is applied. Activation functions that live inside neural network layers modify the data they receive and pass it to the next layer. This allows us to model complex non-linear relationships in-between features. Functions such as sigmoid and ReLU (Rectifier Linear Unit) are household names in Deep Learning community. Activation functions are non-linear, continuously differential and fixed range. A simple neural network is shown in Figure 3.1 consisted of 3 hidden layers and an input and an output layer.
+
+
+
+In 1999, the MNIST dataset was open-sourced to the AI community for classification. It contained handwritten digits from 0 through 9 collected from Census Bureau employees and high school students \citep{MNIST}. It took two weeks to train the data to get any meaningful accuracy at that time. Presently, the computation speed has substantially lowered with far superior accuracy. Below is an MNIST image data broken into 28 $\times$ 28 pixels. Individual greyscale values range anywhere between 0 and 1; lighter pixel gradients closer to 1.0, darker pixel values near 0.0. The total input neuron is 28 $\times$ 28 = 784. It is shown below as Figure 3.2. 
+
+
+\vspace{5mm}
+
+
+\section{Convolutional Neural Network} 
+
+\vspace{5mm}
+
+A Convolutional Neural Network or CNN or ConvNet is a specialised form of neural network paramount in processing structured grid-like data such as an image data or time-series data. The nomenclature {\it convolution} arises from the fact that this genre of neural network undergoes a functional analysis convolution operation: a linear operation on two functions of a real-valued argument. A ConvNet must consist of at least one convolutional layer that differs a CNN from a simple neural network. It enjoys multiple cascaded convolution kernels from left to right ending up flattened and ran through a densely connected neural network. The pioneering work by Yann LeCun et. al. in 1998 led to the fundamental architecture of CNN that we are familiar with today. This includes, the accustomed design of input image stack on the left, CNN layers in the middle, and output on the right stemming from a fully connected neural network. LeCun's network was christened LeNet5 with features such as using convolution to extract spatial features and sparse connection matrix in between layers. \citep{leCun}\\
+
+Say a weighting function {\it w(a)} exists that ensures given several measurements taken from an experiment the recent most (the most relevant) is weighted heavily than earlier ones. The convolution in such measurement looks like (3.1) however the convolution operation would be denoted with the asterisk as in equation (3.2).
+
+\vspace{7mm}
+\hspace{52mm} $s(t) = \displaystyle\int x(a) w(t-a) da$ \hspace*{0pt}\hfill (3.1) 
+\vspace{7mm}
+
+In CNN, {\it w} is a probability density function to ensure the output will be a weighted average i.e. 0 for all negative arguments. Here, {\it x} is referred to as the input of the ConvNet, the function {\it w} is kernel, and the output is the feature map. 
+
+\vspace{7mm}
+\hspace{58mm} $s(t) = \left(x* w\right) (t)$ \hspace*{0pt}\hfill (3.2) 
+\vspace{7mm}
+
+
+The need of CNNs arose from the understanding that densely connected neural networks are limited in understanding features within an image. For instance, fully-connected layers of networks treat any two connections from input later equally despite being far apart within the image pixel. This means feature extraction is not prioritised on a normal neural network architecture. The usage of convolutional layers, or patching, in a CNN is analogous to the structure of the visual cortex in human, where a series of layers process an incoming image and identify progressively more complex features. A ConvNet takes in an input image, assign weights and biases to different objects in the image and able to perform classification. \\
+
+The three important characteristics of the CNN architectures are local receptive fields, shared weights, and pooling. A \textit{Local receptive field} is a square patch or a little window in input pixels that are linked to a hidden neuron on feature map. Each connection learns a weight as well as the hidden layer learns a bias overall. The benefit of such patching architect is that image information is preserved during this operation rather than directly flattening input pixels. \textit{Shared weights and biases} are maintained in each hidden neuron connected to its local receptive field in order to detect exactly the same feature at different locations in the input image. Convolutional networks are well adapted to the translation invariance of images \citep{Nielson}. Convolutional architectures are well-adapted to classify images and makes convolutional networks fast to train. \\
+
+A ConvNet convolves learned features with input data thereby is able to capture the spatial and temporal dependencies using relevant filters. A classic ConvNet architecture consists of the following three layers:
+
+\begin{itemize}
+    \item Convolutional layers + Pooling layers
+    \item Activation layers (ReLU)
+    \item Fully connected Neural Network layers
+\end{itemize}
+
+\subsection{The Convolutional Layer}
+
+The convolutional layers are the major foundation in ConvNets; these layers apply a filter to an input causing an activation. A repeated application of filter to an input in activation map is described as the feature map. Feature map indicates metrically the locations and strength of features in an input. The input in the CNN is a tensor which needs to transform into a feature map programmatically. The transformation converts the actual image dimensions into feature map dimension. In computer vision and other image processing applications the convolution is applied routinely. A Gaussian blur $5\times 5$ kernel is used to reduce noise, on the left, and a $3\times 3$ kernel for detecting edges within the image is shown on the right. 
+
+\begin{center}
+$\omega = $\dfrac{1}{256}
+$\left[\begin{array}{ccccc}
+1 & 4 & 6 & 4 & 1	\\
+4 & 16 & 24 & 16 & 4	\\
+6 & 24 & 36 & 24 & 6	\\
+4 & 16 & 24 & 16 & 4 \\ 
+1 & 4 & 6 & 4 & 1 \\
+\end{array}\right] \hspace{23mm} $and$
+\hspace{23mm }\omega = \left[\begin{array}{ccc}
+0 & -1 & 0\\
+-1 & 4 & -1 \\
+0 & -1 & 0 \\
+\end{array}\right]$
+\end{center}
+
+Mathematically, these operators illustrate how convolutional layers are applied to input. A code block of an application of the convolutional layers is shown below using a Sequential model from the open-sourced Deep Learning library - Keras (discussed more in Analysis section). \\
+
+\begin{center}
+\makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{LatexDiss/Dissertation/mit_cnn.png}}
+\end{center}
+
+A Convolutional layer has kernels functions defined by width and height, the number of input and output channels, and the depth of the convolutional filter. The filter is equal to the number channels (depth) of the input feature map. \\
+
+The pooling layer operates upon each feature map, thus creates a new set of pooled feature maps. The goal of the pooling layer is to reduce the dimensions of the feature maps in order to lower computation by reducing the learning parameters. The pooling operation involves sliding an appropriate filter of 2 dimension over individual channel of feature map; summarising the features lying within the region covered by the filter. There are three pooling layers: max pooling, average pooling, and global pooling, out of which max pooling is the most popular. Max pooling selects the maximum element of the region of the feature map covered by the filter. After this operation the max-pooling layer becomes a feature map underlying the most prominent feature of the previous feature map. Mathematically, it is done by selecting the largest number from the covered the filter map filter.
+
+
+\subsection{Activation layer (ReLU)}
+
+The convolution operation is a linear operation but input images are highly non-linear. This non-linearity need is fulfilled by the ReLU operation known to train the network faster than other activation functions. The ReLU or Recified Linear Unit removes negative values from an activation map by setting them to zero. This method applies the activation function onto the feature map by increasing non-linearity in the network \citep{Jay}.
+
+
+\subsection{Fully connected Neural Network layer}
+
+Adding a fully connected layer completes our CNN architecture. It is also a rapid method of learning non-linear combinations of high feature levels. This final layer in the CNN starts with the flattened matrix, which is ultimately connected to every neuron in one layer to every neuron in the other layer. A fully connected layer looks similar to Figure 3.1 once the flattened matrix is connected and ready for classification. The output layer of a fully connected layer uses softmax activation in our study. Softmax is a probability function between 0 and 1, used in multiclass classification. There are multiple speckle images of various samples fed through to make a prediction therefore softmax function was used to make the prediction in the output layer. 
+
+\vspace{5mm}
+
+\section{Speckle pattern recognition} 
+
+\vspace{5mm}
+
+Images are arrays of structured datatype with some relationship between pixel's edges, lines, and contrasts that are some information that links pixels. A convolution is the simple application of a filter to an input that causes activation. A filter is simply a set of multipliers. Filter could remove vertical or horizontal lines, sharpen or contrast images, and everything in between. Repeated application of the same filter to an input causes a map of activations known as a feature map. The process of image recognition from data to classification goes as follows:
+
+\begin{itemize}
+    \item First, the data collected from the experiment were unzipped into csv (Comma Separated Value) files and uploaded onto a Python script. The imported data contained images   into pixels which are numerical values based on their contrast quality. Each Scan has its arrays of images which are in black-and-white form rather than RBG (Red Green Blue) to lower colour channels from 3 to 1 channel.
+    \item The data frame is pre-processed, cleaned by removing unwanted frames, and concatenated. The arrays then go through one-hot encoding which is a process by which categorical variables are converted into integer representation. 
+    \item The dataframe is split into training and testing sets at 70:30 percent fraction randomly. This allows to test the model on the training set and measure performance metrics on the test set.
+    \item The dataset, input, is feed through the convolutional layer which performs first feature extraction. Some kernel function, a square matrix, does matrix calculation onto individual pixels. This is passed onto the next layer where maximum value of that pixel is taken. This operation is known as MaxPooling. 
+    \item After several convolutional and MaxPooling operations, the dimension of the input is shrunk and ready to be flattened for the fully-connected neural network.
+    \item It starts with the input layer which corresponds to the flattened input from the convolution. Different amounts of hidden layers are assigned based on hyperparameter search that looks for optimised path. Finally an output is allocated with 6 outputs given there were 6 labels in the input for prediction. 
+    \item Once the model is trained with at least 20-30 epochs which is a hyperparameter that defines the number times that the learning algorithm will work through the entire training dataset. On the testing set, the model is evaluated on unseen data, thereby model performances are recorded.
+\end{itemize}
+
+Following these steps the classification of sample using supervised CNN was done. These steps can be represented into a figure as shown in Figure (3.3) where the MNIST handwritten digits dataset was the input. Different layers of convolutions and activations were added coupled with a dense neural network architecture. The output layer of the neural network predicted the correct class in the input. In our case, the input has 6 labelled classes and the network was asked to predict the correct class. In Analysis, I discuss these in detail. \\
+
+The open-sourced libraries used for Deep Learning were Numpy, Pandas and Seaborn for exploratory data anlaysis, Matplotlib and Pyplot for data visualisation, and Keras and Google's Tensorflow for model architecture. These are publicly available data science libraries, frameworks, and Application Programming Interfaces (APIs) that are widely used for Deep Learning practice. 
+
+
+\chapter{ANALYSIS}
+
+
+Figure 4.1 was gathered by K. Napoleon and E. Landahl in 2020 at DePaul University where particles of size $0.49$ \mu m, $ 0.3 $ \mu m, $ 0.09 \mu m$ were instituted in the DLS experiment. The graph exhibits the DLS in action where the largest diameter particle scattered at the lowest angle shown in blue, conversely the smallest particle, shown in red, scattered at the largest angle. This correlation time against scattering angle was indicative of the Eq. 1.15 in a larger context of seeking relationship off size and correlation time. The Stokes Einstein equation in Eq. 1.14 can be used to obtain the hydrodynamic radius of spheres in non viscous fluid using diffusion equation. Such relationship seeking process is permitted as a consequence of the double-pulse technique. This process provides a spatial correlation\citep{LeeS}. The implication, therefore, is that spatial information generated by double pulses can determine the size of the particle present in the sample. In data acquisition, Fig 2.1 shows the layout of the apparatus where monochromatic diode laser produces diffraction off the fluid suspended sample and a CCD captures time-stamped images frame by frame. Each scan consists of 500 frames (images) taken with double-pulses of 100 $\mu s$ duration at the 17 time delays specified below: \\
+
+$dt$ = [10 100 200 300 400 600 800 1000 1500 2000 3000 4000 6000 8000 10000 15000 20000]$\mu s$\\
+
+For instance, $dt = 10$ implies the camera detector on for 100$\mu s$, off for 10$\mu s$, on for 100$\mu s$. Concentrations are given in dilutions from stock by volume.  For instance, a $10^{-3}$ concentration is $0.1\%$ of the original solution concentration. The solutions are opaque without dilution and the size in nm is the nominal size of the latex spheres in water. \\
+
+Figures 4.2 - 4.5, the purple colour represents the background in the detector and blue dots represent speckles - higher gradients of blue indicating higher speckles concentration. These figures represent images that are sliced in different dimensions to emphasize different image aspects. Figure 4.2 is one frame of the \textit{Scan005} where $600\times1250$ pixels image shows a ring of constructive and destructive inference pattern. This diffraction pattern generated from the presence of $300 nm$ latex spheres in 0.001 concentration is similar to Fig. 2.4. The major differences are the size and detector sensitivity where Lee et. al. used 4.5 $\mu m$ polystyrene particles, much larger in size than our $300 nm$ spheres. Our CCD detector was an off-the-shelf hardware whilst Lee preferred to use an expensive system of detection. We, nevertheless, obtained similar speckles on our frames. Fig. 4.3 is a $300\times150$ pixels sub-section of the larger scan shown to emphasise on the details of speckles generated on the scan. Figure 4.4 is presented to show the presence of no speckles without any diffraction given no impurity. Figure 4.5 shows \textit{Scan004} with $1980\times1080$ pixels scan which was the maximum possible image the CCD was able to record. All scans produced similar speckles with subtle nuances in the size and locations of speckles harder to detect for a human. However, the CNN was able to learn and recognise those patterns in the images that it was trained on.\\
+
+The metrics of accuracy and loss are important to judge the performance of the model. Accuracy is the fraction of predictions the model was able to correctly classify. The curse of accuracy metrics is that it varies in the context of use. In other words, the context of the problem defines the accuracy value. For instance, in the case of a brain tumor detection classification, a $96\%$ accuracy of a model might not be ethical to deploy. Whilst if the accuracy was evaluated for the case of weather prediction that accuracy might be commercial. In our case, the classification we obtained of about $60\%$ seems appropriate to report in this study as a good one for a prototype. Shown in Figure 4.6, the accuracy versus epochs graph shows how the accuracy is evolving with the number of epochs for collective samples array. Accuracy is  To interpret it another way, given the impurities of sizes ranging from 90nm to 490 nm the model should tell you with 60\% accuracy what sized sample was present in the cuvette. The  For the Loss function that was used off Keras open-sourced library, the imported type was a categorical crossentropy loss. Also known as the softmax loss, and used primarily for multi-class classification, the crossentropy loss trains a CNN to output a probability over the `C' classes for individual image. In a good model, we anticipate the loss to fall as the number of epochs increase. An epoch is a measure of the number of times all of the training vectors are used once to update the weights. \\
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+{\sc \textbf{SAMPLES}  &  {\sc \textbf{No. of parameters}}  & {\sc \textbf{Accuracy}}  & {\sc \textbf{Loss}} \\
+\hline
+{\it Scan002 490 nm $ 10^{-3}$ concentration} & 49,300,994 & 0.69 & 837 \\
+\hline
+{\it Scan003 490 nm $ 10^{-4}$ concentration} & 49,218,563 & 0.89 & 3569 \\
+\hline
+{\it Scan004 490 nm $ 10^{-2}$ concentration} & 49,218,563 & 0.75 & 6743 \\
+\hline
+{\it Scan005 300 nm $ 10^{-3}$ concentration} & 49,218,563 & 0.76 & 3359 \\
+\hline
+{\it Scan006 90 nm $ 10^{-3}$ concentration}& 49,218,563 & 0.78 & 8317 \\
+\hline
+{\it Scan007 distilled water} & N/A & 1.00 & 0.00 \\
+\hline
+
+\end{tabular}
+\end{center}
+\caption[Samples and performance metrics]{Types of species used to produce speckle pattern. $Scan007$ is a distilled water sample used as a control. The number of parameters is the sum of all weights and biases. Accuracy metric measures the percentage of correct predictions for the test data. Loss function was categorical crossentropy that computes the crossentropy loss between the labels and predictions.}
+
+\label{table_genomes}
+\end{table}
+
+
+\cleardoublepage
+
+
+\chapter{APPLICATIONS}
+
+Traditional DLS relies on diffusion coefficient by measuring fluctuations in scattered photon intensity due to particle diffusion. The prevailing application of Dynamic Light Scattering is in analysing particles of size stretching from submicrons to microns such as proteins, nucleic acids, polymers and microorganisms. DLS is simple, highly cost effective, and economical in operate and to transport. DLS is one of the most understood and commercialised techniques in physics to classify particle and profile. A highly accurate, reliable, and replicable analysis is routinely conducted in different laboratories as a result of high accessibility, low cost of the technology. For angular information, a multi-angle DLS is also available off-the-shelf that provides angular independent size results. DLS in the industry is also standardised at International Organisation for Standardisation or ISO standards; such convenience allows easier cross-collaboration between laboratories and even at an international level. This includes but not limited to the size of the sample cuvette, to the light source or scattering angles for various standardised particles. \\
+
+Our demonstrated novel approach performs concurrent measurements of particles high-speed dynamics producing structural information of the sample. With the aid of of ConvNet image classification, the data analysis portion of speckles is not computationally strenuous, therefore admits to rapid testing. Small in size, economical in nature, the double-pulse ConvNet DLS is substantiated to be an alternative for non-invasive speckle characterisation. The double-pulse approach advances facilitates DLS to gather richer, high-resolution data at the same or lower cost. The systematic study is easier to conduct in the case of systematic failure running a test. Double-pulse DLS method complemented with a Deep Learning algorithm is a particularly powerful tool. The level of sophistication that a Convolutional Neural Network brings to a traditional DLS is paramount. \\
+
+DLS hardware setup and Deep Learning software systems are sophisticated yet economical. As a result, the intact set up could be deployed in areas limited in resources. Including, places of natural disaster, low income areas where water quality could be tested cheaply but highly accurately, and rapid fluid analysis for many purposes. A trained DL model backed DLS is applicable in water filtration facilities, marine habitat conservation and monitoring, aquatic agriculture and so on.\\
+
+
+
+\chapter{SUMMARY}
+
+Dynamic light Scattering is a non invasive soft-matter physics technique to scatter light off a sample, thereby obtain spatial information about the sample using temporal data of its intensity. Based on particles fluctuations, a characteristic speckle data is recorded, and ultimately classified to their corresponding hydrodynamic radius. DLS covers a wide range of testing from microscopy to spectroscopy. The technique utilises a temporal auto-correlation function of scattered light over time given by Stokes-Einstein equation. The time dependency fluctuations in the diffused light are measured by a fast photon counter on the opposite side of the sample. DLS is based on the Brownian motion of diffused-and-dispersed particles of various sizes, forms and properties. \\
+
+Recent new development in double-pulse technique has upstaged traditional DLS. The double-pulse technique leaves the apparatus stage unchanged, rather the novelty appears in swapping the constant stream of laser beam to a well-defined double pulse. This approach measures the transient dynamics from an isolated image rather than dealing with correlation coefficient and lag time. The time-delay between two pulses are such that correlation coefficient measured at the normalised angle covered different decay rates of the speckle. The normalised speckle fringes, captured in time-series images were broken into pixels for Deep Learning image classification. The Convolutional Neural Network extracted features and learned the differences between classes. Hyperparameters were tuned to optimise the model. Output was a classification performance metrics such as accuracy. In Appendix is shown the loss function that decays as the number of epochs is increased. It shows that as the model is learning off different parameters, it is able to classify correct features within defined labels. The loss function graph is indicative of the model performance.\\ 
+
+In spite of drawbacks, DLS enjoys as the top contender for sample identification measurements in submicron regime. The well-established performance of DLS is enhanced by appending it with double-speckle Deep Learning technique as we elaborate in this thesis. Our method can classify macromolecules from an array of species sizes. A major drawback comes at the cost of faster processor or graphic cards to run models faster. A well-trained Convolutional Neural Network classifies the sorts of sample without any painful mathematical modelling of correlation function for individual sample. Rather the model generalises images from trained parameters. An unknown sample classification with accuracy report is possible based on a trained DL model. Overall, our double-pulse technique in conjunction with a Convolutional Neural Network appears superior to classical method of performing DLS. This was a prototype study to measure the feasibility and applicability of Artificial Intelligence in DLS. We are confident that DLS is greatly aided by Deep Learning treatment if not more qualified to classify impurities. More data and higher quality images for training are recommended. 

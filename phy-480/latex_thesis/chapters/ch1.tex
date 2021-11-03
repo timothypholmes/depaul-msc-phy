@@ -1,0 +1,307 @@
+\addchapheadtotoc
+\setlength\parindent{0pt}
+
+\chapter{INTRODUCTION}
+
+\section{Thesis Overview}
+
+This thesis proposes a new analysis method for extracting information from the complex, fluctuating visible light patterns that are formed when coherent light is scattered from small particles suspended in solution.  \\
+
+The first chapter of this thesis begins with a review of the microscopic random motion of a small particle in an idealised solution, specifically a ``Newtonian fluid”. The motion is described as a random walk termed “Brownian motion”, and is consistent with the macroscopic theory of diffusion. Next, I consider the scattering of light by a single such particle, and then identify certain assumptions that can be made to extend these results to a collection of randomly moving particles. These results suggest several different methods that can be used to determine the particle size from light scattering.  The techniques can be broadly classified into two groups: those that measure spatial correlations in scattered light intensity, and those that measure temporal correlations. Several of these approaches are in routine use in analytical laboratory equipment today. The introductory chapter ends with a simple ``kitchen table” experimental demonstration of the Dynamic Light Scattering phenomenon, which produces what appears to be a randomly fluctuating “speckled” pattern -- but in fact contains spatial and temporal correlations which depend on the composition of the scattering material.\\
+
+In the second chapter, I present the difficulties inherent in analysing these Speckle patterns using existing methods. These limitations are found to mostly result from the assumptions that were required for analytical solutions presented in the previous chapter.  For several important applications, these limitations can be severe. I then review a recent development \citep{LeeS}, termed “double-pulse speckle”, that demonstrated simultaneous recording of spatial and temporal light correlations and presented an analysis technique for extracting particle size using computational spatial convolutions of the experimentally temporally correlated light scattering data.  Importantly, this technique has been implemented in a relatively inexpensive and compact optical apparatus by my DePaul Physics Department colleague, Kyle Napoleon, who provided the dataset used in this thesis. The data set consists of visible laser-light scattering images recorded at multiple time-correlation delays, taken on standard calibration samples consisting of manufactured latex spheres (90 nm, 300 nm, and 490 nm diameters) in water at controlled dilutions and mixtures.\\
+
+The use of computational spatial convolutions to extract particle size from double-pulse speckle images provides the motivation for this thesis. The results of \cite{LeeS} do not provide an unambiguous answer about the grid spacing or weighting that should be used in the spatial convolutions, nor do they provide any guidance for extracting particle sizes from mixtures of different particles, for averaging out noise from non-ideal signal levels, or from extracting composition when modelling the scattering from first principles is difficult. A model-independent method for empirical particle identification is desirable. In the third Chapter, I review the underlying principles of Convolutional Neural Networks (CNN), an emerging machine learning approach to image classification that relies on optimising repeated spatial convolutions. \\
+
+The fourth chapter of this thesis describes what is to the best of my knowledge the first attempt to train a CNN to recognise light scattering images produced using the double-pulse speckle experimental approach. The data set as provided had to be processed, labelled, and then reduced in size to be computationally tractable. Initial attempts at training a few-layer CNN were successful, demonstrating the model-independent ability to sort samples by composition from the double-pulse speckle images.\\
+
+In conclusion, I wrap up this thesis in the final chapter summarising the context of this thesis at large. Including some implications, drawbacks and advantages of using CNN in double-pulse DLS. \\
+
+\section{Newtonian Fluids}
+
+By definition, a liquid does not support shear stress in equilibrium. Any forces applied to a liquid will cause it to flow and thereby relieve the stress. Before equilibrium is reached, however, a moving liquid can support a shear stress that is due to internal, velocity-dependent friction.  A simple one-dimensional example is described in the Feynman Lectures \citep{Feynman}, shown in Fig. 1.1.  The example consists of two parallel plates of area $A$ separated by a distance $d$ that is filled by a fluid, and when one plate is dragged by an external force $F$, it moves at a constant velocity $v_0$, described by $F/A = \eta v_0/d$, where $\eta$ is a proportionality constant named the coefficient of viscosity. A liquid that is both incompressible and obeys this linear dependence of shear stress $F/A$ on velocity is called a ``Newtonian fluid”. From this equation, the SI units of viscosity are kg/(m*s). This thesis uses water at room temperature as the solution in which particles are suspended, with a viscosity near $10^{-3} kg/(m*s)$, \citep{Feynman}. \\
+
+
+Motion in Newtonian fluids can be characterised by a dimensionless parameter called $Re$, or the Reynold’s number. $Re$ is the ratio of the inertial forces to the drag forces in a fluid, or 
+
+\vspace{7mm}
+\hspace{63mm} $Re = \dfrac{F_{inertial}} {F_{drag}}$. \hspace*{0pt}\hfill (1.1) 
+\vspace{7mm}
+
+Following \citep{Purcell}, consider an object with a characteristic length dimension a moving in a Newtonian fluid, as shown in Fig. 1.1.  The inertial forces are found from Newton’s Second Law,
+
+\vspace{7mm}
+\hspace{52mm} $F_{inertial} = \dfrac{dp}{dt} = v \dfrac{dm}{dt}$. \hspace*{0pt}\hfill (1.2) 
+\vspace{7mm}
+
+where $p$ is the momentum of the displaced fluid, $v$ is its velocity, $m$ is its mass, and derivatives are taken with respect to time $t$. The mass flow rate $dm/dt$ can be found by multiplying the density $rho$ by the volume flow rate $dV/dt$,
+
+\vspace{7mm}
+\hspace{52mm} $\dfrac{dm}{dt} = \rho \dfrac{dV}{dt} = \rho \nu A$ \hspace*{0pt}\hfill (1.3) 
+\vspace{7mm}
+
+where $v$ is the volume of the object with an area $A$. Combining Eqs. 1.1 and 1.2, the inertial force of the moving object can be written as
+
+\vspace{7mm}
+\hspace{52mm} $F_{inertial} = \rho A v^2 $ \hspace*{0pt}\hfill (1.4) 
+\vspace{7mm}
+
+
+
+The drag force can be estimated by rearranging Eq. 1.4,
+
+\vspace{7mm}
+\hspace{52mm} $F_{drag} = A \nu \eta/a$ \hspace*{0pt}\hfill (1.5) 
+\vspace{7mm}
+
+where I have assumed that the size of the plate in Fig. 1.1 plays a similar role to the size of the object in Fig. 1.2 when determining the drag force, and that the velocity is constant.  The Reynolds number is therefore given by 
+
+
+\vspace{7mm}
+\hspace{52mm} $Re = \dfrac{F_{inertial}}{F_{drag}} = a \rho \nu / \eta$ \hspace*{0pt}\hfill (1.6) 
+\vspace{7mm}
+
+When $Re < 1$, viscous drag is more important than inertia in determining particle motion in a fluid, i.e. the particle will slow down in a relatively short space and brief time.  This is more likely to be the case for smaller particle sizes moving at slower speeds in highly viscous fluids. \\
+
+\textit{“If you are very low Reynolds number, what you are doing at the moment is entirely determined by the forces that are exerted on you at that moment, and by nothing in the past.” \citep{Purcell}}\\ 
+
+The relative lack of inertial memory, contrary to the usual interpretation of Newton’s First Law, results in a random walk, discussed in the next section. \\ 
+
+For the special case of a spherical particle in a Newtonian fluid, the drag force in Eq. 1.5 can be exactly calculated as
+
+\vspace{7mm}
+\hspace{62mm} $F_{drag} = 6\pi a \eta \nu $ \hspace*{0pt}\hfill (1.7) 
+\vspace{7mm}
+
+a result known as Stoke’s Law \citep{Feynman}.
+
+\vspace{7mm}
+
+\section{Brownian motion}
+
+A fluid is ultimately made of molecules (such as water molecules) which are undergoing thermal motion at room temperature.  These molecules will bombard our particle from all sides irregularly, causing small collisions that can impart momentum changes. These collisions happen often, perhaps $10^{14}$ times per second \citep{Reif}. Although these collisions are random, they will add up to an increasing distance moved away from an initial position over time. Observations of the microscopic motion of small particles show that they do indeed slowly drift within a fluid.  The Newtonian fluid model can be used to estimate this drift speed, or the mean squared distance travelled by a particle in a given amount of time. \\
+
+Following \citep{Reif}, the equation of motion in one dimension, $x$,  for a particle in a Newtonian fluid (with drag proportional to the velocity) undergoing an arbitrary external force can be written as \\
+
+\hspace{45mm} $F_{ext} = ma + F_{drag} = m \dfrac{d^2x}{dt^2} + mu\dfrac{dv}{dt}$ \hspace*{0pt}\hfill (1.8) 
+\vspace{7mm}
+
+where $\mu$ is a drag coefficient dependent upon the viscosity and particle size, e.g. $6 \pi a\eta$ from Eq. 1.8 above. Multiplying the equation by the position x and taking the time average yields
+
+
+\vspace{7mm}
+\hspace{52mm} $\biggl\langle mx\,\dfrac{d^2x}{dt^2}\biggr\rangle +
+\mu\,\biggl\langle x\,\dfrac{dx}{dt}\biggr\rangle =
+\langle{xF_x}\rangle\notag$ \hspace*{0pt}\hfill (1.9) 
+\vspace{7mm}
+
+First consider the term on the right hand side of the equation.  For Brownian motion, the x-component of the external force $F_x$ comes from a random collision with a water molecule, which can be in any direction relative to $x$. For any given location of $x$, there is no reason why $F_x$ should be positive or negative, and motion in either direction is equally likely, so the time average of the product of x and $F_x$ is zero. The first term on the left hand of the equation can be re-written as
+
+\vspace{7mm}
+\hspace{52mm} $mx\,\dfrac{d^2x}{dt^2} = m\,\dfrac{d\, [x(dx/dt)]}{dt} -
+m\biggl(\dfrac{dx}{dt}\biggr)^2.
+$ \hspace*{0pt}\hfill (1.10) 
+\vspace{7mm}
+
+The second term on the right hand side of Eq. 1.10 can be re-written as
+
+\vspace{7mm}
+\hspace{52mm} $x \dfrac{dx}{dt} = \dfrac{1}{2} \dfrac{d}{dt} \langle x^2 \rangle .
+$ \hspace*{0pt}\hfill (1.11) 
+\vspace{7mm}
+
+Combining Eqs. 1.8 through 1.10 yields
+
+\vspace{7mm}
+\hspace{52mm} $-\langle{mv^2}\rangle + \dfrac{\mu}{2}\,\dfrac{d}{dt}\,\langle{x^2}\rangle = 0.\notag$ \hspace*{0pt}\hfill (1.12) 
+\vspace{7mm}
+
+
+According to kinetic theory, the kinetic energy of the particle should have a mean value of $1/2 kT$, where $k$ is Boltzmann’s constant and $T$ is the temperature.  Inserting this equivalence the average drift in one dimension can be related to the viscosity and the temperature, 
+
+\vspace{7mm}
+\hspace{60mm} $\dfrac {d\langle{x^2}\rangle}{dt} = 2\, \dfrac {kT}{\mu}\notag$ \hspace*{0pt}\hfill (1.13) 
+\vspace{7mm}
+
+This result shows that a particle will move due to Brownian motion at a rate that increases with temperature and decreases with the drag coefficient. In three dimensions, and for the special case of a small sphere in a Newtonian fluid, this is equivalent to a diffusion coefficient $D$, 
+
+\vspace{7mm}
+\hspace{60mm} $D = \dfrac{k\, T}{6\, \pi \, a \eta}$ \hspace*{0pt}\hfill (1.14) 
+\vspace{7mm}
+
+This result is referred to as the Stokes-Einstein relation \citep{Feynman}.  Table 1.1 shows a list of major assumptions required to relate the diffusion coefficient to temperature, viscosity, and particle size.  
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+{\sc \textbf{ASSUMPTIONS}}  &  {\sc \textbf{ORIGIN OF ASSUMPTIONS}} \\
+\hline
+Fluid is incompressible & Newtonian fluid \\
+\hline
+Fluid has a linear drag coefficient  & Newtonian fluid \\
+\hline
+Particle is small & Low Reynolds number, Brownian motion\\
+\hline
+Spherical shape particle & Stokes-Einstein relation \\
+\hline
+\end{tabular}
+\end{center}
+\caption{List of assumptions made in the analysis of small particle motion.}
+\label{table_genomes}
+\end{table}
+
+\vspace{10mm}
+
+\section{Dynamic Light Scattering}
+
+Quasi-Elastic Light Scattering, better known as Dynamic Light Scattering (DLS) is a technique in soft-matter physics exploited to calculate particles' distribution and size in the sub-micron region. The technique utilises a temporal autocorrelation function of scattered light over time given by particle diffusing according to Stokes-Einstein relation in Eq. 1.14. The time dependency fluctuations in the diffused light are measured by a fast photon counter on the opposite side of the sample. DLS is based on the Brownian motion of diffused-and-dispersed particles of various sizes, forms and properties. When particles are immersed in fluid, they generally move in a random walk, with a characteristic scattering time between scattering events. Such collisions and recoil provokes a specific amount of energy to be transferred, inducing particle movement. The energy transfer is on average constant; therefore has a magnified effect on smaller particles. As a result, smaller particles move with greater momentum than larger particles. Given all known parameters, with their influence on the particle movement, the hydrodynamic radius can be measured by calculating the speed of the particles \citep{Reif}.\\
+
+Rayleigh scattering refers to the elastic scattering of light by particles significantly smaller than the wavelength of the radiation. This thesis analyses light scattering at an optical wavelength of 650 nm from a standard set of latex spheres (obtained from Ted Pella, Inc.) with diameters of 90, 300, and 490  nm which are suspended in water at concentrations of $10^{-5}, 10^{-6},$ and $10^{-7}$ fractional weight per volume. At these concentrations, the suspension appears optically transparent, and only single light scattering events are likely within a 1 cm long scattering path. Rayleigh scattering would predict that a single spherical particle would produce an azimuthally scattering intensity pattern I($\theta$). \\
+
+\vspace{7mm}
+\hspace{52mm} $I = I_0 \dfrac{1 + \cos ^2\theta}{2R^2} \left( \dfrac{2\pi}{\lambda}\right)^4 \left(\dfrac{n^2 -1}{n^2+2} \right)^2 a^6$ \hspace*{0pt}\hfill (1.15) 
+\vspace{7mm}
+
+where $I_0$ is the incident light intensity, $a$ is the particle radius (45, 150, or 245 nm), $\lambda$ is the incident light wavelength of 650 nm, $n$ is the index of refraction of the solution (water), and $R$ is the distance from the particle to the location where the scattered light intensity is measured.  Theta is the angle between the incident beam and the scattered light direction. The Rayleigh scattering pattern should be strongest along the direction of the incident light ($\theta = 0$), and the total scattered intensity is much higher for larger particles. \\
+
+Although there are only single scattering events (meaning each light ray strikes only one or zero particles when it passes through the solution), many individual particles located at different, random locations within the sample volume will contribute to the measured intensity pattern.  If the incident light phases are also random across the particles, the scattering amplitudes add incoherently, and ($ I \theta$) simply increases linearly with concentration.  If coherent light (i.e. from a laser) is used to illuminate the sample instead, a complex interference pattern is observed.  The random interferences will result in fluctuating bright and dark spots termed ``speckle”. As the particles move around inside the solution due to Brownian motion, this pattern changes.  In other words, the light scattering becomes ``dynamic”.  The goal of this thesis is the development of a new analysis technique to extract the particle's size from these patterns.\\
+
+First, I will review the traditional analysis methods for this purpose, which is referred to as Dynamic Light Scattering. As described above, micron to nanometer sized particles suspended in a Newtonian fluid undergo random thermal movements, which is modelled by Stokes-Einstein equation. The Brownian motion causes the mean distance between the particles to change; this causes a Doppler shift between the incident light and scattered light frequencies. The inevitable result of phase interference is that the speckle pattern fluctuates in intensity as a function of time evolution. This is because the light scattered off the particles arrive at the detector with the same phase to interfere constructively to form a bright patch or deconstruct and form a dark patch. However, in the dynamical process, the speckle pattern is in constant motion from the moving particles forming new patterns. The intensity fluctuation rate depends directly on the size of the particles. Particles with small hydrodynamic radius diffuse faster producing rapid fluctuations. On the other hand, larger particles diffuse slowly, therefore the intensity changes more slowly. The dynamical information of the particles can be derived from the intensity correlation functions. \\
+
+\vspace{7mm}
+\hspace{54mm} $g^{(2)}(Q, \tau) = \dfrac{\braket{I(t)} I (t + \tau)}{\braket{I(t)}^2}$ \hspace*{0pt}\hfill (1.15) 
+\vspace{7mm}
+
+
+where $I(t)$ is the intensity of the scattered light and $\tau$ is the lag-time, i.e. the amount that a duplicate intensity trace is shifted from the original before the averaging is performed (Leuchs, Glauber, and Schleich, 2015). The brackets <> denote time integration, which can be extended to the entire time-series collected. \\
+
+
+In this time domain analysis, the autocorrelation function (ACF) usually decays starting from zero delay time, and faster dynamics due to smaller particles lead to faster decorrelation of scattered intensity trace. It has been shown that the intensity ACF is the Fourier transformation of the power spectrum, and therefore the DLS measurements can be equally well performed in the spectral domain. \citep{LeeS}. It is difficult to directly measure the intensity fluctuations from Brownian motion because the Doppler shifts are relatively small. As an improvise, an autocorrelator is connected to record the spectrum of frequencies contained in the intensity fluctuations. The correlator compares signals by recording time series and measuring similarities. A signal is compared with itself at distinct time stamps. For a random process such as diffusion there is no correlation between intensities of a signal at large time differences. The intensities are not related for larger time differences, but there is a strong correlation if the signal intensities at time, {\it t} is compared with {\it $t + \Delta t$}. In other words, at small $\Delta t$ the diffusing particles do not move far, therefore the scattering intensity changes little. These two correlation functions illustrate the time. Traditional DLS employs the correlation function to analyse and obtain the sample’s size.\\
+
+\section{Spatial dependence of light scattering}
+
+Although Rayleigh scattering provides a convenient model for qualitatively understanding DLS, the assumption that particles must be much smaller than the wavelength is a major limitation. It is not true of the data set analysed in this thesis, where some of the particle sizes are only slightly smaller than the wavelength. Relaxing this constraint leads to much more complicated scattering patterns that are sensitive to the shape as well as the size of the particle. This arises when the particle size is large enough that the scattered light phase varies across the particle dimensions, resulting in interference from a single particle (rather than simply from particle to particle as discussed in the previous section. In particular, the dependence on $\theta$ is no longer simply co-sinusoidal as in Eq. 1.14, with the actual angular distribution taking on the appearance of a spatial Fourier Transform of the particle shape.  The analysis of these scattering patterns can yield particle size as well, without the need to temporally correlate the fluctuating light intensity. This is known as Static Light Scattering (SLS), and is used in a few commercial analytical laboratory instruments for particle size determination. Because (SLS) is geometrically sensitive, it lacks some of the robustness of the DLS technique; however it is especially applicable to scattering wavelengths where there are no readily available coherent sources, such as in the x-ray region of the spectrum. As will be discussed in the next chapter, this thesis aims to exploit some of the additional spatial information available in light scattering.
+
+\vspace{10mm}
+
+\section{Simple demonstration}
+
+A simple demonstration of a spatially and temporally changing light scattering pattern is shown in Fig. 1.3.  A handheld green laser pointer was used to illuminate a few mL of water held in a plastic cuvette. An opaque piece of paper held on a threaded rod casts a shadow to block out the central, unscattered light, allowing a speckle pattern to be observed at a distance of several meters.  Scattered light appears after the addition of a drop of coffee creamer to the water. The creamer holds a distribution of particles of different size; the speckles are observed to fluctuate faster at higher angles (away from the center beam block) since they correspond to smaller particles with faster diffusion speeds.  This thesis aims to use both the spatial distribution of the speckles and their dynamic fluctuations to extract particle size.
+
+
+\chapter{EXPERIMENTAL APPROACHES AND BACKGROUND}
+
+\section{Chapter Summary} \\
+
+This chapter presents the difficulties inherent in analyzing Speckle patterns and Dynamic Light Scattering for the purposes of determining the contents in a solution.  These difficulties include not just the assumptions made for analysis in the previous chapter, but also come from problems in experimental implementation.  The choice of temporal (DLS) versus spatial (speckle) experimental methods requires compromise.   A new combination measurement method, double-pulse speckle, can circumvent many of these limitations, but suffers from ambiguity in analysis, for which I propose a new approach using Convolutional Neural Networks in Chapter 3.
+
+\vspace{10mm}
+
+\section{Laboratory setup for DLS} \\
+
+The goal of DLS analysis is to measure the light intensity at one scattering angle as a function of time, $I(t)$, and then apply Eq. 1.15 to determine the second order temporal correlation function $g^2(\tau)$.  Application of models to determine particle size from correlation functions will be reviewed in Section 2.4 below.  A DLS experiment is composed of three elements:  a source of light, a sample of interest, and a high speed light intensity detector.  The approach is shown schematically in Fig. 2.1. \\
+
+
+
+From Eq. 1.14, diffusion happens quicker as particles get smaller. Therefore, to measure as wide a possible size distribution, the detector for $I(t)$ needs to be fast as possible. An idea of these timescales can come from examination of the data in Fig. 2.1. For the 95 um particles of Silicon dioxide, a time resolution of $10 \mu s$ (100 kHz bandwidth) would be necessary to recapitulate the full correlation curve. For the 6 nm Ovalblumin particles, a time resolution of $1 \mu s$ (1 MHz bandwidth) is necessary.  This explains the reason that only single angular positions are usually recorded for DLS: single pixel, or point photodetectors with MHz bandwidth are widely available throughout the optical range; however area detectors such as the Charge Coupled Devices (CCD) in consumer electronics usually operate near 60 Hz, which is not nearly fast enough to catch rapid DLS from micron-scale particle. Therefore, most of the scattered light, and also most of the information available from the scattering process, is not captured by measuring DLS at a single angle.  Because the scattering intensity is angularly dependent, this restriction is especially detrimental for characterising multiple-components systems, which would be expected to look like the curves of Fig. 2.2 for different sized components superimposed at any one given angle. \\
+
+
+
+The loss of total scattered light intensity in single-point DLS measurement becomes further problematic when consideration of sample concentration and the signal-to-noise ratio of the detected light is taken into account. As long as the particles were small compared to the wavelength of the laser with {\it d = $\lambda$/10}, the scattered particles illuminated by vertically polarised laser were isotropic. The Rayleigh approximation suggests $I \propto 1/\lambda^4$; the inverse relationship means that higher scattering intensity is obtained as the wavelength of the laser used decreases \citep{Reif}. Rayleigh approximation also implies, $I \propto d\,^6$. In other words, a 50 nanometer particle will scatter $10^6$ more light than a 5 nanometer particle. The $d\, ^6$ factor indicates that it is harder to measure a mixture of 1000 mm and 10 mm particles because the contribution to the total light scattered by the small particles will be extremely small. DLS is highly sensitive measurement where a presence of a larger particle, temperature and viscosity change could contribute to larger systematic errors. \\
+
+Acquiring data along a single point makes it difficult to control for these systematic errors.   One mitigation is to increase the sample concentration to improve scattered light intensity, thereby increasing data acquisition speed while reducing systematic drift and detector background levels. Unfortunately, not all samples of interest are available at high concentration (e.g. expensive reagents such as antibodies), and furthermore, the assumptions of the light scattering models, e.g. Eq. 1.15, require only single scattering events for their validity to hold.  A summary of the limitations of DLS, which must be taken in conjunction with the general limitations from Table 1.1, are given in Table 2.1. \\
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+{\sc \textbf{LIMITATIONS}}  &  {\sc \textbf{ORIGIN OF LIMITATIONS}} \\
+\hline
+Single angle measurement  & Detector must be faster than particle motion\\
+\hline
+High concentrations  & Reduce systematic errors \\
+\hline
+Low concentrations & Eliminate multiple scattering \\
+\hline
+Limited sample heterogeneity & Scattering intensity scaling; single angle detection \\
+\hline
+\end{tabular}
+\end{center}
+\caption[List of limitations in single point DLS analysis.]{List of limitations in single point DLS analysis.  These are in additions to limitations that come from the assumptions made in Table 1.1.}
+\label{table_genomes}
+\end{table}
+
+\vspace{10mm}
+
+\section{Speckle measurement}
+
+Given the limitations listed in Table 2.1, there is strong motivation for the development of an apparatus to record the entire scattering pattern so that all of the individual speckles can be observed.  This requires increasing the frame rate, or the number of images per second that can be recorded by a camera significantly, from tens of Hz to tens of millions of Hz.   Although this is an area of active development, particularly for expensive x-ray detectors \citep{Escauriza}, it is unlikely to result in an inexpensive, field-deployable device soon. \\
+
+\vspace{10mm}
+
+\section{Double pulse speckle}
+
+The light scattering experiment composed of three elements: a source of light, a sample of interest, and a high-speed point detector. The light source of choice was a monochromatic, coherent light diode at the left end of the apparatus. CCD was stationed on the far end of the experiment, right after a beam stop, as shown on Figure 2.3. The optical series system consisted of three lenses as shown in Figure 2.3, L1 focuses a laser beam through a spatial filter to increase the beam quality. L2 collimates the filtered laser before the sample. L3 collects the scattered light onto the CCD imaging detector that displays radially concentric diffraction patterns.\\
+
+
+Every frame recorded in the double-pulse method contains a speckle contrast pattern at one particular delay, $\tau$, and all angles, $Q$, given as $Q = 4\pi\sin\theta/\lambda$.  The frame rate of the camera no longer limits the temporal resolution, or puts a limit on the smallest particles that can be resolved.  Instead the frame rate determines the data acquisition rate.  A higher frame rate allows data to be collected quicker.  Each individual frame must be analyzed to determine the angle-dependent contrast separately; averaging frames would simply wash out all contrast.  If the area detector’s pixel noise is comparable to the speckle contrast, it will also be difficult to determine the contribution to the correlation from noise (presumably a Gaussian distribution) vs the exponentially-shaped speckle fluctuations. \\
+
+The double-pulse experiment potentially creates a large data set.  Each double-pulse image is an independent, and completely different measurement of the same situation.  The most valuable data would be patterns recorded with the highest contrast, corresponding to the briefest delay between the double-pulses.  The size of the data set is further increased by the desire to cover a large angular range, while retaining enough pixel resolution to spatially resolve speckles across this entire field of view.  In general, different sized particles may have different speckle sizes at different angles, with delay times that vary across the image as well. These uncertainties make it difficult to determine the proper pixel size to perform a mesh, since it may be non-uniform, and depend upon the sample contents, their heterogeneity, and concentration.  A summary of limitations of the double-pulse speckle technique is given in Table 2.3, supplanting the DLS limitations in Table 2.2.  \\
+
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+{\sc \textbf{LIMITATIONS}}  &  {\sc \textbf{ORIGIN OF LIMITATIONS}} \\
+\hline
+Large number of detector pixels  & Cover many angular regions\\
+\hline
+Small pixel size  & Resolve speckle \\
+\hline
+Uncertainty in correlation mesh & Complex angle dependence of speckle size \\
+\hline
+Large data sets  & Necessary to reduce noise from single frames \\
+\hline
+\end{tabular}
+\end{center}
+\caption[List of limitations in double-pulse speckle.] {List of limitations in double-pulse specke.  These are in addition to limitations that come from the assumptions made in Table 2.2, and replace those limitations given for DLS in Table 2.1.  Not included are various experimental difficulties (optical alignment, producing brief laser pulses at specific timing, synchronization of the laser and detector, etc.) }
+\label{table_genomes}
+\end{table}
+
+\section{Datasets recorded}
+
+As long as the particles were small compared to the wavelength of the laser with {\it d = $\lambda$/10}, the scattered particles illuminated by vertically polarised laser were isotropic. The Rayleigh approximation suggests $I \propto 1/\lambda^4$; the inverse relationship means that higher scattering intensity is obtained as the wavelength of the laser used decreases \citep{Reif}. Rayleigh approximation also implies, $I \propto d\,^6$. In other words, a 50 nanometer particle will scatter $10^6$ more light than a 5 nanometer particle. The $d\, ^6$ factor indicates that it is harder to measure a mixture of 1000 mm and 10 mm particles because the contribution to the total light scattered by the small particles will be extremely small. It implies that light scattered from larger particles will swamp the scattered light from the smaller ones. These approximations were respected in the experiment and injection of the sample in Newtonian fluid were picked with care. Table 2.3 is indicates the size, concentration and sample types. The distance between the light source and the sample cuvette is unmoved throughtout the experiment. The distance between the detector and the sample is 0.5 meters.\\
+
+DLS is highly sensitive measurement where a presence of a larger particle, temperature and viscosity change could contribute to larger systematic errors. Most samples in the study were experimented with several different concentration for two reasons. Firstly, multiple concentrations provide better understand in the systematic uncertainties. Secondly, effects of concentration reflects on a speckle pattern which affects image quality. Henceforth, a multitude of data types for a given sample at different concentrations can filter poorer quality images prior to data pre-processing. This theory is reflected by Malm et. at. \citep{Malm}. The samples exhibited in Table 2.1 appear in 90, 300, 490 nanometers given our interest in training and classifying speckles at different sizes. The concentration tables another layer to that classification as some scans have identical sizes but were introduced at different concentrations. The hypothesis was that speckle images would differ enough to treat them as different set of images to the Deep Learning algorithm. \\
+
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+{\sc \textbf{Samples ID}}  &  {\sc \textbf{Concentration}}  & {\sc \textbf{Average size in nm}} \\
+\hline
+{\it Scan002 }  & $ 10^{-3}$ & 490 nm\\
+\hline
+{\it Scan003 } & $ 10^{-4}$ & 490 nm \\
+\hline
+{\it Scan004 } & $10^{-2}$  & 490 nm  \\
+\hline
+{\it Scan005 } &$10^{-3}$  & 300 nm  \\
+\hline
+{\it Scan006 } &$10^{-3}$  & 90 nm  \\
+\hline
+{\it Scan007}& distilled water & N/A \\
+\hline
+
+\end{tabular}
+\end{center}
+\caption[Sample size and concentration table]{Spherical latex impurities were used in the sample and their average diameter in nanometers is given in the third column. The concentrations at which latex impurities were introduced is provided in this table.}
+\label{table_genomes}
+\end{table}
+
